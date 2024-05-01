@@ -1,0 +1,58 @@
+@import "global/abstracts";
+// component imports:
+main {
+    margin: var(--sp-11) 0;
+    --row-gap: var(--sp-4);
+    align-items: start;
+    grid-auto-flow: dense;
+    .pod {
+        background-color: var(--c1l2);
+        padding: var(--sp-4);
+        grid-column: span 4;
+        grid-row: span 4;
+    }
+    .pod1 {
+        min-height: 300px;
+        grid-row: span 3;
+    }
+    .pod2 {
+        min-height: 100px;
+        grid-row: span 1;
+    }
+    .pod3 {
+        min-height: 200px;
+        grid-row: span 2;
+    }
+    .pod4 {
+        min-height: 300px;
+        grid-row: span 2;
+    }
+    .pod5 {
+        min-height: 700px;
+        grid-row: span 8;
+    }
+    .pod6 {
+        min-height: 200px;
+        grid-row: span 2;
+    }
+    .pod7 {
+        min-height: 500px;
+        // grid-row: span 4;
+    }
+    .pod8 {
+        min-height: 100px;
+    }
+    .pod9 {
+        min-height: 600px;
+        // grid-row: span 5;
+    }
+    :is(.pod1, .pod4, .pod7) {
+        grid-column: 1 / span 4;
+    }
+    :is(.pod2, .pod5, .pod8) {
+        grid-column: 5 / span 4;
+    }
+    :is(.pod3, .pod6, .pod9) {
+        grid-column: 9 / span 4;
+    }
+}

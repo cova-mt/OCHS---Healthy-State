@@ -1,0 +1,63 @@
+// STYLING FOR TABLES
+table {
+    min-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    border: 1px solid var(--c1d3t2);
+}
+
+:is(th, td) {
+    padding: var(--sp-2);
+    border-left: 1px solid var(--c2l2);
+    &:first-child {
+        border-left: none;
+    }
+}
+tr {
+    border-bottom: 1px solid var(--c1d3t2);
+    &:last-child {
+        border-bottom: none;
+    }
+}
+th {
+    background-color: transparent;
+    color: var(--c2);
+    text-align: center;
+    line-height: 1.2;
+    border-bottom: var(--sp-2) solid var(--c2);
+}
+td {
+    text-align: center;
+    line-height: 1.2;
+    color: black;
+    vertical-align: middle;
+}
+.table-responsive {
+    width: 100%;
+    overflow: auto;
+    margin-bottom: var(--sp-4);
+    border: 1px solid var(--c2l2);
+    border-radius: var(--sp-1);
+    table {
+        margin-top: 0;
+        border: none;
+    }
+    tr {
+        border: none;
+    }
+    tbody tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+    &.simple {
+        td:nth-child(n) {
+            background: transparent;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            border-left: 1px solid rgba(0, 0, 0, 0.15);
+            &:last-child {
+                border-right: 1px solid rgba(0, 0, 0, 0.15);
+            }
+            border-top: none;
+        }
+    }
+}

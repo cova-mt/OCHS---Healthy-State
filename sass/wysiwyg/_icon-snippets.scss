@@ -1,0 +1,69 @@
+.icon{
+    line-height: 1;
+    font-size: var(--icon-size);
+    font-family: var(--icon-font-family) !important;
+    font-weight: var(--icon-weight) !important;
+    color: var(--icon-color) !important;
+    display: inline-block ;
+}
+.i-primary{
+    --icon-color: var(--c1);
+}
+.i-secondary {
+    --icon-color: var(--c2);
+}
+.i-grey {
+    --icon-color: var(--c5);
+}
+.i-white {
+    --icon-color: white;
+}
+.i-black {
+    --icon-color: black;
+}
+.i-brands{
+    --icon-weight: 400;
+    --icon-font-family: "Font Awesome 6 Brands";
+}
+.i-reg{
+    --icon-weight: 400
+    --icon-font-family: "Font Awesome 6 Pro";
+}
+.i-thin{
+    --icon-weight: 100;
+    --icon-font-family: "Font Awesome 6 Pro";
+}
+.i-light{
+    --icon-weight: 300;
+    --icon-font-family: "Font Awesome 6 Pro";
+}
+.i-sharp{
+    --icon-weight: 900;
+    --icon-font-family: "Font Awesome 6 Sharp";
+}
+.i-sharp-reg{
+    --icon-weight: 400;
+    --icon-font-family: "Font Awesome 6 Sharp";
+}
+.i-sharp-light{
+    --icon-weight: 
+    --icon-font-family: "Font Awesome 6 Sharp";
+}
+.i-xs {
+    --icon-size: .5em;
+}
+.i-sm {
+    --icon-size: .8em;
+}
+.i-lg{
+    --icon-size: 1.5em;
+}
+.i-xl {
+    --icon-size: 2em;
+}
+.i-2xl {
+    --icon-size: 3.5em;
+}
+.i-3xl {
+    --icon-size: 6em;
+}

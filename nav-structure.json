@@ -1,0 +1,250 @@
+{
+    "Health Information": {
+        "children": {
+            "Health & Wellness": {
+                "link": "#health-wellness",
+                "children": {
+                    "Chronic Disease Prevention & Healthcare": {
+                        "link": "#chronic-disease-prevention-healthcare",
+                        "children": {
+                            "Heart Disease": "#heart-disease",
+                            "Diabetes": "#diabetes",
+                            "Obesity": "#obesity",
+                            "Cancer": "#cancer",
+                            "Asthma": "#asthma",
+                            "Sickle Cell Disease": "#sickle-cell-disease"
+                        }
+                    },
+                    "Oral Health": "#oral-health",
+                    "Sexual Health": "#sexual-health",
+                    "Genetic Diseases": "#genetic-diseases",
+                    "Louisiana Hospice and Palliative Care": "#louisiana-hospice-and-palliative-care"
+                }
+            },
+            "Children & Families": {
+                "link": "#children-families",
+                "children": {
+                    "Family Support & Coaching": "#family-support-coaching",
+                    "Family Planning": {
+                        "link": "#family-planning",
+                        "children": {
+                            "Women's Right To Know": "#womens-right-to-know"
+                        }
+                    },
+                    "Newborns & Infants": {
+                        "link": "#newborns-infants",
+                        "children": {
+                            "Newborn Screening": "#newborn-screening",
+                            "Infant Safe Sleep": "#infant-safe-sleep",
+                            "Shaken Baby Prevention": "#shaken-baby-prevention"
+                        }
+                    },
+                    "Adverse Childhood Experiences": "#adverse-childhood-experiences",
+                    "Adolescent School Health": {
+                        "link": "#adolescent-school-health",
+                        "children": {
+                            "School-Based Health Centers": "#school-based-health-centers"
+                        }
+                    }
+                }
+            },
+            "Behavioral Health": {
+                "link": "#behavioral-health",
+                "children": {
+                    "Mental Health": "#mental-health",
+                    "Suicide Prevention": "#",
+                    "Addictive Disorders": "#",
+                    "Tobacco Cessation": "#"
+                }
+            },
+            "Disability": {
+                "link": "#disability",
+                "children": {
+                    "Developmental Disabilities": "#",
+                    "Emergency Preparedness": "#"
+                }
+            },
+            "Infectious Disease": {
+                "link": "#infectious-disease",
+                "children": {
+                    "Immunizations": "#",
+                    "Covid-19": "#",
+                    "Flu": "#",
+                    "Respiratory viruses": "#",
+                    "Hepatitis A": "#"
+                }
+            },
+            "Aging Louisianians": {
+                "children": {
+                    "Protective Services": "#",
+                    "Palliative Care": "#"
+                }
+            },
+            "Emergency / Environmental": {
+                "link": "#emergency-environmental",
+                "children": {
+                    "Heat-Related Illness": "#",
+                    "Lead Poisoning Prevention": {
+                        "link": "#",
+                        "children": {
+                            "For Families & Caregivers": "#",
+                            "For Healthcare Professionals": "#",
+                            "Lead Contractors": "#",
+                            "Data Center": "#"
+                        },
+                        "Emergency Preparedness": "#"
+                    }
+                }
+            }
+        }
+    },
+    "Services": {
+        "children": {
+            "Medicaid": {
+                "link": "#",
+                "children": {
+                    "Benefits & Services": "#",
+                    "Check Eligibility": "#",
+                    "Apply or Renew Online": "#",
+                    "Choose a Health Plan/Doctor": "#",
+                    "Healthy Louisiana": "#"
+                }
+            },
+            "Children & Families": {
+                "children": {
+                    "WIC": "#",
+                    "EarlySteps": "#",
+                    "Flexible Family Funds": "#",
+                    "Coordinated System of Care": "#",
+                    "Children's Special Healthcare Services": "#"
+                }
+            },
+            "Behavioral Health": {
+                "link": "#",
+                "children": {
+                    "Louisiana Crisis Response System and 988 Lifeline": "#",
+                    "Quit with Us LA": "#",
+                    "Coordinated System of Care (CSoC)": "#"
+                }
+            },
+            "Disability Services": {
+                "link": "#",
+                "children": {
+                    "Freedom of Choice Providers": "#",
+                    "Home and Community-Based Services": "#",
+                    "My Place Louisiana": "#",
+                    "Intermediate Care Facilities": "#",
+                    "Support Coordination": "#",
+                    "Long-Term Care": "#"
+                }
+            },
+            "Aging Louisianans": {
+                "link": "#",
+                "children": {
+                    "Facility-Based Programs / Nursing Facilities": "#",
+                    "Community Choices Waiver": "#",
+                    "Adult Day Health Care Waiver": "#",
+                    "Long-Term Personal Care Services": "#",
+                    "Program for All-Inclusive Care for the Elderly (PACE)": "#",
+                    "Permanent Supportive Housing": "#",
+                    "Louisiana's Traumatic Head and Spinal Cord Injury Trust Fund Program (THSCI)": "#",
+                    "State Personal Assistance Services Program (SPAS)": "#"
+                }
+            },
+            "Community Services (Emergency & Environmental)": {
+                "link": "#",
+                "children": {
+                    "Food Regulation & Safety": "#",
+                    "Retail Food Program": "#",
+                    "Food and Drug Program": "#",
+                    "Commercial Seafood Program": "#",
+                    "Milk and Dairy Unit": "#",
+                    "Molluscan Shellfish Program": "#",
+                    "Safe Drinking Water": "#",
+                    "Beach Monitoring Program": "#",
+                    "Building and Premises Program": "#",
+                    "Disease / Vector Control Program": "#",
+                    "Infectious Waste Program": "#",
+                    "Onsite Wastewater Program": "#",
+                    "Choose Safe Places for Early Child Care and Education (CSPECE)": "#",
+                    "Emergency Response Services": "#"
+                }
+            }
+        }
+    },
+    "Vital Records": {
+        "children": {
+            "Birth/Death Certificates": "#",
+            "Marriage Certificates/Licenses": "#",
+            "Paternity Documentation": "#",
+            "Adoption Documentation": "#"
+        }
+    },
+    "Offices & Administration": {
+        "children": {
+            "About LDH": {
+                "link": "#",
+                "children": {
+                    "Locations": "#",
+                    "News": "#",
+                    "Events": "#",
+                    "Careers": "#"
+                }
+            },
+            "Divisions": {
+                "link": "#",
+                "children": {
+                    "Office of Aging and Adult Services": "#",
+                    "Office of Behavioral Health": "#",
+                    "Office of Developmental Disabilities": "#",
+                    "Office of Public Health": {
+                        "link": "#",
+                        "children": {
+                            "Bureau of Health Services Financing (Medicaid)": "#",
+                            "Bureau of Emergency Medical Services": "#",
+                            "Bureau of Family Health": "#",
+                            "Bureau of Minority Health": "#",
+                            "Bureau of Infectious Diseases": "#",
+                            "Bureau of Nutrition Services": "#",
+                            "Bureau of Community Preparedness": "#",
+                            "Bureau of Sanitarian Services": "#",
+                            "Bureau of Engineering Services": "#",
+                            "Bureau of Regional and Clinical Operations": "#",
+                            "Bureau of Health Informatics": "#",
+                            "Bureau of Planning and Performance": "#"
+                        }
+                    }
+                }
+            },
+            "Office of the Secretary": {
+                "link": "#",
+                "children": {
+                    "Deputy Secretary": "#",
+                    "Executive Counsel": "#",
+                    "Chief of Staff": "#",
+                    "Undersecretary": "#",
+                    "State Health Officer": "#",
+                    "Director Of Governmental Relations & Community Partnerships": "#",
+                    "Office of Management & Finance": "#",
+                    "Bureau of Media & Communications": "#",
+                    "Bureau of Legal Services": "#"
+                }
+            }
+        }
+    },
+    "Resources": {
+        "children": {
+            "Public Records Requests": "#",
+            "Louisiana Health Report Cards": "#",
+            "State Health Data Portals": "#",
+            "Center for Health Statisticss": "#",
+            "Hospital Inpatient Discharge Databases": "#",
+            "Fatality Assessment & Control Evaluations": "#",
+            "Behavioral Risk Factor Surveillances": "#",
+            "Opioid Surveillances": "#",
+            "Environmental Health Assessments": "#",
+            "Pregnancy Risk Assessments": "#",
+            "Additional Resources": "#"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+#breadcrumbs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--fs-2xs);
+    padding: 0;
+    font-weight: 500;
+    margin-bottom: var(--sp-11);
+    display: flex;
+    align-items: center;
+    min-height: 34.5px;
+    li {
+        line-height: 1;
+        display: inline-block;
+        padding-right: 7.5px;
+        @include icon-reg(solid, chevron-right);
+        color: black;
+        &::after {
+            color: var(--c3);
+            padding-left: 7.5px;
+        }
+        &:last-child::after {
+            content: "";
+        }
+    }
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    .home a {
+        color: var(--c3);
+        @include icon-reg(solid, home);
+    }
+}

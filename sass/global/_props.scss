@@ -1,0 +1,113 @@
+:root {
+    // fonts
+    --f1: "Noto Sans", sans-serif; // variable
+    --f2: "Roboto", serif; // 400 900
+
+    // colors
+
+    --c1d3: hsl(214, 88%, 14%); //  #041e41;
+    --c1d3t1: hsla(214, 88%, 14%, 50%);
+    --c1d3t2: hsla(214, 88%, 14%, 22%);
+    --c1d2: hsl(211, 68%, 22%); //  #123860;
+    --c1d2t1: hsl(211, 68%, 22%, 80%);
+    --c1d1: hsl(215, 49%, 36%); //  #2f558a;
+    --c1: hsl(215, 44%, 46%); //    #426da9;
+    --c1l1: hsl(215, 37%, 62%); //  #7b99c3;
+    --c1l2: hsl(215, 81%, 86%); //  #bdd6f8;
+
+    --c2d1: hsl(186, 82%, 22%); //  #0a5b64;
+    --c2: hsl(186, 86%, 29%); //    #0a7c88;
+    --c2l1: hsl(185, 100%, 33%); // #0099a8;
+    --c2l2: hsl(185, 49%, 62%); //  #70c6ce;
+
+    --c3d1: hsl(49, 67%, 33%); //   #8b761b;
+    --c3: hsl(50, 77%, 41%); //     #b89d18;
+
+    --c4d1: hsl(0, 0%, 30%); //     #4d4d4d;
+    --c4: hsl(0, 0%, 36%); //       #5B5B5B;
+    --c4l1: hsl(0, 0%, 50%); //     #5c5c5c;
+    --c4l2: hsl(0, 0%, 94%); //     #efefef;
+
+    --c5: hsl(7, 64%, 51%); //      #D24633;
+
+    --cicero-bg: hsl(231, 49%, 29%);
+
+    // animations & transitions
+    --t-time: 0.4s;
+    --easing: cubic-bezier(0.24, 0.96, 0.46, 1);
+
+    // component sizing
+    --header-height: 135px;
+
+    // Grid vars
+    --cols: 12;
+    --gutter: 24px;
+
+    // content spacing
+    --sp-1: 4px;
+    --sp-2: 8px;
+    --sp-3: 12px;
+    --sp-4: 16px;
+    --sp-5: 20px;
+    --sp-6: 24px;
+    --sp-7: 32px;
+    --sp-8: 40px;
+    --sp-9: 48px;
+    --sp-10: 56px;
+    --sp-11: 64px;
+    --sp-12: 72px;
+    --sp-13: 80px;
+    --sp-14: 88px;
+    --sp-15: 96px;
+    --sp-16: 102px;
+    --sp-17: 110px;
+    --sp-18: 118px;
+    --sp-19: 126px;
+    --sp-20: 134px;
+    --sp-21: 142px;
+    --sp-22: 150px;
+
+    // Typography
+    --h1: 3.12rem;
+    --h2: 2.075rem;
+    --h3: 1.725rem;
+    --h4: 1.45rem;
+    --h5: 1.25rem;
+    --h6: 1.12rem;
+    --fs-xl: 1.195rem;
+    --fs-lg: 1.125rem;
+    --fs-md: 1rem;
+    --fs-sm: 0.9rem;
+    --fs-xs: 0.875rem;
+    --fs-xxs: 0.85rem;
+    --fs-3xs: 0.8rem;
+    @media (max-width: $md) {
+        // content spacing
+        --sp-7: 28px;
+        --sp-8: 32px;
+        --sp-9: 36px;
+        --sp-10: 40px;
+        --sp-11: 44px;
+        --sp-12: 48px;
+        --sp-13: 52px;
+        --sp-14: 56px;
+        --sp-15: 60px;
+        --sp-16: 64px;
+        --sp-17: 68px;
+        --sp-18: 72px;
+        --sp-19: 76px;
+        --sp-20: 80px;
+        --sp-21: 84px;
+        --sp-22: 88px;
+
+        // Typography
+        --h1: 2.25rem;
+        --h2: 1.9rem;
+        --h3: 1.6rem;
+        --h4: 1.375rem;
+        --h5: 1.2rem;
+        --h6: 1.1rem;
+        --fs-xl: 1.09rem;
+        --fs-lg: 1.075rem;
+    }
+}

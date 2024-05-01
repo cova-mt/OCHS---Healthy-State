@@ -1,0 +1,381 @@
+// GENERAL LEFT/RIGHT FLOAT STYLING (USED FOR IMAGES, CALLOUTS, AND BLOCKQUOTES)
+%floated {
+    margin-top: 0;
+    margin-top: var(--sp-1);
+    margin-bottom: var(--sp-2);
+    @media (min-width: $smp) {
+        --offset: var(--sp-4);
+        position: relative;
+        z-index: 2;
+        width: 60%;
+    }
+    @media (min-width: $mdp) {
+        --offset: var(--sp-6);
+        width: 49%;
+    }
+}
+%right {
+    @media (min-width: $smp) {
+        float: right;
+        margin-left: var(--offset);
+    }
+}
+%left {
+    @media (min-width: $smp) {
+        float: left;
+        margin-right: var(--offset);
+    }
+}
+%small-width {
+    @media (min-width: $smp) {
+        width: 45%;
+        --offset: var(--sp-3);
+    }
+    @media (min-width: $mdp) {
+        width: 37%;
+        --offset: var(--sp-5);
+    }
+}
+
+//BUTTON WRAPPER STYLING
+nav[class*="button-"] {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: var(--sp-1) calc(-1 * var(--sp-1)) var(--sp-4);
+    a {
+        margin: 0 var(--sp-1) var(--sp-1);
+    }
+}
+
+// FIGURE GENERIC STYLING
+figure {
+    background-color: var(--c4l2);
+    border-radius: var(--sp-2);
+    overflow: hidden;
+}
+
+// STYLING FOR CALLOUTS AND BLOCKQUOTES
+[class*="callout-"] {
+    line-height: 1.3;
+    padding: var(--sp-5);
+    font-size: var(--fs-xl);
+    :is(blockquote, a) {
+        color: var(--c1d2);
+        font-weight: 800;
+        text-decoration: none;
+        font-size: inherit;
+    }
+    blockquote {
+        margin: var(--sp-5);
+        text-wrap: balance;
+    }
+
+    a:hover {
+        color: var(--c3);
+    }
+}
+[class*="callout-right"] {
+    @extend %floated;
+    @extend %right;
+}
+[class*="callout-left"] {
+    @extend %floated;
+    @extend %left;
+}
+
+// CONTACT CALLOUT
+[class*="contact-callout-"] {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-size: 1em;
+    overflow: hidden;
+    color: var(--c1d2);
+    @include icon-reg(solid, user-circle, before);
+    &::after {
+        content: "";
+        width: var(--sp-1);
+        flex: 0 0 auto;
+        border-radius: var(--sp-1);
+        background-color: var(--c3);
+        display: block;
+        align-self: stretch;
+        margin: var(--sp-4) 0;
+        order: -1;
+    }
+    &::before {
+        font-size: 4em;
+        padding: 20px 15px;
+        order: -1;
+        color: var(--c3);
+        @media (max-width: $lg) {
+            font-size: 3em;
+        }
+    }
+}
+// BLOCKQUOTES
+[class*="quote-"] {
+    color: var(--c1);
+    font-weight: 700;
+    font-size: var(--fs-xl);
+    padding: var(--sp-6);
+    display: block;
+    letter-spacing: 0.01em;
+    @include icon-reg(solid, message-quote, before);
+    &::before {
+        font-size: 3em;
+        float: right;
+        transform: translate3d(var(--sp-4), calc(-1 * var(--sp-4)), 0);
+        color: var(--c2);
+        @media (max-width: $lg) {
+            font-size: 2em;
+        }
+    }
+    blockquote {
+        margin-bottom: 0;
+        font-size: inherit;
+    }
+    figcaption {
+        font-size: var(--fs-3xs);
+        font-style: italic;
+        display: block;
+        margin: 0;
+        padding: var(--sp-4) 0 0 1em;
+        font-weight: 600;
+        color: var(--c2d1);
+        font-weight: 700;
+        line-height: 1.1;
+        text-indent: -1em;
+        &::before {
+            content: "\2014";
+        }
+        :is(cite, em) {
+            font-weight: 400;
+        }
+    }
+}
+:is(.quote-long-right, .quote-right) {
+    @extend %floated;
+    @extend %right;
+}
+
+:is(.quote-long-left, .quote-left) {
+    @extend %floated;
+    @extend %left;
+}
+.quote-full {
+    clear: both;
+}
+[class*="quote-long"] {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-auto-flow: dense;
+    padding: var(--sp-6);
+    column-gap: var(--sp-6);
+    &:before {
+        content: "";
+        transform: none;
+        position: static;
+        margin: calc(-1 * var(--sp-4)) 0 calc(-1 * var(--sp-4)) calc(-1 * var(--sp-4));
+        grid-row: span 2;
+        width: 7px;
+        // height: 100%;
+        border-radius: 3px;
+        background-color: var(--c2d1);
+    }
+    blockquote {
+        display: block;
+        font-size: var(--fs-lg);
+        font-weight: 400;
+        line-height: 1.5;
+        &::before,
+        &::after {
+            opacity: 0.5;
+            font-size: 2em;
+            font-family: var(--f3);
+            display: inline-block;
+            line-height: 0.5;
+            position: relative;
+            top: 0.1em;
+        }
+        &::before {
+            content: "\201C";
+            // margin-left: -20px;
+            margin-left: -0.45em;
+        }
+        &::after {
+            content: "\201D";
+            margin-left: 0.05em;
+        }
+    }
+    a {
+        color: var(--c1l3);
+        text-decoration: none;
+        &:hover {
+            color: var(--c1l1);
+        }
+    }
+}
+
+// STYLING FOR IMAGES
+.photo-full {
+    position: relative;
+    // padding: 0 15px 15px 0;
+}
+.photo-left {
+    @extend %floated;
+    @extend %left;
+}
+.photo-right {
+    @extend %floated;
+    @extend %right;
+}
+.portrait-left {
+    @extend %floated;
+    @extend %small-width;
+    @extend %left;
+}
+.portrait-right {
+    @extend %floated;
+    @extend %small-width;
+    @extend %right;
+}
+:is([class*="photo-"], [class*="portrait-"]) {
+    img {
+        width: 100%;
+    }
+    figcaption {
+        background-color: var(--c1);
+        color: white;
+        font-size: var(--fs-3xs);
+        padding: var(--sp-5);
+        line-height: 1.2;
+    }
+    .photo-credit {
+        font-style: italic;
+    }
+}
+
+.table {
+    width: 100%;
+    margin-top: var(--sp-1);
+}
+.image-and-text {
+    display: flex;
+    align-items: flex-start;
+    @media (max-width: $sm) {
+        display: block;
+    }
+    > div {
+        flex: 1 1 auto;
+    }
+    > a,
+    > img {
+        display: block;
+        width: 33%;
+        flex: 0 0 auto;
+        margin-right: 15px;
+        @media (max-width: $lg) {
+            width: 45%;
+        }
+        @media (max-width: $md) {
+            width: 40%;
+        }
+        @media (max-width: $sm) {
+            margin-right: 0;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+    > a img {
+        width: 100%;
+    }
+    img {
+        display: block;
+        height: auto;
+    }
+    &.sm {
+        > img,
+        > a {
+            width: 25%;
+            @media (max-width: $lg) {
+                width: 35%;
+            }
+            @media (max-width: $md) {
+                width: 50%;
+            }
+            @media (max-width: $sm) {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto 10px;
+            }
+        }
+    }
+    &.lg {
+        > img,
+        > a {
+            width: 50%;
+            @media (max-width: $lg) {
+                width: 60%;
+            }
+            @media (max-width: $md) {
+                width: 55%;
+            }
+            @media (max-width: $sm) {
+                width: 100%;
+            }
+        }
+    }
+    &.right {
+        > img,
+        > a {
+            order: 2;
+            margin-right: 0;
+            margin-left: 15px;
+            @media (max-width: $sm) {
+                margin: 0;
+            }
+        }
+    }
+    &.center {
+        align-items: center;
+    }
+}
+// STYLING FOR EMBEDED VIDEO
+.video-embed {
+    aspect-ratio: 16 / 9;
+    margin-top: var(--sp-1);
+    margin-bottom: var(--sp-4);
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+//ANCHOR SNIPPET
+[class*="on-page"] {
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 1px;
+    background-color: var(--c1);
+}
+// Email Templates
+.em_snippet {
+    padding: 0;
+    margin: 0;
+    td,
+    table,
+    tr {
+        margin: 0;
+        padding: 0;
+    }
+}

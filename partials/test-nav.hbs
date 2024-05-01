@@ -1,0 +1,9 @@
+<nav id="test-nav">
+    <ul class="top-list">
+        {{#each navItems}}
+        <li class="top-item">
+            {{> nav-item-test item=this originItem=@key }}
+        </li>
+        {{/each}}
+    </ul>
+</nav>

@@ -1,0 +1,16 @@
+p.parkBtn a {
+    width: 100%;
+    background-color: var(--c4d2);
+    color: white;
+    padding: 12px 12px;
+    margin-bottom: var(--sp-4);
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    @include hover {
+        background-color: var(--c5d2);
+    }
+}

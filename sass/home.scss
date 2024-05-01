@@ -1,0 +1,18 @@
+// component imports:
+@import "components/design-system-preview";
+// Homepage Styles:
+main {
+    section {
+        margin-top: var(--sp-7);
+        margin-bottom: var(--sp-7);
+    }
+}
+.feature-pod {
+    background: var(--c1l2);
+    padding: var(--sp-4);
+    border-radius: var(--sp-2);
+    h2 {
+        font-size: var(--fs-5);
+        font-weight: 700;
+    }
+}

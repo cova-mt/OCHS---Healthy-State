@@ -1,0 +1,170 @@
+.btn {
+    text-align: center;
+    color: var(--c1);
+    display: inline-block;
+    border: 1px solid var(--c1);
+    font-size: var(--fs-sm);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 2em;
+    padding: 0.75em 1.25em;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    @include t(color);
+    z-index: 1;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        background-color: var(--c1);
+        transform: scale3d(0, 1, 1);
+        transform-origin: left;
+        @include t(transform);
+        z-index: -1;
+    }
+    &:hover {
+        color: white;
+        &::before {
+            transform: scale3d(1, 1, 1);
+        }
+    }
+}
+// .btn-content{
+//     margin: 3px;
+//     border:none;
+//     display: inline-flex;
+//     color: var(--c1);
+//     background-color: var(--c1l2);
+//     border-radius: 10px;
+//     padding: 10px 20px;
+//     text-decoration: none;
+//     font-weight: 700;
+//     @include t(color, background-color);
+//     justify-content: center;
+//     align-items: center;
+//     &:hover{
+//         color: white;
+//         background-color: var(--c1);
+//     }
+// }
+// button snippets
+nav[class*="button-"] {
+    display: flex;
+    margin: 0 -3px var(--sp-4);
+    > a {
+        flex: 0 1 auto;
+        @extend .btn;
+    }
+    // > span[class*="btn-i"] {
+    //     display: block;
+    //     margin: 3px;
+    //     padding: 0;
+    //     &::after {
+    //         content: none;
+    //     }
+    //     a {
+    //         @extend .btn-content;
+    //         margin: 0;
+    //     }
+    // }
+}
+// a[href="#enter-url-here"] {
+//     @extend .btn-content;
+// }
+nav.button-between {
+    justify-content: space-between;
+}
+nav.button-right {
+    justify-content: flex-end;
+}
+nav.button-center {
+    justify-content: center;
+}
+nav.button-fill a {
+    flex: 1 1 auto;
+}
+
+// form buttons:
+// button[type=submit]{
+//     @extend .btn;
+//     color: white;
+//     background-color: var(--c1);
+//     border-color: var(--c1);
+//     padding: .5em 1em;
+//     text-transform: capitalize;
+//     &:hover{
+//         background-color: var(--c1l2);
+//         color: var(--c1);
+//     }
+// }
+// button[type=reset]{
+//     @extend .btn;
+//     color: var(--c1);
+//     border-color: var(--c1);
+//     padding: .25em 1em;
+//     text-transform: capitalize;
+//     &:hover{
+//         background-color: var(--c1);
+//         color: white;
+//     }
+// }
+
+// colors:
+// [class*=btn]{
+//     &.c1l2{
+//         border-color: var(--c1l2);
+//         color: var(--c1l2);
+//         &:hover{
+//             color: var(--c1);
+//             background-color: var(--c1l2);
+//         }
+//     }
+// }
+// icon classes (available in the wywiwyg via dropdown)
+// :is([class*=btn-i-], nav[class*=button-] > span[class*=btn-i-] > a){
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     line-height: 1.1;
+//     &::after{
+//         margin-left: 10px;
+//     }
+//     @media (max-width:$md){
+//         font-size: 16px;
+//     }
+//     @media (max-width:$sm){
+//         font-size: 15px;
+//     }
+// }
+// .btn-i-download{
+//     @include icon-reg(solid, download);
+//     >a{
+//         @include icon-reg(solid, download);
+//     }
+// }
+// .btn-i-arrow{
+//     @include icon-reg(solid, arrow-circle-right);
+//     >a{
+//         @include icon-reg(solid, arrow-circle-right);
+//     }
+// }
+// .btn-i-external{
+//     @include icon-reg(solid, arrow-up-right-from-square);
+//     >a{
+//         @include icon-reg(solid, arrow-up-right-from-square);
+//     }
+// }
+// .btn-i-user {
+//     @include icon-reg(solid, user);
+//     >a{
+//         @include icon-reg(solid, user);
+//     }
+// }
+
+// .btn-i-info {
+//     @include icon-reg(solid, info-circle);
+//     >a{
+//         @include icon-reg(solid, info-circle);
+//     }
+// }

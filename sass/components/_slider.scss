@@ -1,0 +1,129 @@
+.slider-wrap:not(.ready){
+    position: relative;
+    .slide{
+        display: none;
+    }
+    .slide:first-child{
+        display: flex;
+        width: 100%;
+    }
+}
+.slider-wrap{
+    --length: 1;
+    --position: 0;
+    --shift: 0px;
+    --up: 1
+    position: relative;
+    width: 100%;
+    padding: 0;
+    display: flex;
+}
+.frame{
+    flex: 1 1 auto;
+    margin: 0 15px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+.frame-inner{
+    width: calc(100% * var(--length));
+    display: flex;
+    overflow: hidden;
+    transition: transform .75s;
+    transform: translate3d(calc(-100.00% * (var(--position) / var(--length))),0,0);
+    &.multi{
+        width: calc(100% * (var(--length) / var(--up)));
+    }
+}
+.drag .slide{
+    transition-duration: 0s;
+}
+.slide{
+    position: relative;
+    width: calc(100% / var(--length));
+    transform: translate3d(var(--shift), 0,0);
+    transition: transform .75s;
+    z-index: 0;
+    flex: 0 0 auto;
+}
+.markers{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    span{
+        margin: 0 2.5px;
+        background-color: var(--c3);
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .active{
+        background-color:  var(--c1);
+    }
+}
+.prev, .next{
+    flex: 0 0 auto;
+    font-size: 3em;
+    align-self: center;
+    line-height: 1;
+}
+.prev{
+    left: 50px;
+}
+.next{
+    right: 50px;
+}
+
+
+
+.prev,.next {
+    flex: 0 0 auto;
+    font-size: 3em;
+    align-self: center;
+    line-height: 1;
+}
+
+.prev {
+    left: 50px;
+}
+
+.next {
+    right: 50px;
+}
+
+// Example usage:
+#exampleSlider {
+    margin: var(--sp-7) 0;
+    .slide{
+        display: flex;
+        align-items: center;
+        min-height: 200px;
+    }
+    img {
+        width: 300px;
+        height: 100%;
+        object-fit: cover;
+        margin-right: 30px;
+    }
+    .text {
+        flex: 1 1 auto;
+    }
+}
+#exampleCarousel{
+    margin: var(--sp-7) 0;
+    .slide{
+        padding: 10px;
+        display: block;
+    }
+    img{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    .text{
+        margin-top: 15px;
+    }
+}

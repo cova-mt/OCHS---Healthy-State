@@ -1,0 +1,20 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1017.4 444">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b2b2b2;
+      }
+
+      .cls-2 {
+        fill: #dbdbdb;
+      }
+    </style>
+  </defs>
+  <title>placeholder-wide</title>
+  <rect class="cls-1" width="1017.4" height="444"/>
+  <g>
+    <path class="cls-2" d="M601.9,131.8H420.8a18,18,0,0,0-18,18V289.5a18,18,0,0,0,18,18H601.9a18.1,18.1,0,0,0,18-18V149.8A18.1,18.1,0,0,0,601.9,131.8Zm3.9,159.8a2.2,2.2,0,0,1-2.2,2.2H419.1a2.2,2.2,0,0,1-2.3-2.2V149.8a2.3,2.3,0,0,1,2.3-2.3H603.6a2.2,2.2,0,0,1,2.2,2.3Z"/>
+    <polygon class="cls-2" points="468 219.7 485.7 238.5 543.9 180 590.7 227.1 590.7 278.5 430.9 278.5 430.9 256.1 468 219.7"/>
+    <circle class="cls-2" cx="453.3" cy="183.8" r="21.8"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<header id="site-header">
+    {{> site-alert }}
+    <a href="/" class="brand" aria-label="link to homepage"><img src="/img/logo-color.svg" width="250" alt="ldh logo"></a>
+    <button id="mobile-open-trigger" aria-label="open mobile menu" aria-controls="header-nav-group">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+    <div class="nav-group" id="header-nav-group">
+        <button id="mobile-close-trigger" aria-label="close mobile menu" aria-controls="header-nav-group">
+            <div></div>
+            <div></div>
+        </button>
+        <span class="menu-title">Menu</span>
+        <div class="nav-scroll-group">
+            {{> top-nav }}
+            {{> main-nav }}
+        </div>
+    </div>
+    <button id="site-search-open" aria-controls="search-overlay" aria-label="open site search"></button>
+</header>

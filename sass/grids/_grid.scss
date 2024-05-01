@@ -1,0 +1,72 @@
+:root {
+    --cols: 12;
+    --gap: 44px; //gap between columns
+    --gutter: 110px; //gutter on the sides of the container
+    @media (max-width: $xl) {
+        --gap: 34px;
+    }
+    @media (max-width: $lg) {
+        --gutter: 50px;
+    }
+    @media (max-width: $sm) {
+        --gap: 24px;
+        --gutter: 24px;
+    }
+
+    // necessary for grid calculations; do no modify (below)
+    --container-width: 100%;
+    --grid-width: calc(var(--container-width) - var(--gutter) * 2);
+    @each $size in $bps {
+        @media (min-width: $size) {
+            --container-width: #{$size};
+        }
+    }
+}
+.cont {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--grid-width);
+}
+:is(.grid, .uber-grid) {
+    --_max-gap: calc(var(--grid-width) / (var(--cols) - 1));
+    --_gap: var(--gap); //backup (safari doesn't support calc values in gap)
+    --_gap: min(var(--gap), var(--_max-gap));
+    --_grid-width: calc(var(--grid-width) + var(--_gap));
+    --col-width: calc(var(--_grid-width) / var(--cols) - var(--_gap));
+    display: grid;
+    column-gap: var(--_gap);
+    row-gap: var(--row-gap, 0px);
+    align-content: start;
+    overflow-x: clip; //needed for uber-grid (2 extra columns = 2 extra gaps);
+    grid-auto-flow: dense;
+    > * {
+        grid-column: content;
+    }
+}
+.grid {
+    justify-content: center;
+    grid-template-columns: [content-start] repeat(var(--cols), var(--col-width)) [content-end];
+}
+.uber-grid {
+    grid-template-columns: minmax(0px, 1fr) [content-start] repeat(var(--cols), var(--col-width)) [content-end] minmax(0px, 1fr);
+    :is(.grid, .uber-grid, .cont, .uber, .full) {
+        grid-column: 1 / -1;
+    }
+}
+
+// sub-grids:
+:is(.full, .uber) {
+    display: grid;
+}
+.full {
+    column-gap: var(--gap);
+    grid-template-columns: [content-start] repeat(var(--cols), 1fr) [content-end];
+}
+.uber {
+    grid-template-columns: subgrid;
+}
+
+// default layout for grid children:
+:is(.grid, .uber-grid, .uber, .full) > * {
+    grid-column: content;
+}

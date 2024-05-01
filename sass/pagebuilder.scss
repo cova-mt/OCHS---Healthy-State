@@ -1,0 +1,61 @@
+// component includes:
+@import "components/buttons";
+@import "components/tables";
+@import "components/collapsing-section";
+// wysiwyg content:
+@import "wysiwyg/snippets";
+.wysi {
+    @import "wysiwyg/content";
+}
+
+// Pagebuilder Wrapper Styles:
+main {
+    padding-top: var(--sp-7);
+}
+
+// >> left rail open button
+#left-rail-open-trigger {
+    max-width: 180px;
+    position: sticky;
+    grid-area: 1 / 1/ 50 / 2;
+    align-self: start;
+    width: calc(100% + 24px);
+    top: calc(var(--header-height) + 30px);
+    @media (max-width: $lg) {
+        display: none;
+    }
+}
+.feature-img + #left-rail-open-trigger {
+    grid-row: 2 / 50 !important;
+}
+#site-header.hide ~ main #left-rail-open-trigger {
+    transform: translate3d(0, calc(-1 * var(--header-height)), 0);
+}
+
+// >> segment spacing
+main {
+    > :is(.grid, .uber, .full) {
+        padding: var(--sp-8) 0 0;
+        &:first-of-type,
+        &.bg-1 + .bg-1,
+        &.bg-2 + .bg-2,
+        &.bg-3 + .bg-3 {
+            padding-top: 0;
+        }
+    }
+    .wysi {
+        margin-bottom: var(--sp-8);
+        > :is(p, nav, [class*="-full"], table, ul, ol):last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// >> segment classes
+
+.bg-1 {
+    background-color: var(--c1l2);
+}
+.bg-2 {
+    background-color: var(--c4l2);
+}

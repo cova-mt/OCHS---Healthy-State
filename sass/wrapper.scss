@@ -1,0 +1,59 @@
+// vendor imports;
+@import "vendor/bootstrap5/root";
+@import "vendor/bootstrap5/reboot";
+@include load-fa(solid, regular, brands);
+
+// global & grid imports;
+@import "global/props";
+@import "grids/grid";
+@import "grids/grid-utilities";
+
+// components imports;
+@import "components/header";
+@import "components/search-overlay";
+@import "components/footer";
+@import "components/site-alert";
+@import "components/top-nav";
+@import "components/main-nav";
+
+// wrapper styles:
+:is(html, body) {
+    min-height: 100%;
+    display: flex;
+}
+body {
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    &.locked {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        // @include hoverOnly {
+        //     padding-right: 15px;
+        // }
+        top: var(--lock-offset);
+        overflow: hidden;
+    }
+    > * {
+        width: 100%;
+    }
+}
+#body-scroll-tracker {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 5px;
+    height: calc(100% - var(--vp-height));
+    opacity: 0;
+    pointer-events: none;
+}
+main {
+    position: relative;
+    z-index: 1;
+    flex: 1 0 auto;
+}
+
+footer {
+    background-color: var(--c1d3);
+}

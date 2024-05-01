@@ -1,0 +1,20 @@
+{{#if item.link}}
+    <a href="{{item.link}}">{{@key}}</a>
+{{else}}
+    {{#if (isString item)}}
+        <a href="{{item}}">{{@key}}</a>
+    {{else}}
+        <button>{{@key}}</button>
+    {{/if}}
+{{/if}}
+{{#if item.children}}
+    <div class="sub-group">
+        <ul class="sub-list container">
+            {{#each item.children}}
+                <li class="sub-item">
+                    {{> nav-item item=this}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}

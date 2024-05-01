@@ -1,0 +1,17 @@
+<aside id="left-rail">
+    <nav class="shared-nav-els" aria-label="Navigation Drawer for {{ getFirst navPath }}">
+        <button id="left-rail-close-trigger" aria-label="close left rail menu" aria-controls="left-rail"></button>
+        <span class="menu-title">Menu</span>
+        <div class="sub-name">
+                <em>{{ getFirst navPath }}</em>
+                <strong>{{ getLast navPath }}</strong>
+        </div>
+        <ul class="top-list">
+            {{#each (getNavContext navPath) }}
+            <li class="top-item">
+                {{> nav-item item=this originItem=(getFirst ../navPath)}}
+            </li>
+            {{/each}}
+        </ul>
+    </nav>
+</aside>

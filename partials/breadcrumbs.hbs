@@ -1,0 +1,10 @@
+<ul id="breadcrumbs">
+    <li class="home"><a href="/" aria-label="link to homepage"></a></li>
+    {{#each (makeArr navPath)}}
+        {{#if @last }}
+            <li>{{this}}</li>
+        {{else}}
+            <li><a href="/">{{this}}</a></li>
+        {{/if}}
+    {{/each}}
+</ul>

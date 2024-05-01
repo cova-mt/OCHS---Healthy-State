@@ -1,0 +1,3 @@
+#!/bin/bash
+cwebp -q 50 ./$1.jpg -o ./$1.webp
+cwebp -resize 650 0 -q 50 ./$1.jpg -o ./$1-650.webp

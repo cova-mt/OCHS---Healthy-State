@@ -1,0 +1,97 @@
+.site-alert {
+    grid-column: 1 / -1;
+    max-height: 0;
+    @include t-hidden(max-height);
+    overflow: hidden;
+    background-color: var(--c5);
+    align-items: center;
+    font-size: 0.9em;
+    @media (max-width: $lg) {
+        font-size: 0.85em;
+    }
+    &[data-open="true"] {
+        @include t-visible(max-height);
+        max-height: var(--open-height);
+    }
+    .alert-cont {
+        padding: var(--sp-4);
+        color: white;
+        display: flex;
+        @media (min-width: $lgp) {
+            align-items: center;
+            @include icon-reg(solid, diamond-exclamation, before);
+            &::before {
+                font-size: 3em;
+                opacity: 0.35;
+            }
+        }
+    }
+    p {
+        flex: 1 1 auto;
+        margin: 0 5px 0 0;
+        @media (min-width: $lgp) {
+            margin: 0 25px;
+        }
+        &::before {
+            content: "Alert: ";
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        a {
+            text-decoration: underline;
+            color: white;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    strong {
+        text-transform: uppercase;
+    }
+    button {
+        display: block;
+        border-radius: 100%;
+        border: none;
+        color: inherit;
+        font-size: 1.5em;
+        line-height: 1;
+        @include icon-reg(regular, times);
+        width: 35px;
+        height: 35px;
+        background-color: var(--c5);
+        flex: 0 0 auto;
+        padding: 0;
+        @media (max-width: $lg) {
+            align-self: baseline;
+        }
+        @include t(background-color);
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+        @include IosOnly {
+        }
+    }
+    &.notice {
+        background-color: var(--c1d3);
+        .alert-cont::before {
+            content: none;
+        }
+        p::before {
+            content: "Notice: ";
+        }
+        button {
+            background-color: var(--c1d3);
+            &:hover {
+                background-color: var(--c1d1);
+            }
+        }
+    }
+}
+@keyframes expand {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--open-height);
+    }
+}

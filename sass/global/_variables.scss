@@ -1,0 +1,46 @@
+//
+// VENDOR OVERRIDES ---------------------------------------------------------------------------------------------
+// - replaces default settings for vendor libraries
+
+// fa overrides
+$fa-font-path: "/webfonts";
+
+// bootstrap overrides
+$font-family-sans-serif: "Noto Sans", sans-serif;
+
+// must be values, not css variables!
+$primary: #041e41;
+$secondary: #426da9;
+$primary-text: #041e41;
+$secondary-text: #426da9;
+$headings-color: #041e41;
+$body-color: #5b5b5b;
+$link-color: #5b5b5b;
+$link-decoration: underline;
+$link-hover-color: #041e41;
+$link-hover-decoration: none;
+$paragraph-margin-bottom: 15px;
+$font-weight-base: 400;
+$line-height-base: 1.3;
+
+//
+// CUSTOM VARIABLES ---------------------------------------------------------------------------------------------
+// - variables that do NOT exist in vendor libraries
+
+// Breakpoints
+$xs: 460px;
+$sm: 576px;
+$md: 768px;
+$lg: 991px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// plus 1 version for avoiding max-width min-width media query conflict
+$xsp: $xs + 1;
+$smp: $sm + 1;
+$mdp: $md + 1;
+$lgp: $lg + 1;
+$xlp: $xl + 1;
+$xxlp: $xxl + 1;
+
+$bps: ($xsp, $smp, $mdp, $lgp, $xlp, $xxlp);

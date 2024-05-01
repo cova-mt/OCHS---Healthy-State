@@ -1,0 +1,28 @@
+{{#if item.link}}
+    <a href="{{item.link}}">{{@key}}</a>
+    <button class="sub-open" aria-label="open {{@key}} subnav" aria-expanded="false" aria-haspopup="true">></button>
+{{else}}
+    {{#if (isString item)}}
+        <a href="{{item}}">{{@key}}</a>
+    {{else}}
+        <button class="sub-open" aria-label="open {{@key}} subnav" aria-expanded="false" aria-haspopup="true">{{@key}} ></button>
+    {{/if}}
+{{/if}}
+{{#if item.children}}
+    <div class="sub-group" style="border:1px solid black" id="sub-{{ noSpaces @key }}">
+        <button class="sub-close" aria-label="close {{@Key}} subnav" aria-haspopup="true" aria-expanded="false">Back</button>
+        <div class="sub-name">
+            {{#if (isNotThis originItem @key)}}
+                <em>{{originItem}}</em>
+            {{/if}}
+            <strong>{{@key}}</strong>
+        </div>
+        <ul class="sub-list">
+            {{#each item.children}}
+                <li class="sub-item">
+                    {{> nav-item-test item=this originItem=../originItem}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}

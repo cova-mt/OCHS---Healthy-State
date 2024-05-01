@@ -1,0 +1,153 @@
+@for $i from 1 through 14 {
+    .c#{$i} {
+        @media (min-width: $smp) {
+            grid-column: span #{$i} / span #{$i};
+        }
+    }
+}
+@for $i from 1 through 14 {
+    .md\:c#{$i} {
+        @media (min-width: $mdp) {
+            grid-column: span #{$i} / span #{$i};
+        }
+    }
+}
+@for $i from 1 through 14 {
+    .lg\:c#{$i} {
+        @media (min-width: $lgp) {
+            grid-column: span #{$i} / span #{$i};
+        }
+    }
+}
+@for $i from 1 through 14 {
+    .xl\:c#{$i} {
+        @media (min-width: $xlp) {
+            grid-column: span #{$i} / span #{$i};
+        }
+    }
+}
+@for $i from 1 through 14 {
+    .all\:c#{$i} {
+        grid-column: span #{$i} / span #{$i};
+    }
+}
+// Pin to first column
+.c-first {
+    @media (min-width: $smp) {
+        grid-column-start: 1;
+    }
+}
+.md\:c-first {
+    @media (min-width: $mdp) {
+        grid-column-start: 1;
+    }
+}
+.lg\:c-first {
+    @media (min-width: $lgp) {
+        grid-column-start: 1;
+    }
+}
+.xl\:c-first {
+    @media (min-width: $xlp) {
+        grid-column-start: 1;
+    }
+}
+.all\:c-first {
+    grid-column-start: 1;
+}
+// pin to second column
+.c-second {
+    @media (min-width: $smp) {
+        grid-column-start: 2;
+    }
+}
+.md\:c-second {
+    @media (min-width: $mdp) {
+        grid-column-start: 2;
+    }
+}
+.lg\:c-second {
+    @media (min-width: $lgp) {
+        grid-column-start: 2;
+    }
+}
+.xl\:c-second {
+    @media (min-width: $xlp) {
+        grid-column-start: 2;
+    }
+}
+.all\:c-second {
+    grid-column-start: 2;
+}
+// pin to last column
+.c-last {
+    @media (min-width: $smp) {
+        grid-column-end: -1;
+    }
+}
+.md\:c-last {
+    @media (min-width: $mdp) {
+        grid-column-end: -1;
+    }
+}
+.lg\:c-last {
+    @media (min-width: $lgp) {
+        grid-column-end: -1;
+    }
+}
+.xl\:c-last {
+    @media (min-width: $xlp) {
+        grid-column-end: -1;
+    }
+}
+.all\:c-last {
+    grid-column-end: -1;
+}
+// pin to second last column
+.c-second-last {
+    @media (min-width: $smp) {
+        grid-column-end: -2;
+    }
+}
+.md\:c-second-last {
+    @media (min-width: $mdp) {
+        grid-column-end: -2;
+    }
+}
+.lg\:c-second-last {
+    @media (min-width: $lgp) {
+        grid-column-end: -2;
+    }
+}
+.xl\:c-second-last {
+    @media (min-width: $xlp) {
+        grid-column-end: -2;
+    }
+}
+.all\:c-second-last {
+    grid-column-end: -2;
+}
+.c-placeholder {
+    opacity: 0;
+    pointer-events: none;
+}
+
+// uber grid specific:
+.uber-grid {
+    &.auto-cols {
+        position: relative;
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        &::after {
+            grid-area: 1/1/50/2;
+        }
+        &::before {
+            grid-area: 1/-2/50/-1;
+        }
+    }
+}

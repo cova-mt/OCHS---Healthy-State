@@ -1,0 +1,26 @@
+{{#if (hasProp item 'link')}}
+    <a href="{{item.link}}">{{@key}}</a>
+{{else}}
+    {{#if (isString item)}}
+        <a href="{{item}}">{{@key}}</a>
+    {{else}}
+        <button>{{@key}}</button>
+    {{/if}}
+{{/if}}
+{{#if item.children}}
+    <div class="sub-group">
+        <div class="sub-name">
+            {{#if (isNotThis originItem @key)}}
+                <em>{{originItem}}</em>
+            {{/if}}
+            <strong>{{@key}}</strong>
+        </div>
+        <ul class="sub-list{{#if (isThis originItem @key)}} container{{/if}}">
+            {{#each item.children}}
+                <li class="sub-item">
+                    {{> nav-item item=this originItem=../originItem}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}

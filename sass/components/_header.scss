@@ -1,0 +1,135 @@
+#site-header {
+    background-color: white;
+    z-index: 2;
+    position: sticky;
+    top: 0;
+    display: grid;
+    column-gap: 24px;
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
+    grid-auto-flow: dense;
+    grid-template-columns: auto 1fr auto auto auto;
+    --brand-width: 310px;
+    transform: translate3d(0, 0, 0);
+    @include t(transform);
+    @media (max-width: $xl) {
+        --brand-width: 250px;
+    }
+    @media (max-width: $lg) {
+        --brand-width: 230px;
+    }
+    @media (max-width: 380px) {
+        --brand-width: 180px;
+    }
+    @each $name, $size in $container-max-widths {
+        @media (min-width: map.get($grid-breakpoints, $name)) {
+            $width: calc($size - var(--brand-width) - 24px);
+            grid-template-columns: 1fr var(--brand-width) minmax(auto, $width) minmax(min-content, 1fr);
+        }
+    }
+    &.hide {
+        transform: translate3d(0, calc(-1 * var(--header-height)), 0);
+    }
+    .brand {
+        grid-column: 2;
+        align-self: center;
+        padding-right: 10px;
+        img {
+            width: var(--brand-width);
+        }
+    }
+    .nav-group {
+        grid-column: 3;
+        padding: 24px 0 28px;
+        @media (min-width: $lgp) and (max-width: $xl) {
+            margin: 0 -12px;
+        }
+        @media (max-width: $lg) {
+            display: flex;
+            flex-direction: column;
+            grid-column: unset;
+            padding: 0;
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 370px;
+            height: var(--vp-height, 100vh);
+            background-color: white;
+            box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
+            transform: translate3d(-100%, 0, 0);
+            @include t-hidden(transform);
+        }
+        @media (max-width: 450px) {
+            width: 280px;
+        }
+        @media (max-width: 335px) {
+            width: 260px;
+        }
+    }
+    .nav-scroll-group {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        @media (min-width: $lgp) {
+            display: grid;
+            row-gap: 12px;
+        }
+        @media (max-width: $lg) {
+            flex: 1 1 auto;
+            overflow: hidden auto;
+        }
+    }
+    .menu-title {
+        display: none;
+        @media (max-width: $lg) {
+            display: block;
+            line-height: 1;
+            padding: 7.5px 17px;
+            height: 38px;
+            background-color: var(--c3d1);
+            font-size: 1.2em;
+            text-transform: uppercase;
+            color: white;
+            @include icon-reg(regular, bars, before);
+            letter-spacing: 0.01em;
+            &::before {
+                font-size: 1.2em;
+                margin-right: 10px;
+            }
+        }
+    }
+    #site-search-open {
+        align-self: center;
+        grid-column: -2 / -1;
+        @include icon-reg(solid, search);
+        background-color: white;
+        border-radius: 100%;
+        border: none;
+        padding: 0;
+        @media (min-width: $lgp) {
+            box-shadow: 0px 0px 15px -3px var(--c2l1);
+        }
+        font-size: 1.75em;
+        color: var(--c3);
+        width: 50px;
+        height: 50px;
+        margin-right: 24px;
+        margin-left: 12px;
+        @include t(background-color, color);
+        &:hover {
+            background-color: var(--c1);
+            color: white;
+        }
+        @media (max-width: $lg) {
+            margin-left: -12px;
+        }
+        @media (max-width: $sm) {
+            grid-column: -3/-2;
+            margin-right: 0;
+        }
+        @media (max-width: $xs) {
+            width: 35px;
+            height: 35px;
+            font-size: 1.25em;
+        }
+    }
+}

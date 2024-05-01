@@ -1,0 +1,192 @@
+#la-gov-bar {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    background-color: var(--c4l2);
+    justify-content: center;
+    font-size: 0.81em;
+    line-height: 1.1;
+    position: relative;
+    @media (max-width: 435px) {
+        flex-wrap: wrap;
+    }
+    .expand {
+        margin: 0 auto;
+        width: 100%;
+        height: 0;
+        max-width: 920px;
+        overflow: hidden;
+        @include t-hidden(height);
+
+        @media (min-width: 769px) {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media (min-width: 1500px) {
+            max-width: 100%;
+            justify-content: space-around;
+        }
+        @media (max-width: 435px) {
+            order: 3;
+        }
+        &[data-open="true"] {
+            @include t-visible(height);
+            height: var(--open-height);
+        }
+    }
+    .group {
+        padding: 10px 0;
+        display: grid;
+        grid-template-columns: auto auto;
+        max-width: 400px;
+        @media (min-width: $mdp) {
+            justify-content: center;
+        }
+        @media (max-width: $md) {
+            margin: 0 auto;
+            grid-template-columns: 105px auto;
+            padding: 10px 0 0;
+        }
+    }
+    img {
+        grid-row: span 2;
+        padding: 10px 25px 10px 10px;
+        place-self: center;
+        width: auto;
+    }
+    .lock {
+        @include icon-reg(solid, lock);
+    }
+    em {
+        align-self: end;
+        font-style: normal;
+        color: var(--c1);
+        margin-bottom: 5px;
+        font-weight: 800;
+    }
+    span {
+        text-wrap: balance;
+        br {
+            @media (min-width: 600px) {
+                display: none;
+            }
+        }
+    }
+    p {
+        color: var(--c4d1);
+        margin: 0;
+        flex: 1 1 auto;
+        @media (max-width: 700px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        @media (max-width: 435px) {
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+            order: 2;
+        }
+        button[aria-expanded="true"]::after {
+            transform: translate3d(0, -2px, 0) rotate3d(0, 0, 1, 180deg);
+        }
+    }
+    button {
+        color: var(--c4d1);
+        background-color: transparent;
+        border: none;
+        font-weight: 700;
+        padding: 0;
+        position: relative;
+
+        &:hover::before {
+            transform: scale3d(1, 1, 1);
+        }
+        &::before {
+            content: "";
+            @include t(transform);
+            bottom: -1px;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--c4d1);
+            border-radius: 2px;
+            transform-origin: left;
+            transform: scale3d(0, 1, 1);
+        }
+        &::after {
+            margin-left: 7px;
+            @include t(color, transform);
+        }
+    }
+    .options {
+        @media (max-width: 576px) and (min-width: 436px) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        button {
+            margin-left: 18px;
+        }
+    }
+    .gov-trigger {
+        @include icon-reg(solid, chevron-down);
+    }
+    .lang {
+        @include icon-reg(solid, globe);
+    }
+    .acsb {
+        @include icon-reg(solid, universal-access);
+    }
+}
+#gt-container {
+    opacity: 0;
+    @include t-hidden(opacity);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px -3px var(--c2l1);
+    position: absolute;
+    top: 100%;
+    right: 13px;
+    margin-top: 2px;
+    z-index: 5;
+    min-width: 200px;
+    @media (max-width: 576px) and (min-width: 436px) {
+        margin-top: 5px;
+        right: 9.5px;
+        top: 30px;
+    }
+    @media (max-width: 435px) {
+        top: 35px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    &[data-open="true"] {
+        @include t-visible(opacity);
+        opacity: 1;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 70px;
+        border: 10px solid transparent;
+        border-bottom-color: white;
+        border-top-width: 0;
+        z-index: 4;
+        @media (max-width: 576px) and (min-width: 436px) {
+            left: unset;
+            right: 2px;
+        }
+        @media (max-width: 435px) {
+            left: 79px;
+        }
+    }
+    img {
+        aspect-ratio: unset;
+        height: unset;
+    }
+}

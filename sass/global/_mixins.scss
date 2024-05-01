@@ -1,0 +1,202 @@
+@mixin data-icon($type) {
+    &::after {
+        content: attr(data-icon);
+        @include fa-icon;
+        font-family: "Font Awesome 6 Pro";
+        @if ($type == "solid") {
+            font-weight: 900;
+        }
+        @if ($type == "regular") {
+            font-weight: 400;
+        }
+        @if ($type == "thin") {
+            font-weight: 300;
+        }
+        @if ($type == "light") {
+            font-weight: 100;
+        }
+    }
+}
+@mixin icon-reg($type, $name, $pos: "after") {
+    &::#{$pos} {
+        content: unquote('"#{ map.get($fa-icons, $name) }"');
+        @include fa-icon;
+        font-family: "Font Awesome 6 Pro";
+        @if ($type == "solid") {
+            font-weight: 900;
+        }
+        @if ($type == "regular") {
+            font-weight: 400;
+        }
+        @if ($type == "thin") {
+            font-weight: 300;
+        }
+        @if ($type == "light") {
+            font-weight: 100;
+        }
+    }
+}
+@mixin icon-sharp($type, $name, $pos: "after") {
+    @if ($pos!= "after") {
+        $pos: "before";
+    }
+    &::#{$pos} {
+        content: unquote('"#{ map.get($fa-icons, $name) }"');
+        @include fa-icon;
+        font-family: "Font Awesome 6 Sharp";
+        @if ($type == "solid") {
+            font-weight: 900;
+        }
+        @if ($type == "regular") {
+            font-weight: 400;
+        }
+        @if ($type == "light") {
+            font-weight: 300;
+        }
+    }
+}
+@mixin icon-brand($name, $pos: "after") {
+    @if ($pos!= "after") {
+        $pos: "before";
+    }
+    &::#{$pos} {
+        content: unquote('"#{ map.get($fa-brand-icons, $name) }"');
+        @include fa-icon;
+        font-family: "Font Awesome 6 Brands";
+        font-weight: 400;
+    }
+}
+@mixin icon-duo($name, $pos: "after") {
+    position: relative;
+    $op: if($pos == "after", "before", "after");
+    $anchor: if($pos == "after", "right", "left");
+    &::#{$pos} {
+        content: unquote('"#{ map.get($fa-icons, $name) }"');
+        color: var(--fa-primary-color, inherit);
+        opacity: var(--fa-primary-opacity, 1);
+    }
+    &::#{$op} {
+        content: unquote('"#{ map.get($fa-icons, $name) }#{ map.get($fa-icons, $name) }"');
+        color: var(--fa-secondary-color, inherit);
+        opacity: var(--fa-secondary-opacity, 0.4);
+        position: absolute;
+        #{$anchor}: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        padding: inherit;
+    }
+    &::before,
+    &::after {
+        font-family: "Font Awesome 6 Duotone";
+        font-weight: 900;
+        font-style: normal;
+        font-variant: normal;
+        letter-spacing: normal;
+        text-rendering: auto;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+@mixin icon-duo-flex($name, $pos: "after") {
+    display: inline-flex;
+    align-items: baseline;
+    $op: if($pos == "after", "before", "after");
+    $order: if($pos == "after", 10, -10);
+    $marg: if($pos == "after", "left", "right");
+    &::#{$pos} {
+        content: unquote('"#{ map.get($fa-icons, $name) }"');
+        color: var(--fa-primary-color, inherit);
+        opacity: var(--fa-primary-opacity, 1);
+    }
+    &::#{$op} {
+        content: unquote('"#{ map.get($fa-icons, $name) }#{ map.get($fa-icons, $name) }"');
+        color: var(--fa-secondary-color, inherit);
+        opacity: var(--fa-secondary-opacity, 0.4);
+        order: $order;
+        margin-#{$marg}: -1em;
+    }
+    &::before,
+    &::after {
+        display: block;
+        flex: 0 0 auto;
+        font-family: "Font Awesome 6 Duotone";
+        font-weight: 900;
+        font-style: normal;
+        font-variant: normal;
+        letter-spacing: normal;
+        text-rendering: auto;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+@mixin t($args...) {
+    @if (list.length($args) > 0) {
+        $expression: ();
+        @each $prop in $args {
+            $expression: list.append($expression, $prop + " var(--t-time) var(--easing)", $separator: comma);
+        }
+        transition: $expression;
+    } @else {
+        transition: unquote("all var(--t-time) var(--easing)");
+    }
+}
+@mixin t-hidden($propertyList: opacity, $d: 0s, $t: var(--t-time)) {
+    visibility: hidden;
+    $expression: "";
+    @each $prop in $propertyList {
+        $expression: $expression + ", " + $prop + " " + $t + " " + $d + " " + var(--easing);
+    }
+    transition: unquote("visibility " + $t + " " + $d + " " + $expression);
+}
+@mixin t-visible($propertyList: opacity, $d: 0s, $t: var(--t-time)) {
+    visibility: visible;
+    $expression: "";
+    @each $prop in $propertyList {
+        $expression: $expression + ", " + $prop + " " + $t + " " + $d + " " + var(--easing);
+    }
+    transition: unquote("visibility 0s " + $d + " " + $expression);
+}
+@mixin thinSmooth() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+@mixin touchOnly {
+    @media (hover: none) {
+        @content;
+    }
+}
+@mixin hoverOnly {
+    @media (pointer: fine) {
+        @content;
+    }
+}
+@mixin hover {
+    @media (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}
+@mixin IosOnly {
+    @supports (-webkit-touch-callout: none) {
+        @content;
+    }
+}
+
+@mixin notHas {
+    @supports not selector(:has(+ *)) {
+        @content;
+    }
+}
+@mixin smart-break {
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    hyphens: auto;
+}

@@ -1,0 +1,271 @@
+body {
+    box-sizing: border-box;
+    height: unset;
+    min-height: 100%;
+    display: block;
+    margin: 0;
+    padding: 10px 10px 20px;
+    background-color: white;
+    // display: grid;
+    // grid-template-columns: 30px repeat(12, 1fr) 30px;
+    // >*{
+    //     grid-column: 2 / span 12;
+    // }
+}
+
+* {
+    box-sizing: border-box;
+}
+.rm,
+.replace,
+.stopper {
+    display: none;
+}
+.em_snippet {
+    border: 0;
+    td,
+    table,
+    tr {
+        border: 0;
+    }
+}
+&.pb {
+    display: block !important;
+}
+&.mce-visualblocks {
+    .intro {
+        padding: var(--section-spacing) 10px;
+    }
+    .rm {
+        display: block !important;
+        line-height: 20px !important;
+        font-size: 20px;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none;
+        width: 100%;
+        height: 10px;
+        position: relative;
+    }
+    .replace {
+        display: block !important;
+        background-color: var(--c1);
+        margin: 10px auto;
+        height: 20px;
+        position: relative;
+        width: calc(100% - 20px);
+        clear: both;
+        &::after {
+            content: "+";
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            line-height: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            padding: 2px;
+            border-radius: 15px;
+            background-color: white;
+            text-align: center;
+            color: var(--c1);
+        }
+        &[data-mce-selected] {
+            background-color: var(--c2);
+        }
+    }
+    hr.stopper {
+        width: 100%;
+        height: 0px;
+        opacity: 0;
+        overflow: 0;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        display: block !important;
+    }
+    [data-mce-bogus] {
+        color: var(--c4d2);
+    }
+    // genaral styling for all block level snippets
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    nav,
+    article,
+    section,
+    figure {
+        margin: 10px 0 0;
+        padding: 10px;
+        border: 1px dashed var(--c4d2);
+        background-color: var(--c4l2t);
+    }
+    //special padding for lists/ zindex because they are relatively positioned
+    ul,
+    ol {
+        margin: 10px 0 !important;
+        padding: 10px 10px 10px 45px;
+        border: 1px dashed var(--c4d2);
+        background-color: var(--c4l2t);
+        z-index: 0;
+    }
+    p:first-child {
+        margin-top: 0;
+    }
+    [class*="-full"] {
+        margin: 10px 0 0 !important;
+    }
+    [class*="quote"],
+    [class*="contact-callout"] {
+        border: 1px dashed var(--c1);
+        background-color: var(--c4l2t);
+    }
+    [class*="left"],
+    [class*="right"] {
+        margin-top: 0;
+    }
+    nav[class*="button"] {
+        margin: 10px 0 0;
+        .replace {
+            width: 100px;
+            height: 40px;
+            margin: 0 4px;
+            border-radius: 30px;
+        }
+    }
+    section.clps {
+        margin: 10px 0;
+        p {
+            background-color: transparent;
+            border: none;
+            margin: 0;
+            &::after {
+                display: none;
+            }
+        }
+        > div:last-child {
+            max-height: unset !important;
+            border-bottom: none;
+            background-color: var(--c4l2t);
+            padding: 10px;
+            p {
+                margin: 10px 0 0;
+                padding: 10px;
+                border: 1px dashed var(--c4d2);
+                background-color: var(--c5l4);
+            }
+        }
+    }
+    .ratio.ratio-16x9 {
+        height: 45px;
+        margin-bottom: 0;
+        &::before,
+        &::after {
+            display: none;
+        }
+        span:only-child {
+            width: 100%;
+            height: 100%;
+            background-color: var(--c1);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            &::after {
+                content: "iframe Inserted";
+                font-family: var(--f1);
+                color: white;
+            }
+            > iframe {
+                display: none;
+            }
+        }
+    }
+    hr.divider {
+        margin: 0.5rem 0 0.5rem;
+    }
+    .topics-grid {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        li {
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            width: unset;
+            height: unset;
+            margin: 0 10px 10px 0;
+            &::before {
+                display: none !important;
+            }
+            &.replace {
+                width: 100px;
+                height: 100px;
+                &:focus {
+                    background-color: var(--c2);
+                }
+            }
+        }
+        picture,
+        a {
+            position: static;
+            height: 250px;
+            width: 250px;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            margin-left: -100px;
+        }
+        [class*="solid-color"] a {
+            margin-left: 0;
+        }
+    }
+    .subhome-callout {
+        .title {
+            transform: translate3d(0, 0, 0) !important;
+        }
+    }
+    .subhome-content-section,
+    .image-and-text > div {
+        padding: 5px;
+        background-color: var(--c5l3);
+        * {
+            background-color: #fff;
+        }
+    }
+    .on-page {
+        background-color: var(--c1d2);
+        color: white;
+        padding: 5px;
+        margin: var(--sp-4) 0;
+        opacity: 1;
+    }
+    .on-page-applied {
+        background-color: var(--c1d2);
+        color: white;
+        padding: 5px;
+        margin: var(--sp-4) 0;
+        opacity: 1;
+        &::before,
+        &::after {
+            font-family: inherit;
+            font-weight: 700;
+            text-transform: none;
+        }
+        &::before {
+            content: "anchor name:";
+        }
+        &::after {
+            content: "#" attr(data-display);
+        }
+    }
+}

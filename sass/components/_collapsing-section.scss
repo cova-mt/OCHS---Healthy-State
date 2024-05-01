@@ -1,0 +1,71 @@
+// STYLING FOR COLLAPSING SECTION
+.clps {
+    margin-bottom: var(--sp-7);
+    border-radius: var(--sp-1);
+    overflow: hidden;
+    div {
+        p {
+            margin: 0;
+            padding: var(--sp-3) var(--sp-4);
+            color: inherit;
+            @include t();
+        }
+        &:first-child {
+            cursor: pointer;
+            background-color: var(--c1);
+            color: white;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include t();
+            padding: 0 var(--sp-4);
+            @include icon-reg(solid, chevron-down);
+            &::after {
+                @include t;
+            }
+            p {
+                padding: var(--sp-3) var(--sp-3) var(--sp-3) 0;
+            }
+            i {
+                font-size: 1.3em;
+                @include t();
+            }
+        }
+        &:last-child {
+            background-color: transparent;
+            color: black;
+            @include t();
+            max-height: 0;
+            overflow: hidden;
+            border: 1px solid var(--c1);
+            border-radius: 0 0 var(--sp-1) var(--sp-1);
+        }
+    }
+    div:first-child[aria-expanded="true"] {
+        background-color: var(--c1d1);
+        &::after {
+            transform: rotate(180deg);
+        }
+        + div {
+            max-height: var(--content-height);
+        }
+    }
+    &.faq {
+        div:first-child {
+            background-color: var(--c2);
+            &::after {
+                content: "\f059";
+            }
+        }
+        div:last-child {
+            background-color: transparent;
+        }
+        div:first-child[aria-expanded="true"] {
+            background-color: var(--c2d1);
+            &::after {
+                content: "\f358";
+            }
+        }
+    }
+}

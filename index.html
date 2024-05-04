@@ -23,180 +23,40 @@
 
     <body>
         {{> site-header}}
-        <main class="wysi">
-            <section class="grid">
-                <div class=" docs">
-                    <h1>Welcome to <em>Starter 2</em></h1>
-                    <p>This iss a project dedicated to showcasing the accumulated UI work I've done over the past many years. It's meant to be both a reference for use, a living repository for past features, and an experimental space for things I might want to keep around for later.</p>
-                    <h2>About this framework:</h2>
-                    <p>This framework is intended to be a one-stop-shop starter template for any custom webiste build. It contains a multitude of HTML and Handlebars templates, Sass styles and Javascript for components, and may additional experimental sketches and ideas. The framework is built on Vite, which allows it to function as a bare-bones statc-site generator. Handlebars for Vite is used to provide templating and code-reusability to the Markup. Sass compilation and import is also handled by Vite, as well as JS bundling with Vite's built-in integration of Rollup. The recommended package manager is PNPM, alghough it works just as well on NPM.</p>
-                    <p><strong>Instructions:</strong> look over the following sections to understand how each aspect of this framework functions, and what features & components are available to be used. My advice is to start with the minmum you need, then add as you build. This will keep the build light and the file management simple until you require a more complex setup.</p>
-                </div>
-                <div class="feature-pod c4">
-                    <h2>HTML and Handlebars</h2>
-                    <a href="/starter-html.html">View Details</a>
-                </div>
-                <div class="feature-pod c4">
-                    <h2>Sass and CSS</h2>
-                    <a href="/starter-css.html">View Details</a>
-                </div>
-                <div class="feature-pod c4">
-                    <h2>Javascript</h2>
-                    <a href="/starter-js.html">View Details</a>
-                </div>
-                <div class="on-this-page">
-                    <h2>On This Page:</h2>
-                    <ul>
-                        <li>Site-wide Alert</li>
-                        <li>Grid system</li>
-                        <li>Typography classes</li>
-                        <li>Search Overlay</li>
-                        <li>Page Locker</li>
-                        <li>Body Scroll Tracker</li>
-                        <li>Scroll Locker</li>
-                        <li>LDH - style main nav</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>Variables</h2>
-                    <p>Variables refer to sass variables that are computed during transpilation. This is useful for when you don't need to calculate values in the browser (which may be computationally expensive). They are also necessary for things like media queries, where CSS custom properties aren't allowed. They are also useful for overwriting defaults in 3rd party libraries like Bootstrap.</p>
-                    <figure class="callout-file">
-                        <h3>Where to find them:</h3>
-                        <p>all variables can be found in the <code>_variables.scss</code> file.</p>
-                    </figure>
-                    <h3>Vendor Overrides</h3>
-                    <p>Most common here are the <code>$fa-font-path</code> variable for FontAwesome and for Bootstrap, <code>$font-family-sans-serif</code>, as well as a number of typography and color theming variables.</p>
-                    <h3>Breakpoints</h3>
-                    <p>These roughly follow the defaults from Bootstrap, but can be customized to your needs. the range from <code>$xs</code> to <code>$xxl</code>. There is also a matching set of +1 variables that are intended for use in min-width media queries.</p>
-                </div>
-                <div>
-                    <h2>Custom Properties (CSS Variables)</h2>
-                    <p>These are defined on the <code>:root</code> element and are used throughout the project. This should make the process of theming project fairly straightforward. A simple naming convention is use for the colors, font sizes, and spacing values. The colors are defined as HSB values in order to easily identify a color group by it's hue on a color wheel and judge it's value numerically. This also makes adding additional variables to a color group a bit more intuitive. Another key feature of these variables is that they can be changed by JS, css context, or media query, making them excellent candidates for dynamic values in components that need to change over time, such as <code>--header-height</code> which is re-calculated on page load and resize.</p>
-                    <figure class="callout-file">
-                        <h3>Where to find them:</h3>
-                        <p>All custom props can be found in the <code>_props.scss</code> file.</p>
-                    </figure>
-                </div>
-                <div>
-                    <h2>Custom Properties (CSS Variables)</h2>
-                    <p>These are defined on the <code>:root</code> element and are used throughout the project. This should make the process of theming project fairly straightforward. A simple naming convention is use for the colors, font sizes, and spacing values. The colors are defined as HSB values in order to easily identify a color group by it's hue on a color wheel and judge it's value numerically. This also makes adding additional variables to a color group a bit more intuitive. Another key feature of these variables is that they can be changed by JS, css context, or media query, making them excellent candidates for dynamic values in components that need to change over time, such as <code>--header-height</code> which is re-calculated on page load and resize.</p>
-                    <figure class="callout-file">
-                        <h3>Where to find them:</h3>
-                        <p>All custom props can be found in the <code>_props.scss</code> file.</p>
-                    </figure>
-                </div>
-                <div>
-                    <h2>Mixins</h2>
-                    <p>These are sass funcitons that encapsulate styles into a specific context, or add styles based on paramenters to a given selector.</p>
-                    <figure class="callout-file">
-                        <h3>Where to find them:</h3>
-                        <p>All mixins can be found in the <code>_mixins.scss</code> file.</p>
-                    </figure>
-                </div>
-                <div>
-                    <div class="text-style-block" style="min-height: 80px">
-                        <span class="title">h1 + fs-h1</span>
-                        <h1 class="content">Lorem ipsum dolor sit amet.</h1>
-                    </div>
-                    <div class="text-style-block" style="min-height: 80px">
-                        <span class="title">h2 + fs-h2</span>
-                        <h2 class="content">Lorem ipsum dolor sit amet.</h2>
-                    </div>
-                    <div class="text-style-block" style="min-height: 70px">
-                        <span class="title">h3 + fs-h3</span>
-                        <h3 class="content">Lorem ipsum dolor sit amet.</h3>
-                    </div>
-                    <div class="text-style-block" style="min-height: 67px">
-                        <span class="title">h4 + fs-h4</span>
-                        <h4 class="content">Lorem ipsum dolor sit amet.</h4>
-                    </div>
-                    <div class="text-style-block" style="min-height: 69px">
-                        <span class="title">h5 + fs-h5</span>
-                        <h5 class="content">Lorem ipsum dolor sit amet.</h5>
-                    </div>
-                    <div class="text-style-block" style="min-height: 62px">
-                        <span class="title">h6 + fs-h6</span>
-                        <h6 class="content">Lorem ipsum dolor sit amet.</h6>
-                    </div>
-                    <div class="text-style-block" style="min-height: 80px">
-                        <span class="title">fs-xl</span>
-                        <p class="content fs-xl" style="max-width:520px">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo.</p>
-                    </div>
-                    <div class="text-style-block" style="min-height: 120px">
-                        <span class="title">fs-lg</span>
-                        <p class="content fs-lg" style="max-width:540px">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo doloremque.</p>
-                    </div>
-                    <div class="text-style-block" style="min-height: 120px">
-                        <span class="title">fs-md</span>
-                        <p class="content fs-md" style="max-width:520px">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo doloremque, porro rerum.</p>
-                    </div>
-                    <div class="text-style-block" style="min-height: 120px">
-                        <span class="title">fs-sm</span>
-                        <p class="content fs-sm" style="max-width:520px">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo doloremque, porro rerum, inventore ab nisi suscipit.</p>
-                    </div>
-                    <div class="text-style-block" style="min-height: 120px">
-                        <span class="title">fs-xs</span>
-                        <p class="content fs-xs" style="max-width:520px">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo doloremque, porro rerum, inventore ab nisi suscipit id.</p>
-                    </div>
-                    <div class="spacer-blocks">
-                        <div class="spacer-block"><span>sp-1</span></div>
-                        <div class="spacer-block"><span>sp-2</span></div>
-                        <div class="spacer-block"><span>sp-3</span></div>
-                        <div class="spacer-block"><span>sp-4</span></div>
-                        <div class="spacer-block"><span>sp-5</span></div>
-                        <div class="spacer-block"><span>sp-6</span></div>
-                        <div class="spacer-block"><span>sp-7</span></div>
-                        <div class="spacer-block"><span>sp-8</span></div>
-                        <div class="spacer-block"><span>sp-9</span></div>
-                        <div class="spacer-block"><span>sp-10</span></div>
-                        <div class="spacer-block"><span>sp-11</span></div>
-                        <div class="spacer-block"><span>sp-12</span></div>
-                        <div class="spacer-block"><span>sp-13</span></div>
-                        <div class="spacer-block"><span>sp-14</span></div>
-                        <div class="spacer-block"><span>sp-15</span></div>
-                        <div class="spacer-block"><span>sp-16</span></div>
-                        <div class="spacer-block"><span>sp-17</span></div>
-                        <div class="spacer-block"><span>sp-18</span></div>
-                        <div class="spacer-block"><span>sp-19</span></div>
-                        <div class="spacer-block"><span>sp-20</span></div>
-                    </div>
+        <main class="uber-grid">
+            <figure class="hp-hero c10 c-last">
+                <img src="/img/hero.jpg" alt="hero image">
+            </figure>
+            <section class="intro c6 xl:c5 c-second">
+                <h1>
+                    Moving forward, <br>
+                    <em>together.</em>
+                </h1>
+                <p>In 2020, Ochsner Health teamed up with officials from state and local government and organizations throughout Louisiana to launch Healthy State, a bold plan to achieve better health for every Louisianan. By engaging with healthcare, community, education and policy organizations from across the state, we are working together to tackle the leading causes of poor health.</p>
+                <div class="scroll-msg">
+                    <p class="cta">Scroll to Explore our areas of priority</p>
+                    <img class="arrow" src="/img/arrow.svg" width="29.5" height="350" alt="scroll instruction arrow" role="presentation">
                 </div>
             </section>
-            <section class="cont">
-                <div class="col-label">
-                    this is a container
-                </div>
-            </section>
-            <section class="grid">
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-            </section>
-            <section class="uber-grid">
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label all:c1"></div>
-                <div class="col-label"></div>
+            <div class="intro-path-box">
+                <svg class="intro-path">
+                    <circle cx="72" cy="72" r="72" />
+                    <line class="line1" x1="0" y1="72" x2="0" y2="100%" />
+                    <line class="line2" x1="0" y1="100%" x2="100%" y2="100%" />
+                </svg>
+                <!-- <svg class="intro-path-1" viewBox="0 0 65 90">
+                    <path vector-effect="non-scaling-stroke" d="M55,5S5,14.931,5,81.965m" />
+                </svg>
+                <svg class="intro-path-2" viewBox="0 0 10 100" height="200">
+                </svg>
+                <svg class="intro-path-3" viewBox="0 0 100 20">
+                    <line vector-effect="non-scaling-stroke" y1="1" x1="1" y2="1" x2="99" />
+                </svg> -->
+            </div>
+            <!-- <img class="intro-path" src="/img/hero-path.svg" alt="decorative animated path" role="presentation"> -->
+            <section class="improve">
+                <h2><strong>Improvement</strong>Is Possible.</h2>
+                <p>Our mission? To inspire healthier lives and stronger communities through partnership. Our vision? To create a more equitable and healthier Louisiana by bringing resources to underserved areas, raising awareness of health and social impact, leveraging data, technology, and innovation, and investing in economic growth and workforce development.</p>
             </section>
         </main>
         {{> footer }}

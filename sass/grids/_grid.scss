@@ -1,10 +1,7 @@
 :root {
     --cols: 12;
-    --gap: 44px; //gap between columns
-    --gutter: 110px; //gutter on the sides of the container
-    @media (max-width: $xl) {
-        --gap: 34px;
-    }
+    --gap: 30px; //gap between columns
+    --gutter: 100px; //gutter on the sides of the container
     @media (max-width: $lg) {
         --gutter: 50px;
     }
@@ -15,12 +12,14 @@
 
     // necessary for grid calculations; do no modify (below)
     --container-width: 100%;
-    --grid-width: calc(var(--container-width) - var(--gutter) * 2);
     @each $size in $bps {
         @media (min-width: $size) {
             --container-width: #{$size};
         }
     }
+}
+:is(.cont, .grid, .uber-grid) {
+    --grid-width: calc(var(--container-width) - var(--gutter) * 2);
 }
 .cont {
     margin-left: auto;

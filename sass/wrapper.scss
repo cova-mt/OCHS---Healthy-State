@@ -13,7 +13,6 @@
 @import "components/search-overlay";
 @import "components/footer";
 @import "components/site-alert";
-@import "components/top-nav";
 @import "components/main-nav";
 
 // wrapper styles:
@@ -52,8 +51,4 @@ main {
     position: relative;
     z-index: 1;
     flex: 1 0 auto;
-}
-
-footer {
-    background-color: var(--c1d3);
 }

@@ -1,21 +1,20 @@
 .site-alert {
     grid-column: 1 / -1;
+    grid-row: alert;
     max-height: 0;
     @include t-hidden(max-height);
     overflow: hidden;
     background-color: var(--c5);
     align-items: center;
-    font-size: 0.9em;
-    @media (max-width: $lg) {
-        font-size: 0.85em;
-    }
+    font-size: 0.935rem;
+    color: white;
     &[data-open="true"] {
         @include t-visible(max-height);
         max-height: var(--open-height);
     }
     .alert-cont {
-        padding: var(--sp-4);
-        color: white;
+        padding: var(--sp-4) var(--sp-5);
+        color: inherit;
         display: flex;
         @media (min-width: $lgp) {
             align-items: center;
@@ -29,6 +28,7 @@
     p {
         flex: 1 1 auto;
         margin: 0 5px 0 0;
+        color: inherit;
         @media (min-width: $lgp) {
             margin: 0 25px;
         }
@@ -39,7 +39,7 @@
         }
         a {
             text-decoration: underline;
-            color: white;
+            color: inherit;
             &:hover {
                 text-decoration: none;
             }
@@ -49,11 +49,13 @@
         text-transform: uppercase;
     }
     button {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 100%;
         border: none;
         color: inherit;
-        font-size: 1.5em;
+        font-size: 1.4em;
         line-height: 1;
         @include icon-reg(regular, times);
         width: 35px;
@@ -61,6 +63,7 @@
         background-color: var(--c5);
         flex: 0 0 auto;
         padding: 0;
+        margin: calc(-1 * var(--sp-3)) calc(-1 * var(--sp-3)) calc(-1 * var(--sp-3)) 0;
         @media (max-width: $lg) {
             align-self: baseline;
         }
@@ -72,17 +75,21 @@
         }
     }
     &.notice {
-        background-color: var(--c1d3);
+        background-color: var(--c2l1);
+        color: black;
         .alert-cont::before {
             content: none;
         }
-        p::before {
-            content: "Notice: ";
+        p {
+            margin: 0;
+            &::before {
+                content: "Notice: ";
+            }
         }
         button {
-            background-color: var(--c1d3);
+            background-color: var(--c2l1);
             &:hover {
-                background-color: var(--c1d1);
+                background-color: var(--c2);
             }
         }
     }

@@ -1,18 +1,148 @@
-// component imports:
-@import "components/design-system-preview";
-// Homepage Styles:
-main {
-    section {
-        margin-top: var(--sp-7);
-        margin-bottom: var(--sp-7);
+img {
+    max-width: 100%;
+}
+.hp-hero {
+    position: relative;
+    grid-row: 1;
+    align-self: start;
+    margin: 0;
+    margin-left: var(--gap);
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0 40% 0 0;
+        background: linear-gradient(to right, white, transparent);
+        z-index: 1;
     }
 }
-.feature-pod {
-    background: var(--c1l2);
-    padding: var(--sp-4);
-    border-radius: var(--sp-2);
-    h2 {
-        font-size: var(--fs-5);
+.intro {
+    align-self: start;
+    margin-top: calc(var(--brand-height) + var(--sp-10));
+    margin-left: calc(-1 * var(--gap));
+    z-index: 2;
+    grid-row: 1;
+    position: relative;
+    background-color: var(--c1d1t1);
+    padding: var(--sp-11) var(--sp-11) var(--sp-6);
+    border-radius: var(--sp-11) 0 0 0;
+    h1 {
+        color: white;
+        font-size: 2.5rem;
+        line-height: 0.9;
         font-weight: 700;
+        margin-bottom: var(--sp-5);
+        em {
+            color: var(--c4l1);
+            font-style: normal;
+        }
+    }
+    p {
+        color: white;
+        margin-bottom: var(--sp-9);
+        font-size: var(--fs-lg);
+        line-height: 1.39;
+    }
+    .scroll-msg {
+        padding-left: var(--sp-6);
+        position: relative;
+    }
+    .cta {
+        color: var(--c4l1);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1.17rem;
+        font-weight: 700;
+        // text-wrap: balance;
+        max-width: 280px;
+        margin-bottom: 0;
+        line-height: 1.2;
+    }
+    .arrow {
+        display: block;
+        position: absolute;
+        top: calc(-1 * var(--sp-3));
+        left: 0;
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.intro-path-box {
+    grid-row: 1;
+    z-index: -1;
+    margin-top: calc(var(--brand-height) + var(--sp-10));
+    margin-left: calc(-1 * var(--gap));
+    grid-template-rows: 90px auto auto;
+    svg {
+        display: block;
+        margin: calc(-1 * var(--sp-4));
+        width: calc(100% + var(--sp-8));
+        height: calc(100% + var(--sp-7));
+        overflow: visible;
+        --size: 72px;
+    }
+    :is(circle, path, line) {
+        fill: none;
+        stroke: var(--c3l1);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 10px;
+    }
+
+    circle {
+        cx: var(--size);
+        cy: var(--size);
+        r: var(--size);
+        --c: calc(2 * 3.14 * var(--size));
+        --c1: calc(var(--c) / 4);
+        stroke-dasharray: var(--c1), var(--c);
+        stroke-dashoffset: calc(var(--c) * 0.75);
+        animation: 1s cin ease-in backwards;
+    }
+    .line1 {
+        --l1l: 850px;
+        stroke-dasharray: var(--l1l), var(--l1l);
+        stroke-dashoffset: var(--l1l);
+        animation: 1s 1s lin forwards;
+    }
+    .line2 {
+        --l2l: 1250px;
+        stroke-dasharray: var(--l2l), var(--l2l);
+        stroke-dashoffset: var(--l2l);
+        animation: 2s 1.5s lin var(--easing) forwards;
+    }
+    @keyframes cin {
+        from {
+            stroke-dashoffset: 0;
+        }
+    }
+    @keyframes lin {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+}
+.improve {
+    grid-column: 3/-3;
+    margin-top: var(--sp-17);
+    margin: var(--sp-17) calc(-1 * var(--gap)) 0;
+    display: grid;
+    grid-template-columns: subgrid;
+    h2 {
+        grid-column: span 3;
+        font-size: 3.64em;
+        line-height: 1;
+        color: var(--c1d1);
+        text-transform: uppercase;
+    }
+    strong {
+        display: block;
+        font-size: 0.76em;
+        color: var(--c1);
+    }
+    p {
+        grid-column: span 7;
+        line-height: 1.4;
+        margin: var(--sp-1) 0;
+        font-size: 1.06em;
     }
 }

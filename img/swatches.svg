@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 563.704 398.511">
+    <defs>
+        <style>
+            .d,
+            .e,
+            .f,
+            .g,
+            .h,
+            .i,
+            .j,
+            .k,
+            .l,
+            .m,
+            .n,
+            .o,
+            .p,
+            .q,
+            .r,
+            .s {
+                stroke-width: 0px;
+            }
+
+            .d,
+            .h {
+                fill: #2a4060;
+            }
+
+            .e {
+                fill: #cc4d31;
+            }
+
+            .f {
+                fill: #da7963;
+            }
+
+            .g {
+                fill: #d6b125;
+            }
+
+            .h {
+                mix-blend-mode: multiply;
+                opacity: .94;
+            }
+
+            .i {
+                fill: #5896d1;
+            }
+
+            .j {
+                fill: #348749;
+            }
+
+            .k {
+                fill: #5cbf76;
+            }
+
+            .l {
+                fill: #f0e3b1;
+            }
+
+            .m {
+                fill: #b19125;
+            }
+
+            .n {
+                fill: #90d3a2;
+            }
+
+            .o {
+                fill: #df8c79;
+            }
+
+            .p {
+                fill: #3b6db1;
+            }
+
+            .t {
+                isolation: isolate;
+            }
+
+            .q {
+                fill: #fff;
+            }
+
+            .r {
+                fill: #8e741e;
+            }
+
+            .s {
+                fill: #41a85a;
+            }
+        </style>
+    </defs>
+    <g class="t">
+        <g id="b">
+            <g id="c">
+                <rect class="q" width="563.704" height="398.511" />
+                <!-- 1 -->
+                <rect class="i" x="56.802" y="104.893" width="95.216" height="95.216" />
+                <rect class="p" x="56.802" y="200.109" width="95.216" height="95.216" />
+                <rect class="d" x="56.802" y="295.325" width="95.216" height="95.216" />
+                <rect class="h" x="9.194" y="295.325" width="95.216" height="95.216" />
+                <!-- 2 -->
+                <rect class="l" x="190.138" y="9.678" width="95.216" height="95.216" />
+                <rect class="g" x="190.138" y="104.893" width="95.216" height="95.216" />
+                <rect class="m" x="190.138" y="200.109" width="95.216" height="95.216" />
+                <rect class="r" x="190.138" y="295.325" width="95.216" height="95.216" />
+                <!-- 3 -->
+                <rect class="o" x="323.474" y="104.893" width="95.216" height="95.216" />
+                <rect class="f" x="323.474" y="200.109" width="95.216" height="95.216" />
+                <rect class="e" x="323.474" y="295.325" width="95.216" height="95.216" />
+                <!-- 4 -->
+                <rect class="n" x="456.81" y="9.678" width="95.216" height="95.216" />
+                <rect class="k" x="456.81" y="104.893" width="95.216" height="95.216" />
+                <rect class="s" x="456.81" y="200.109" width="95.216" height="95.216" />
+                <rect class="j" x="456.81" y="295.325" width="95.216" height="95.216" />
+            </g>
+        </g>
+    </g>
+</svg>

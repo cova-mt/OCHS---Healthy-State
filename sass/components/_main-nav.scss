@@ -128,6 +128,7 @@
     }
     ul {
         padding: 0;
+        margin: 0;
         line-height: 1;
         @media (max-width: $lg) {
             overflow-x: hidden;
@@ -139,73 +140,63 @@
     li {
         list-style: none;
         position: unset;
-        font-size: 0.9rem;
-        line-height: 1.2;
-        @media (max-width: $lg) {
-            border-bottom: 1px solid var(--c1d3t2);
-        }
+        line-height: 1;
+        display: grid;
+        grid-template-areas:
+            "link      button"
+            "sub-group sub-group";
+        grid-template-columns: auto auto;
+        grid-template-rows: auto 0px;
+        align-content: end;
     }
     :is(a, button) {
         display: block;
-        color: inherit;
+        color: var(--c1d1);
         text-wrap: balance;
         text-decoration: none;
-        font-weight: inherit;
-        padding: 4px 1px;
-        line-height: inherit;
-        letter-spacing: -0.02em;
+        font-size: var(--fs-md);
+        padding: var(--sp-3) 14px;
+        border-radius: var(--sp-2);
+        line-height: 1;
         @include t;
-        @media (max-width: $lg) {
-            padding: 10px;
-            &:hover {
-                background-color: var(--c4l2);
-                font-weight: 600;
-                letter-spacing: -0.04em;
-            }
-        }
-        &::after {
-            letter-spacing: normal;
-            color: var(--c3);
-            @media (min-width: $lgp) {
-                padding-left: 5px;
-            }
+        &:hover {
+            color: var(--c1);
         }
     }
     a {
-        @media (min-width: $lgp) {
-            @include icon-reg(regular, circle-chevron-right);
-            &::after {
-                @include t(opacity);
-                opacity: 0;
-                transform: translateY(1px);
-            }
-            &:hover::after {
-                opacity: 1;
-            }
-        }
-        @media (max-width: $lg) {
-            flex: 1 1 auto;
-            width: calc(100% - 40px);
-            + .sub-open {
-                border-left: 1px solid var(--c1d3t2);
-                text-align: right;
-            }
+        grid-area: link;
+        &:hover {
+            background-color: white;
         }
     }
     button {
         background-color: transparent;
-        border: none;
+        border: 0;
+        overflow: hidden;
+        position: relative;
+        @include t(color);
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: white;
+            z-index: -1;
+            @include t(transform);
+        }
+        &::after {
+            color: var(--c2);
+        }
+        &:hover::before {
+            transform: translate3d(0, 0, 0);
+        }
     }
 
+    // element classes
     .top-list {
-        margin-bottom: 0;
-        min-height: 100%;
         @media (min-width: $lgp) {
             display: flex;
             justify-content: flex-end;
-        }
-        @media (min-width: $xxlp) {
-            margin-top: 5px;
+            align-items: center;
         }
         @media (max-width: $lg) {
             padding: 0 var(--mobile-nav-padding);
@@ -214,137 +205,33 @@
     .top-item {
         font-weight: 500;
         @media (min-width: $lgp) {
-            color: var(--c1d2);
-            margin-left: 5px;
-            font-size: 0.9em;
             &:first-child {
                 margin-left: 0;
-            }
-            &[data-cols] {
-                position: relative;
-                > .sub-group {
-                    top: 40px;
-                    padding-top: 18px;
-                    left: calc(50% + var(--flyout-offset, 0px));
-                    transform: translate3d(-50%, 0, 0);
-                    width: unset;
-                    > .sub-list {
-                        padding: 0 30px;
-                    }
-                }
-            }
-            &[data-cols="3"] > .sub-group > .sub-list {
-                columns: 3;
-                width: 700px;
-            }
-            &[data-cols="2"] > .sub-group > .sub-list {
-                columns: 2;
-                width: 500px;
-            }
-            &[data-cols="1"] > .sub-group > .sub-list {
-                columns: unset;
-                width: 300px;
-            }
-            > .sub-group {
-                position: absolute;
-                width: 100%;
-                top: 100%;
-                left: 0;
-                box-shadow: 0px 13px 10px 0 rgba(0, 0, 0, 0.5);
-                > .sub-list {
-                    padding: 15px 0;
-                }
-                > ul > li > a:only-child {
-                    margin-bottom: 5px;
-                }
-            }
-            > [aria-expanded="true"] {
-                letter-spacing: -0.05em;
-                font-weight: 700;
-                &::before {
-                    transform: scale3d(1, 1, 1);
-                }
-                &::after {
-                    transform: translate3d(5px, 0, 0) rotate3d(0, 0, 1, -180deg);
-                }
-                + .sub-group {
-                    opacity: 1;
-                    @include t-visible(opacity);
-                    .sub-group {
-                        opacity: 1;
-                        @include t-visible(opacity);
-                    }
-                }
-            }
-        }
-        @media (min-width: 1120px) {
-            margin-left: 15px;
-        }
-        @media (min-width: $xxlp) {
-            font-size: 1.05em;
-        }
-        @media (max-width: $lg) {
-            display: flex;
-            color: black;
-            font-weight: 400;
-            margin: 0;
-            padding: 3.5px 0;
-            > .sub-group {
-                overflow: hidden;
             }
         }
         > :is(a, button) {
             position: relative;
-            line-height: 1.2;
+            color: var(--c1d1);
+            font-weight: 600;
+            font-size: var(--fs-lg);
+            letter-spacing: 0.005em;
             @include t;
-            @media (min-width: $lgp) {
-                @include icon-reg(solid, chevron-down);
-                padding: 0;
-                &:hover::before {
-                    transform: scale3d(1, 1, 1);
-                }
-                &::before {
-                    position: absolute;
-                    bottom: -8px;
-                    left: 0;
-                    width: 100%;
-                    height: 4px;
-                    border-radius: 4px;
-                    background-color: var(--c3);
-                    transform: scale3d(0, 1, 1);
-                    @include t(transform);
-                    transform-origin: left;
-                    content: "";
-                }
-                &::after {
-                    align-self: center;
-                }
-            }
-            @media (min-width: $lgp) and (max-width: $xl) {
-                letter-spacing: -0.5px;
-            }
-            &::after {
-                @include t(transform);
-                color: var(--c3);
-                padding-left: 5px;
-                opacity: 1;
-                @media (max-width: $xl) {
-                    padding-left: 3px;
-                }
-            }
+        }
+        > .sub-group {
+            border-radius: 0 0 var(--sp-4) var(--sp-4);
         }
     }
     .sub-group {
+        grid-area: sub-group;
         z-index: 2;
+        place-self: start stretch;
         background-color: white;
-        padding-bottom: 20px;
-
+        overflow: hidden;
         @media (min-width: $lgp) {
-            opacity: 0;
-            @include t-hidden(opacity);
-            .sub-group .sub-group {
-                display: none;
-            }
+            box-shadow: 0px 13px 10px 0 rgba(0, 0, 0, 0.5);
+            max-height: 0;
+            @include t-hidden(max-height);
+            display: flex;
         }
         @media (max-width: $lg) {
             position: absolute;
@@ -360,57 +247,33 @@
         }
     }
     .sub-list {
+        padding: 0 var(--sp-2);
         @media (min-width: $lgp) {
-            columns: 4;
+            width: 50px;
+            flex: 1 1 auto;
         }
         @media (max-width: $lg) {
             padding: 0 var(--mobile-nav-padding);
         }
-        .sub-list {
-            columns: unset;
-        }
     }
     .sub-item {
         color: var(--c1);
-        font-size: 1.05em;
-        font-weight: 700;
-        margin: 0;
-        break-inside: avoid;
-        @media (max-width: $lg) {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 4px 0;
-            border-bottom: 1px solid var(--c1d3t2);
-            color: black;
-            font-weight: 400;
+        border-bottom: 1px solid var(--c1d1t1);
+        margin-bottom: var(--sp-1);
+        padding-bottom: var(--sp-1);
+        &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
-        .sub-item {
-            color: black;
-            font-weight: 400;
-            font-size: 0.9em;
-            > :is(a, button) {
-                &:hover {
-                    font-weight: 600;
-                    letter-spacing: -0.04em;
-                }
-            }
+        :is(a, button) {
+            border-radius: 0;
+            color: var(--c1);
+            font-weight: 600;
+            font-size: var(--fs-sm);
+            padding: var(--sp-2);
         }
     }
-    [aria-expanded="true"] + div {
-        @media (min-width: $lgp) {
-            li {
-                --delay: calc((0.1s * var(--animIndex, 1)) + 0.05s * var(--liAnimIndex));
-                animation: fadeLeft 0.5s var(--delay) var(--easing) backwards;
-            }
-        }
-        @media (max-width: $lg) {
-            > ul > li {
-                --delay: calc(0.1s * var(--liAnimIndex));
-                animation: fadeLeft 0.5s var(--delay) var(--easing) backwards;
-            }
-        }
-    }
-    :is(.sub-name, .sub-open, .sub-close) {
+    :is(.sub-name, .sub-close) {
         @media (min-width: $lgp) {
             display: none;
         }
@@ -434,11 +297,19 @@
         }
     }
     .sub-open {
+        grid-area: button;
+        border-radius: var(--sp-5) var(--sp-5) 0 0;
+        @include icon-reg(solid, chevron-down);
+        &::after {
+            margin-top: -2px;
+        }
         @media (min-width: $lgp) {
-            display: none;
+            &:hover + .sub-group {
+                max-height: var(--sub-height, 200px);
+                @include t-visible(max-height);
+            }
         }
         @media (max-width: $lg) {
-            min-width: 40px;
             @include icon-reg(regular, circle-chevron-right);
             &:hover {
                 @include icon-reg(solid, circle-chevron-right);
@@ -452,13 +323,30 @@
             }
         }
         &:first-child {
-            display: flex;
-            @media (max-width: $lg) {
-                cursor: pointer;
-                width: 100%;
-                align-items: center;
-                justify-content: space-between;
-                z-index: 1;
+            grid-column: link / button;
+            &::after {
+                padding-left: 5px;
+            }
+        }
+        &:nth-child(2) {
+            padding: var(--sp-1);
+            margin-left: calc(-1 * var(--sp-1));
+        }
+        &::before {
+            transform: translate3d(0, 100%, 0);
+        }
+        &[aria-expanded="true"] {
+            @media (min-width: $lgp) {
+                &::after {
+                    transform: rotate3d(0, 0, 1, 180deg);
+                }
+                &:first-child::after {
+                    transform: rotate3d(0, 0, 1, 180deg) translate3d(-10px, 0, 0);
+                }
+                + .sub-group {
+                    max-height: var(--sub-height, 200px);
+                    @include t-visible(max-height);
+                }
             }
         }
     }

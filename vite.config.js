@@ -59,7 +59,7 @@ export default defineConfig(async ({ command, mode }) => {
             handlebars({
                 partialDirectory: [resolve(__dirname, 'partials'), resolve(__dirname, 'wysiwyg/snippets')],
                 context: {
-                    siteTitle: 'Starter',
+                    siteTitle: 'Healthy State',
                     navItems: navStructure
                 },
                 helpers: {

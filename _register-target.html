@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {{> head-meta page-title='Home' }}
+        <script type="module">
+            // styles
+            import './sass/wrapper.scss';
+            import './sass/register-target.scss';
+        </script>
+    </head>
+
+    <body>
+        <section class="scroll">
+            <div class="page-checker">
+                <p>width: <strong>1440</strong>px</p>
+            </div>
+        </section>
+        <section class="scroll">
+            <div class="container-checker">
+                <p>width: <strong>1200</strong>px</p>
+            </div>
+        </section>
+
+        <section class="cont">
+            <h2 class="section-title">Typography:</h2>
+            <dl class="typography-grid">
+                <dt>h1 + fs-h1</dt>
+                <dd>
+                    <h1>Lorem ipsum dolor sit amet.</h1>
+                </dd>
+                <dt>h2 + fs-h2</dt>
+                <dd>
+                    <h2>Lorem ipsum dolor sit amet.</h2>
+                </dd>
+                <dt>h3 + fs-h3</dt>
+                <dd>
+                    <h3>Lorem ipsum dolor sit amet.</h3>
+                </dd>
+                <dt>h4 + fs-h4</dt>
+                <dd>
+                    <h4>Lorem ipsum dolor sit amet.</h4>
+                </dd>
+                <dt>h5 + fs-h5</dt>
+                <dd>
+                    <h5>Lorem ipsum dolor sit amet.</h5>
+                </dd>
+                <dt>h6 + fs-h6</dt>
+                <dd>
+                    <h6>Lorem ipsum dolor sit amet.</h6>
+                </dd>
+                <dt>fs-xl</dt>
+                <dd class="fs-xl">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo.</dd>
+                <dt>fs-lg</dt>
+                <dd class="fs-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo doloremque.</dd>
+                <dt>fs-md</dt>
+                <dd class="fs-md">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo doloremque, porro rerum.</dd>
+                <dt>fs-sm</dt>
+                <dd class="fs-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo doloremque, porro rerum, inventore ab nisi suscipit.</dd>
+                <dt>fs-xs</dt>
+                <dd class="fs-xs">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem laudantium eos aperiam consectetur explicabo doloremque, porro rerum, inventore ab nisi suscipit id.</dd>
+            </dl>
+        </section>
+        <section class="cont">
+            <h2 class="section-title">Spacing:</h2>
+            <div class="spacer-grid">
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+
+            </div>
+        </section>
+        <section class="grid">
+            <h2 class="section-title">Colors:</h2>
+            <div class="color-grid">
+                <div class="color"></div>
+                <div class="color"></div>
+                <div class="color"></div>
+                <div class="color"></div>
+                <div class="color"></div>
+            </div>
+        </section>
+        <section class="grid">
+            <h2 class="section-title">Grid: (default)</h2>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest full"></div>
+        </section>
+        <section class="grid gaptest">
+            <h2 class="section-title">Grid: (custom gap)</h2>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest full"></div>
+        </section>
+        <section class="grid columntest">
+            <h2 class="section-title">Grid: (custom columns)</h2>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest full"></div>
+        </section>
+        <section class="grid guttertest">
+            <h2 class="section-title">Grid: (custom gutter)</h2>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest full"></div>
+        </section>
+        <section class="uber-grid">
+            <h2 class="section-title">Uber grid: (default grid, but with gutter columns)</h2>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest"></div>
+            <div class="coltest full"></div>
+        </section>
+    </body>
+
+</html>

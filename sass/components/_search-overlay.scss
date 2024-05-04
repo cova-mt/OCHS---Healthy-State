@@ -16,7 +16,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-color: var(--c1d3);
+        background-color: var(--c1d1);
         opacity: 0.7;
         z-index: -1;
     }
@@ -42,7 +42,7 @@
         padding: 5px 8px;
         border: 1px solid white;
         background-color: white;
-        color: var(--c1d3);
+        color: var(--c1d1);
         @include t(background-color, color);
         &:hover {
             background-color: var(--c1d1);
@@ -64,7 +64,7 @@
     }
     &:focus {
         outline: 2px solid cornflowerblue;
-        background-color: var(--c1d3t1);
+        background-color: var(--c1d1t1);
     }
 }
 #search-submit {

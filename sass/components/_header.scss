@@ -1,52 +1,54 @@
 #site-header {
-    background-color: white;
+    --gap: 24px;
     z-index: 2;
     position: sticky;
     top: 0;
-    display: grid;
-    column-gap: 24px;
-    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
-    grid-auto-flow: dense;
-    grid-template-columns: auto 1fr auto auto auto;
-    --brand-width: 310px;
+    margin-bottom: calc(-1 * (var(--brand-height) + var(--sp-8)));
     transform: translate3d(0, 0, 0);
     @include t(transform);
-    @media (max-width: $xl) {
-        --brand-width: 250px;
-    }
-    @media (max-width: $lg) {
-        --brand-width: 230px;
-    }
-    @media (max-width: 380px) {
-        --brand-width: 180px;
-    }
-    @each $name, $size in $container-max-widths {
-        @media (min-width: map.get($grid-breakpoints, $name)) {
-            $width: calc($size - var(--brand-width) - 24px);
-            grid-template-columns: 1fr var(--brand-width) minmax(auto, $width) minmax(min-content, 1fr);
-        }
+    grid-template-rows:
+        [alert-start]
+        auto
+        [alert-end nav-start brand-start]
+        auto
+        [nav-end]
+        1fr
+        [brand-end];
+    align-items: start;
+    &::before {
+        content: "";
+        grid-column: 1 / -1;
+        align-self: stretch;
+        grid-row: nav;
+        background: linear-gradient(to left, white, transparent);
+        z-index: -1;
     }
     &.hide {
         transform: translate3d(0, calc(-1 * var(--header-height)), 0);
     }
     .brand {
-        grid-column: 2;
-        align-self: center;
-        padding-right: 10px;
+        grid-column: content-start / span 3;
+        grid-row: brand;
+        padding-right: var(--sp-3);
+        margin: var(--sp-5) 0;
+        justify-self: start;
         img {
-            width: var(--brand-width);
+            height: var(--brand-height);
+            width: 100%;
         }
     }
     .nav-group {
-        grid-column: 3;
-        padding: 24px 0 28px;
-        @media (min-width: $lgp) and (max-width: $xl) {
-            margin: 0 -12px;
+        grid-column: span 10 / content-end;
+        grid-row: nav;
+        margin: var(--sp-5) 0;
+        display: flex;
+        justify-content: flex-end;
+        @media (min-width: $lgp) {
+            margin-right: calc(var(--sp-7) - var(--sp-1));
         }
         @media (max-width: $lg) {
             display: flex;
             flex-direction: column;
-            grid-column: unset;
             padding: 0;
             z-index: 2;
             position: fixed;
@@ -66,70 +68,28 @@
             width: 260px;
         }
     }
-    .nav-scroll-group {
-        display: grid;
-        grid-template-rows: auto 1fr;
-        @media (min-width: $lgp) {
-            display: grid;
-            row-gap: 12px;
-        }
-        @media (max-width: $lg) {
-            flex: 1 1 auto;
-            overflow: hidden auto;
-        }
-    }
-    .menu-title {
-        display: none;
-        @media (max-width: $lg) {
-            display: block;
-            line-height: 1;
-            padding: 7.5px 17px;
-            height: 38px;
-            background-color: var(--c3d1);
-            font-size: 1.2em;
-            text-transform: uppercase;
-            color: white;
-            @include icon-reg(regular, bars, before);
-            letter-spacing: 0.01em;
-            &::before {
-                font-size: 1.2em;
-                margin-right: 10px;
-            }
-        }
-    }
+
     #site-search-open {
-        align-self: center;
-        grid-column: -2 / -1;
+        font-size: var(--fs-xl);
+        margin: var(--sp-6) 0;
+        @media (min-width: $xlp) {
+            margin-right: calc(-1 * var(--sp-1));
+        }
+        padding: var(--sp-1);
+        grid-column: span 1 / content-end;
+        grid-row: nav;
+        justify-self: end;
+        background-color: transparent;
         @include icon-reg(solid, search);
-        background-color: white;
         border-radius: 100%;
         border: none;
-        padding: 0;
-        @media (min-width: $lgp) {
-            box-shadow: 0px 0px 15px -3px var(--c2l1);
-        }
-        font-size: 1.75em;
-        color: var(--c3);
-        width: 50px;
-        height: 50px;
-        margin-right: 24px;
-        margin-left: 12px;
-        @include t(background-color, color);
+        width: auto;
+        color: var(--c2);
+        line-height: 1;
+        min-width: var(--sp-6);
         &:hover {
             background-color: var(--c1);
             color: white;
-        }
-        @media (max-width: $lg) {
-            margin-left: -12px;
-        }
-        @media (max-width: $sm) {
-            grid-column: -3/-2;
-            margin-right: 0;
-        }
-        @media (max-width: $xs) {
-            width: 35px;
-            height: 35px;
-            font-size: 1.25em;
         }
     }
 }

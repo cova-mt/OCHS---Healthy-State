@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1174.882 539">
+    <defs>
+        <style>
+            .e {
+                fill: none;
+                stroke: #df8c79;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 10px;
+            }
+        </style>
+    </defs>
+    <g id="c">
+        <path id="d" class="e" d="M55,5S5,14.931,5,81.965c0,67.035,0,452.035,0,452.035h1164.882" />
+    </g>
+</svg>

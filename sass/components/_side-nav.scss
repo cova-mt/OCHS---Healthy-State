@@ -117,7 +117,7 @@
         position: unset;
         font-size: 0.9rem;
         line-height: 1.1;
-        border-bottom: 1px solid var(--c1d3t2);
+        border-bottom: 1px solid var(--c1d1t1);
     }
     :is(a, button) {
         display: block;
@@ -143,7 +143,7 @@
         flex: 1 1 auto;
         width: calc(100% - 40px);
         + .sub-open {
-            border-left: 1px solid var(--c1d3t2);
+            border-left: 1px solid var(--c1d1t1);
             text-align: right;
         }
     }
@@ -209,7 +209,7 @@ aside {
         display: flex;
         flex-wrap: wrap;
         padding: 4px 0;
-        border-bottom: 1px solid var(--c1d3t2);
+        border-bottom: 1px solid var(--c1d1t1);
         color: black;
         font-weight: 400;
         .sub-item {

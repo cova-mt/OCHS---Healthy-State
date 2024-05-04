@@ -1,0 +1,177 @@
+@import "components/buttons";
+@import "wysiwyg/content";
+
+:root {
+    --tc: #41813a;
+    --tcd1: #34662f;
+    --tct1: #41813a25;
+}
+.scroll {
+    overflow-x: auto;
+}
+:is(.container-checker, .page-checker) {
+    background-color: var(--tc);
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    @include icon-reg(solid, chevron-right);
+    @include icon-reg(solid, chevron-left, before);
+    p {
+        flex: 1 1 auto;
+        isolation: isolate;
+        margin: 0;
+        text-align: center;
+        text-shadow: 0 0 1px 10px var(--tc);
+        display: flex;
+        align-items: center;
+        &::before,
+        &::after {
+            content: "";
+            flex: 1 1 auto;
+            z-index: -1;
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+        }
+    }
+}
+body {
+    padding-bottom: var(--sp-11);
+}
+section {
+    margin-top: var(--sp-11);
+}
+.page-checker {
+    width: 1440px;
+}
+.container-checker {
+    width: 1200px;
+}
+:is(.uber-grid, .grid, .cont) {
+    background-color: var(--tct1);
+}
+.section-title {
+    padding: 0 var(--sp-4);
+    display: flex;
+    height: var(--sp-11);
+    margin: 0;
+    align-items: center;
+}
+:is(.uber-grid, .grid) .section-title {
+    padding: var(--sp-4) 0 0;
+}
+.typography-grid {
+    display: grid;
+    grid-template-columns: auto minmax(auto, 800px);
+    row-gap: var(--sp-4);
+    padding: var(--sp-4);
+    margin: 0;
+    :is(dt, dd) {
+        padding: var(--sp-2) var(--sp-4);
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    dt {
+        justify-content: center;
+        padding: var(--sp-8) var(--sp-4);
+        background-color: white;
+        line-height: 1;
+    }
+    :is(h1, h2, h3, h4, h5, h6) {
+        margin: 0;
+    }
+}
+.spacer-grid {
+    display: flex;
+    width: 100%;
+    column-gap: var(--sp-1);
+    padding: var(--sp-4);
+}
+.spacer {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30px;
+    text-align: center;
+    color: var(--tc);
+    counter-increment: spacer;
+    &::before {
+        content: "";
+        background-color: var(--tc);
+        width: 100%;
+    }
+    &::after {
+        content: counter(spacer);
+        padding-top: var(--sp-1);
+        line-height: 1;
+    }
+    @for $i from 1 through 22 {
+        &:nth-child(#{$i}) {
+            &::before {
+                height: var(--sp-#{$i});
+            }
+        }
+    }
+}
+.color-grid {
+    display: flex;
+    column-gap: var(--sp-4);
+    width: 100%;
+    justify-content: center;
+    padding: var(--sp-4);
+    background-color: white;
+    margin-bottom: var(--sp-4);
+}
+.color {
+    counter-increment: color;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    &::before {
+        content: "";
+        width: var(--sp-11);
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        border: 1px dashed var(--tcd1);
+    }
+    &::after {
+        content: "color: " counter(color) " ";
+        padding-top: var(--sp-1);
+        line-height: 1;
+    }
+    @for $i from 1 through 6 {
+        &:nth-child(#{$i})::before {
+            background-color: var(--c#{$i});
+        }
+    }
+}
+.coltest {
+    grid-column: span 1;
+    background-color: var(--tc);
+    border: 1px solid var(--tcd1);
+    border-radius: 10px;
+    min-height: 60px;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: var(--sp-4);
+    &.full {
+        grid-column: 1 / -1;
+    }
+}
+.gaptest {
+    --gap: 10px;
+}
+.guttertest {
+    --gutter: 200px;
+}
+.columntest {
+    --cols: 6;
+}

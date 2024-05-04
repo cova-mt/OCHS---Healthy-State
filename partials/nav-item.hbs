@@ -15,7 +15,7 @@
             {{/if}}
             <strong>{{@key}}</strong>
         </div>
-        <ul class="sub-list{{#if (isThis originItem @key)}} container{{/if}}">
+        <ul class="sub-list">
             {{#each item.children}}
                 <li class="sub-item">
                     {{> nav-item item=this originItem=../originItem}}

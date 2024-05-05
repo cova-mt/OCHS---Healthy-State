@@ -146,3 +146,178 @@ img {
         font-size: 1.06em;
     }
 }
+.priority-grid {
+    display: grid;
+    grid-column: content;
+    grid-template-columns: subgrid;
+    margin: var(--sp-11) 0;
+    row-gap: var(--gap);
+}
+.priority-card {
+    position: relative;
+    padding: var(--sp-2);
+    border: 3px solid var(--c1l3);
+    overflow: hidden;
+    border-radius: 0 var(--sp-15) 0 var(--sp-15);
+    display: flex;
+    flex-direction: column;
+    --img-height: 240px;
+    @include t(background-color, border-radius);
+    @include hoverOnly {
+        &:hover,
+        &.hover {
+            background-color: var(--c1d1);
+            border-radius: 0 var(--sp-15) 0 0;
+            .arrow-box span {
+                transform: translate3d(0, 0, 0);
+            }
+            .arrow {
+                color: var(--c1);
+            }
+            h3 {
+                color: white;
+            }
+            :is(h4, h3 em) {
+                color: var(--c1l2);
+            }
+            .details {
+                margin-top: 0;
+                padding-top: var(--sp-7);
+                background-color: var(--c1d1);
+                // transform: translate3d(0, calc(-1 * var(--img-height)), 0);
+            }
+            img {
+                transform: translate3d(0, calc(-0.5 * var(--img-height)), 0);
+            }
+            .collapsed {
+                max-height: var(--details-height, 300px);
+            }
+        }
+    }
+    img {
+        z-index: -1;
+        height: var(--img-height);
+        border-radius: 0 var(--sp-14) 0 0;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: var(--sp-2);
+        left: var(--sp-2);
+        right: var(--sp-2);
+        @include t(transform);
+    }
+    h3 {
+        color: var(--c1d1);
+        font-size: var(--h4);
+        font-weight: 600;
+        padding: var(--sp-8) var(--sp-9) 0;
+        @include t(color);
+        em {
+            font-style: normal;
+            font-weight: 700;
+            display: block;
+            font-size: var(--fs-xs);
+            text-transform: uppercase;
+            color: var(--c1);
+            line-height: 1.4;
+            @include t(color);
+        }
+    }
+    h4 {
+        color: var(--c1l1);
+        font-size: var(--fs-3xs);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .metrics {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        font-size: var(--fs-lg);
+        list-style: none;
+        margin-bottom: var(--sp-2);
+        color: var(--c3l2);
+        &::before {
+            padding-right: 5px;
+        }
+        span {
+            padding-left: 5px;
+            font-weight: 700;
+        }
+    }
+    .arrow-box {
+        pointer-events: none;
+        text-decoration: none;
+        overflow: hidden;
+        display: flex;
+        // width: 100%;
+        isolation: isolate;
+        position: absolute;
+        inset: var(--sp-2);
+        display: flex;
+        align-items: flex-end;
+
+        span {
+            height: var(--sp-10);
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background-color: var(--c4d1);
+            text-align: center;
+            color: white;
+            transform: translate3d(100%, 0, 0);
+            z-index: -1;
+            @include t(transform);
+        }
+    }
+    .arrow {
+        width: var(--sp-10);
+        height: var(--sp-10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include icon-reg(solid, arrow-right);
+        background-color: var(--c4);
+        color: white;
+        &::after {
+            font-size: var(--h3);
+        }
+    }
+    .collapsed {
+        padding: 0 var(--sp-9);
+        overflow: hidden;
+        max-height: 0;
+        @include t(max-height);
+        &::before {
+            content: "";
+            display: block;
+            width: var(--sp-11);
+            height: var(--sp-1);
+            border-radius: var(--sp-1);
+            background-color: var(--c4);
+            margin-bottom: var(--sp-6);
+            margin-left: calc(-1 * var(--sp-7));
+            margin-top: var(--sp-2);
+        }
+    }
+    .details {
+        width: 100%;
+        flex: 1 0 auto;
+        display: block;
+        margin-top: var(--img-height);
+        margin-bottom: var(--sp-6);
+        background-color: white;
+        @include t(margin-top, padding-top, background-color);
+    }
+    .coin {
+        @include icon-reg(solid, circle-dollar, before);
+    }
+    .grad {
+        @include icon-reg(solid, graduation-cap, before);
+    }
+}

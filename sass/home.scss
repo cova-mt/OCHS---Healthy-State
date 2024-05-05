@@ -164,8 +164,7 @@ img {
     --img-height: 240px;
     @include t(background-color, border-radius);
     @include hoverOnly {
-        &:hover,
-        &.hover {
+        &:hover {
             background-color: var(--c1d1);
             border-radius: 0 var(--sp-15) 0 0;
             .arrow-box span {
@@ -181,16 +180,17 @@ img {
                 color: var(--c1l2);
             }
             .details {
-                margin-top: 0;
-                padding-top: var(--sp-7);
+                // margin-top: 0;
+                // padding-top: var(--sp-7);
                 background-color: var(--c1d1);
-                // transform: translate3d(0, calc(-1 * var(--img-height)), 0);
+                transform: translate3d(0, calc(-1 * var(--img-height)), 0);
             }
             img {
                 transform: translate3d(0, calc(-0.5 * var(--img-height)), 0);
             }
-            .collapsed {
-                max-height: var(--details-height, 300px);
+            .collapsed-inner {
+                background-color: var(--c1d1);
+                --clip-top: 100%;
             }
         }
     }
@@ -249,7 +249,6 @@ img {
         }
     }
     .arrow-box {
-        pointer-events: none;
         text-decoration: none;
         overflow: hidden;
         display: flex;
@@ -289,10 +288,18 @@ img {
         }
     }
     .collapsed {
+        position: relative;
+    }
+    .collapsed-inner {
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        --clip-top: 0;
         padding: 0 var(--sp-9);
-        overflow: hidden;
-        max-height: 0;
-        @include t(max-height);
+        clip-path: polygon(0 0, 100% 0, 100% var(--clip-top), 0 var(--clip-top));
+        @include t(clip-path, background-color);
         &::before {
             content: "";
             display: block;
@@ -312,7 +319,8 @@ img {
         margin-top: var(--img-height);
         margin-bottom: var(--sp-6);
         background-color: white;
-        @include t(margin-top, padding-top, background-color);
+        @include t(transform, background-color);
+        min-height: var(--ch);
     }
     .coin {
         @include icon-reg(solid, circle-dollar, before);

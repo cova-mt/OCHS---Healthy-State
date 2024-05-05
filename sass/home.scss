@@ -147,11 +147,12 @@ img {
     }
 }
 .priority-grid {
+    --gap: 24px;
     display: grid;
     grid-column: content;
     grid-template-columns: subgrid;
     margin: var(--sp-11) 0;
-    row-gap: var(--gap);
+    gap: var(--gap);
 }
 .priority-card {
     position: relative;
@@ -241,6 +242,8 @@ img {
         margin-bottom: var(--sp-2);
         color: var(--c3l2);
         &::before {
+            display: inline-block;
+            width: 28px;
             padding-right: 5px;
         }
         span {
@@ -283,6 +286,7 @@ img {
         @include icon-reg(solid, arrow-right);
         background-color: var(--c4);
         color: white;
+        @include t(color);
         &::after {
             font-size: var(--h3);
         }
@@ -297,7 +301,7 @@ img {
         left: 0;
         width: 100%;
         --clip-top: 0;
-        padding: 0 var(--sp-9);
+        padding: 0 var(--sp-8) 0 var(--sp-9);
         clip-path: polygon(0 0, 100% 0, 100% var(--clip-top), 0 var(--clip-top));
         @include t(clip-path, background-color);
         &::before {
@@ -327,5 +331,62 @@ img {
     }
     .grad {
         @include icon-reg(solid, graduation-cap, before);
+    }
+}
+.partners {
+    margin-top: var(--sp-10);
+    text-align: center;
+    padding: var(--sp-10) 0;
+    background-color: var(--c1l3);
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: subgrid;
+
+    h2 {
+        grid-column: content;
+        font-size: var(--h4);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    p {
+        grid-column-start: 4;
+    }
+    > a {
+        min-width: 400px;
+    }
+    .btn {
+        grid-column: content;
+        text-decoration: none;
+        border: 1px solid var(--c1);
+        color: var(--c1);
+        display: inline-flex;
+        justify-self: center;
+        text-align: center;
+        @include icon-reg(solid, people-group);
+        --mx: var(--sp-6);
+        --my: var(--sp-4);
+        padding: var(--my) var(--mx);
+        font-size: var(--fs-xl);
+        font-weight: 700;
+        line-height: 1;
+        justify-content: space-between;
+        &::before {
+            content: "";
+            flex: 0 0 auto;
+            width: 0;
+        }
+        &::after {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+            font-size: 1.5rem;
+            padding: 0 calc(var(--mx) / 2);
+            border-left: 1px solid var(--c1);
+            --myn: calc(-1 * var(--my));
+            margin: var(--myn) 0;
+            transform: translateX(var(--mx));
+        }
     }
 }

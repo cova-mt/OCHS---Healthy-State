@@ -195,13 +195,13 @@
                 <h2>Healthy State Alliance</h2>
                 <p class="c8">The Healthy State Alliance brings together healthcare, community, education, and policy groups across Louisiana to promote collaboration, transparency, and support. This unified approach emphasizes teamwork, inclusivity, and shared responsibility - a comprehensive strategy to tackle the root causes of poor health.</p>
                 {{> hp-partners-carousel }}
-                <a href="/" class="btn partners-cta">Join Us. Be The Change.</a>
+                <a href="/" class="btn partners-cta">Join Us. Be the Change.</a>
             </section>
             <section class="strategic-plan" aria-label="strategic plan">
                 <div class="copy-box">
                     <img src="/img/strat-plan-bknd.jpg" alt="strategic-plan-background">
                     <h2>Let&rsquo;s lead longer, healthier lives. Let&rsquo;s reach a <strong>Healthy State</strong> together.</h2>
-                    <a href="/" class="btn strat-cta">Download the Strategic Plan</a>
+                    <a href="/" class="btn">Download the Strategic Plan</a>
                 </div>
                 <div class="preview-box">
                     <a href="/">
@@ -209,7 +209,11 @@
                     </a>
                 </div>
                 <svg class="strat-path">
-                    <!-- todo -->
+                    <line class="line1" x1="92%" y1="0" x2="100%" y2="0" />
+                    <line class="line1" x1="100%" y1="0" x2="100%" y2="100%" />
+                    <line class="line2" x1="100%" y1="100%" x2="6.75%" y2="100%" />
+                    <line class="line2" x1="5%" y1="100%" x2="0%" y2="100%" />
+
                 </svg>
             </section>
             <section class="news-and-events" aria-label="news and events">
@@ -248,9 +252,6 @@
                 </article>
             </section>
             <section class="testimonials">
-                <!-- todo -->
-
-                <!-- {{> slider }} -->
                 {{> hp-video-testimonial-slider }}
             </section>
             <section class="contact">
@@ -261,15 +262,15 @@
                 <div class="form-box">
                     <h3>Take the first step with us...</h3>
                     <form>
-                        <div class="field floating req">
-                            <input type="text" id="contactName" placeholder="Name" required>
+                        <div class="field form-floating req">
+                            <input class="form-control" type="text" id="contactName" placeholder="Name" required>
                             <label for="contactName">Name</label>
                         </div>
-                        <div class="field floating req">
-                            <input type="text" id="contactName" placeholder="Name" required>
-                            <label for="contactName">Name</label>
+                        <div class="field form-floating req">
+                            <input class="form-control" type="email" id="contactEmail" placeholder="Email" required>
+                            <label for="contactEmail">Email</label>
                         </div>
-                        <div class="field floating req">
+                        <div class="field select">
                             <select name="contactAreaOfInterest" id="contactAreaOfInterest">
                                 <option value="" disabled selected>Area of Interest</option>
                                 <option value="smoking-cessation">Smoking Cessation</option>
@@ -279,10 +280,9 @@
                                 <option value="workforce-education">Workforce & Education</option>
                                 <option value="broadband">Broadband</option>
                             </select>
-                            <label for="contactName">Name</label>
                         </div>
                         <div class="flex-row">
-                            <div class="field">
+                            <div class="field check">
                                 <input type="checkbox" name="newsletterSignup" id="newsletterSignup">
                                 <label for="newsletterSignup">Sign up for our eNewsletter</label>
                             </div>
@@ -290,7 +290,10 @@
                         </div>
                     </form>
                     <svg class="form-path">
-                        <!-- todo -->
+                        <line class="line1" x1="0" y1="0" x2="0" y2="19%" />
+                        <line class="line2" x1="0" y1="26%" x2="0" y2="100%" />
+                        <line class="line3" x1="0" y1="100%" x2="100%" y2="100%" />
+                        <line class="line4" x1="100%" y1="100%" x2="100%" y2="81%" />
                     </svg>
                 </div>
             </section>

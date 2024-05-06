@@ -7,28 +7,31 @@
     @include icon-reg(solid, arrow-right);
     --mx: var(--sp-6);
     --my: var(--sp-4);
-    padding: var(--my) var(--mx);
+    padding: calc(1.1 * var(--my)) var(--mx) calc(0.9 * var(--my));
     font-size: var(--fs-xl);
     font-weight: 700;
     line-height: 1;
     justify-content: space-between;
+    align-items: center;
     &::before {
         content: "";
         flex: 0 0 auto;
         width: 0;
     }
     &::after {
+        align-self: stretch;
         flex: 0 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 0.9;
+        height: calc(100% + 2 * var(--my));
         font-size: 1.5rem;
-        padding: 0 calc(var(--mx) / 2);
         border-left: 1px solid var(--c1);
         --myn: calc(-1 * var(--my));
+        --yoff: calc(var(--myn) * 0.1);
         margin: var(--myn) 0;
-        transform: translateX(var(--mx));
+        transform: translate(var(--mx), var(--yoff));
     }
 }
 // button snippets

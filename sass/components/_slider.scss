@@ -64,14 +64,14 @@
         background-color:  var(--c1);
     }
 }
-:is(.prev, .next){
+button{
     flex: 0 0 auto;
     font-size: 3em;
     align-self: center;
     line-height: 1;
     background-color: transparent;
     color: var(--c1);
-    font-size: 2.5em;
+    font-size: 1.5em;
     border: none;
 }
 .prev{
@@ -83,22 +83,6 @@
     @include icon-reg(solid, chevron-right);
 }
 
-
-
-.prev,.next {
-    flex: 0 0 auto;
-    font-size: 3em;
-    align-self: center;
-    line-height: 1;
-}
-
-.prev {
-    left: 50px;
-}
-
-.next {
-    right: 50px;
-}
 
 // Example usage:
 #exampleSlider {

@@ -1,5 +1,5 @@
 #site-footer {
-    padding: var(--sp-7) 0;
+    padding: var(--sp-5) 0;
     background-color: var(--c1d1);
     .flex-row {
         color: var(--c1l1);
@@ -7,13 +7,13 @@
         align-items: center;
     }
     .social {
-        width: var(--sp-10);
-        height: var(--sp-10);
+        width: calc(var(--sp-8) + 3px);
+        height: calc(var(--sp-8) + 3px);
         color: var(--c1d1);
         background-color: var(--c1l1);
         border-radius: 50%;
         margin-right: var(--sp-4);
-        font-size: 2em;
+        font-size: 1.5em;
         flex: 0 0 auto;
         display: flex;
         align-items: center;
@@ -32,8 +32,9 @@
     h4 {
         color: inherit;
         margin: 0;
-        font-size: 2em;
+        font-size: 1.7em;
         font-weight: 300;
+        margin-left: var(--sp-2);
         strong {
             font-weight: 700;
         }

@@ -1,53 +1,54 @@
 .btn {
-    text-align: center;
-    color: var(--c1);
-    display: inline-block;
-    border: 1px solid var(--c1);
-    font-size: var(--fs-sm);
     text-decoration: none;
+    border: 1px solid var(--c1);
+    color: var(--c1);
+    display: inline-flex;
+    text-align: center;
+    @include icon-reg(solid, arrow-right);
+    --mx: var(--sp-6);
+    --my: var(--sp-4);
+    padding: var(--my) var(--mx);
+    font-size: var(--fs-xl);
     font-weight: 700;
-    border-radius: 2em;
-    padding: 0.75em 1.25em;
     line-height: 1;
-    position: relative;
-    overflow: hidden;
-    @include t(color);
-    z-index: 1;
+    justify-content: space-between;
     &::before {
         content: "";
-        position: absolute;
-        inset: -1px;
-        background-color: var(--c1);
-        transform: scale3d(0, 1, 1);
-        transform-origin: left;
-        @include t(transform);
-        z-index: -1;
+        flex: 0 0 auto;
+        width: 0;
     }
-    &:hover {
-        color: white;
-        &::before {
-            transform: scale3d(1, 1, 1);
-        }
+    &::after {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1 / 1;
+        font-size: 1.5rem;
+        padding: 0 calc(var(--mx) / 2);
+        border-left: 1px solid var(--c1);
+        --myn: calc(-1 * var(--my));
+        margin: var(--myn) 0;
+        transform: translateX(var(--mx));
     }
 }
 // button snippets
-nav[class*="button-"] {
-    display: flex;
-    margin: 0 -3px var(--sp-4);
-    > a {
-        flex: 0 1 auto;
-        @extend .btn;
-    }
-}
-nav.button-between {
-    justify-content: space-between;
-}
-nav.button-right {
-    justify-content: flex-end;
-}
-nav.button-center {
-    justify-content: center;
-}
-nav.button-fill a {
-    flex: 1 1 auto;
-}
+// nav[class*="button-"] {
+//     display: flex;
+//     margin: 0 -3px var(--sp-4);
+//     > a {
+//         flex: 0 1 auto;
+//         @extend .btn;
+//     }
+// }
+// nav.button-between {
+//     justify-content: space-between;
+// }
+// nav.button-right {
+//     justify-content: flex-end;
+// }
+// nav.button-center {
+//     justify-content: center;
+// }
+// nav.button-fill a {
+//     flex: 1 1 auto;
+// }

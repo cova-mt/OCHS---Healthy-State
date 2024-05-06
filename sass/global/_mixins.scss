@@ -17,6 +17,9 @@
         }
     }
 }
+@mixin fa-content($name) {
+    content: unquote('"#{ map.get($fa-icons, $name) }"');
+}
 @mixin icon-reg($type, $name, $pos: "after") {
     &::#{$pos} {
         content: unquote('"#{ map.get($fa-icons, $name) }"');

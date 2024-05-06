@@ -1,8 +1,42 @@
 #site-footer {
     padding: var(--sp-7) 0;
-    background-color: var(--c1);
-    color: white;
-    > * {
+    background-color: var(--c1d1);
+    .flex-row {
+        color: var(--c1l1);
+        display: flex;
+        align-items: center;
+    }
+    .social {
+        width: var(--sp-10);
+        height: var(--sp-10);
+        color: var(--c1d1);
+        background-color: var(--c1l1);
+        border-radius: 50%;
+        margin-right: var(--sp-4);
+        font-size: 2em;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+    }
+    .fb {
+        @include icon-brand(facebook-f);
+    }
+    .in {
+        @include icon-brand(instagram);
+    }
+    .li {
+        @include icon-brand(linkedin-in);
+    }
+    h4 {
         color: inherit;
+        margin: 0;
+        font-size: 2em;
+        font-weight: 300;
+        strong {
+            font-weight: 700;
+        }
+        // margin: 0 0 0 var(--sp-4);
     }
 }

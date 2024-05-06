@@ -14,6 +14,7 @@ const HM = new HeaderManager();
 HM.trackHeaderHeight();
 HM.trackViewportHeight();
 HM.toggleHide(400);
+HM.toggleBackground(60);
 
 new ExpandOne('gov-bar-expand');
 const alertExpand = new ExpandOne('site-alert');

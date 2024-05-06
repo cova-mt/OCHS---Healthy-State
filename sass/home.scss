@@ -1,4 +1,5 @@
 @import "components/buttons";
+@import "components/slider";
 
 // hero area
 img {
@@ -159,6 +160,13 @@ img {
     grid-template-columns: subgrid;
     margin: var(--sp-11) 0;
     gap: var(--gap);
+    .filters {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        pointer-events: none;
+    }
 }
 .priority-card {
     position: relative;
@@ -202,6 +210,9 @@ img {
         }
     }
     img {
+        display: block;
+        width: 100%;
+        max-width: calc(100% - var(--sp-4));
         z-index: -1;
         height: var(--img-height);
         border-radius: 0 var(--sp-14) 0 0;
@@ -212,6 +223,7 @@ img {
         left: var(--sp-2);
         right: var(--sp-2);
         @include t(transform);
+        filter: url("#spotlight");
     }
     h3 {
         color: var(--c1d1);
@@ -344,11 +356,10 @@ img {
     margin-top: var(--sp-10);
     text-align: center;
     padding: var(--sp-10) 0;
-    background-color: var(--c1l3);
+    background-color: var(--c5l1);
     display: grid;
     grid-column: 1/-1;
     grid-template-columns: subgrid;
-
     h2 {
         grid-column: content;
         font-size: var(--h4);
@@ -366,6 +377,21 @@ img {
             @include fa-content(people-group);
         }
     }
+    .slide {
+        background-color: var(--c5l1);
+        opacity: 0.67;
+        img {
+            height: 70px;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            mix-blend-mode: difference;
+        }
+    }
+}
+#partnerCarousel {
+    grid-column: content;
 }
 // strategic plan bar
 .strategic-plan {
@@ -530,6 +556,46 @@ img {
     grid-column: -1/1;
     margin-top: var(--sp-17);
     background-color: var(--c5l1);
+}
+#videoSlider {
+    grid-column: content;
+    margin: 0 calc(-0.5 * var(--gutter));
+    .slide {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: var(--gap);
+    }
+    :is(img, iframe) {
+        grid-column: span 6;
+        width: 100%;
+        aspect-ratio: 16/9;
+    }
+    .text {
+        grid-column: span 5 / -1;
+        transform: translateX(calc(-1 * var(--gap)));
+    }
+    h4 {
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-bottom: var(--sp-4);
+    }
+    .testimonial-path {
+        display: block;
+        width: 100%;
+        overflow: visible;
+        padding-right: var(--gap);
+        line {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 10px;
+            &:nth-child(1) {
+                stroke: var(--c4);
+            }
+            &:nth-child(2) {
+                stroke: var(--c1);
+            }
+        }
+    }
 }
 .contact {
     display: grid;

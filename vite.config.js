@@ -14,6 +14,13 @@ const generateInputs = async () => {
     });
     return inputs;
 }
+const getPartnerLogos = async () => {
+    const allFiles = await fs.promises.readdir(process.cwd() + '/img/partners');
+    const filenames = [];
+    allFiles.forEach((file) => filenames.push(file));
+    return filenames;
+
+}
 const getAssetOutputPath = ((assetInfo) => {
     const ext = assetInfo.name.split('.').pop();
     switch (ext) {
@@ -60,7 +67,8 @@ export default defineConfig(async ({ command, mode }) => {
                 partialDirectory: [resolve(__dirname, 'partials'), resolve(__dirname, 'wysiwyg/snippets')],
                 context: {
                     siteTitle: 'Healthy State',
-                    navItems: navStructure
+                    navItems: navStructure,
+                    partnerLogos: await getPartnerLogos()
                 },
                 helpers: {
                     isString: (value) => (typeof value === 'string' || value instanceof String),

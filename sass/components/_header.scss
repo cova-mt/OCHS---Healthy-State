@@ -20,11 +20,13 @@
         grid-column: 1 / -1;
         align-self: stretch;
         grid-row: nav;
-        background: linear-gradient(to left, white, transparent);
+        --t-time: 0.75s;
+        background-image: linear-gradient(to left, white, transparent);
+        background-color: transparent;
         z-index: -1;
-    }
-    &.hide {
-        transform: translate3d(0, calc(-1 * var(--header-height)), 0);
+        transform-origin: top center;
+        animation: nav-bar-bg-r 0.5s backwards;
+        @include t(box-shadow, background-color);
     }
     .brand {
         grid-column: content-start / span 3;
@@ -33,8 +35,10 @@
         margin: var(--sp-5) 0;
         justify-self: start;
         img {
+            transform-origin: top left;
             height: var(--brand-height);
             width: 100%;
+            animation: brand-bg-r 0.5s backwards;
         }
     }
     .nav-group {
@@ -43,6 +47,7 @@
         margin: var(--sp-5) 0;
         display: flex;
         justify-content: flex-end;
+        animation: nav-group-bg-r 0.5s backwards;
         @media (min-width: $lgp) {
             margin-right: calc(var(--sp-7) - var(--sp-1));
         }
@@ -68,7 +73,6 @@
             width: 260px;
         }
     }
-
     #site-search-open {
         font-size: var(--fs-xl);
         margin: var(--sp-6) 0;
@@ -87,9 +91,69 @@
         color: var(--c2);
         line-height: 1;
         min-width: var(--sp-6);
+        animation: nav-group-bg-r 0.5s backwards;
         &:hover {
             background-color: var(--c1);
             color: white;
         }
+    }
+
+    // Header States:
+    &.hide {
+        transform: translate3d(0, calc(-1 * var(--header-height)), 0);
+    }
+    &.bg {
+        --brand-height: 70px;
+        &::before {
+            background-color: white;
+            animation: nav-bar-bg 0.5s backwards;
+            box-shadow: -1px 0px 10px -1px rgba(0, 0, 0, 0.4);
+        }
+        .nav-group {
+            margin: var(--sp-7) 0;
+            animation: nav-group-bg 0.5s backwards;
+            @media (min-width: $lgp) {
+                margin-right: calc(var(--sp-7) - var(--sp-1));
+            }
+        }
+        #site-search-open {
+            margin: var(--sp-8) 0;
+            animation: nav-group-bg 0.5s backwards;
+        }
+
+        // adjustments for animation:
+        .brand img {
+            animation: brand-bg 0.5s backwards;
+        }
+    }
+}
+@keyframes brand-bg {
+    from {
+        transform: scale3d(1.58, 1.58, 1);
+    }
+}
+@keyframes brand-bg-r {
+    from {
+        transform: scale3d(0.72, 0.72, 1);
+    }
+}
+@keyframes nav-bar-bg {
+    from {
+        transform: scale3d(1, 0.75, 1);
+    }
+}
+@keyframes nav-bar-bg-r {
+    from {
+        transform: scale3d(1, 1.3, 1);
+    }
+}
+@keyframes nav-group-bg {
+    from {
+        transform: translate3d(0, -10px, 0);
+    }
+}
+@keyframes nav-group-bg-r {
+    from {
+        transform: translate3d(0, 10px, 0);
     }
 }

@@ -12,11 +12,18 @@ class Header {
     createOb = threshold => new ScrollObserver(threshold);
     getOp = entry => entry.isIntersecting ? 'remove' : 'add';
 
-    toggleBackground(refEl, threshold) {
-        const ob = this.createOb(threshold);
-        const cb = entry => { this.header.classList[this.getOp(entry)]('bg'); }
-        ob.track(refEl, cb);
-        ob.start();
+    toggleBackground(minimum) {
+        const min = minimum ?? 50;
+        let hasBg = false;
+        const bgcb = e => {
+            if (this.blockToggle) return
+            const shouldHaveBg = window.scrollY > min;
+            if (shouldHaveBg === hasBg) return;
+            const op = shouldHaveBg ? 'add' : 'remove';
+            this.header.classList[op]('bg');
+            hasBg = shouldHaveBg;
+        }
+        document.body.addEventListener('bodyScroll', bgcb);
     }
     toggleSlim(refEl, threshold) {
         const ob = this.createOb(threshold);

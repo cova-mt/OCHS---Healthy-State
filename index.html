@@ -10,23 +10,8 @@
 
             // scripts imports
             import './js/wrapper.js';
-            import SO from './js/global/scroll-observer.js';
-            // page interactions
-            const paCardDetails = document.querySelectorAll('.priority-card .collapsed-inner');
-            const setMinHeight = (card) => {
-                const dets = card.closest('.details');
-                const h = card.scrollHeight - dets.firstElementChild.clientHeight;
-                dets.style.setProperty('--ch', `${h}px`);
-            }
-            const setAllpMinHeigh = paCardDetails.forEach(setMinHeight);
-            const RO = new ResizeObserver(setAllpMinHeigh);
-            RO.observe(document.querySelector('.priority-grid'));
-            // const HPSO = new SO(.1, { rootMargin: '0px 0px -20% 0px' });
-            // const scrollCB = ({ target, isIntersecting }) => {
-            //     target.dataset.in = isIntersecting;
-            // }
-            // HPSO.track(document.querySelector('#site-footer'), scrollCB);
-            // HPSO.start();
+            import './js/home.js';
+
         </script>
     </head>
 
@@ -59,6 +44,16 @@
                 <p>Our mission? To inspire healthier lives and stronger communities through partnership. Our vision? To create a more equitable and healthier Louisiana by bringing resources to underserved areas, raising awareness of health and social impact, leveraging data, technology, and innovation, and investing in economic growth and workforce development.</p>
             </section>
             <section class="priority-grid">
+                <svg class="filters">
+                    <defs>
+                        <filter id="spotlight">
+                            <feSpecularLighting result="spotlight" specularConstant="1.5" specularExponent="80" lighting-color="#FFF">
+                                <fePointLight x="-50" y="-50" z="300" />
+                            </feSpecularLighting>
+                            <feComposite in="SourceGraphic" in2="spotlight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+                        </filter>
+                    </defs>
+                </svg>
                 <article class="priority-card c4">
                     <img src="/img/smoking-cessation.jpg" alt="Smoking Cessation image">
                     <div class="details">
@@ -199,7 +194,6 @@
             <section class="partners">
                 <h2>Healthy State Alliance</h2>
                 <p class="c8">The Healthy State Alliance brings together healthcare, community, education, and policy groups across Louisiana to promote collaboration, transparency, and support. This unified approach emphasizes teamwork, inclusivity, and shared responsibility - a comprehensive strategy to tackle the root causes of poor health.</p>
-                <!-- todo -->
                 {{> hp-partners-carousel }}
                 <a href="/" class="btn partners-cta">Join Us. Be The Change.</a>
             </section>
@@ -255,6 +249,8 @@
             </section>
             <section class="testimonials">
                 <!-- todo -->
+
+                <!-- {{> slider }} -->
                 {{> hp-video-testimonial-slider }}
             </section>
             <section class="contact">

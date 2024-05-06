@@ -16,12 +16,20 @@ img {
     align-self: start;
     margin: 0;
     margin-left: var(--gap);
+    isolation: isolate;
     &::after {
         content: "";
+        pointer-events: none;
         position: absolute;
         inset: 0 40% 0 0;
         background: linear-gradient(to right, white, transparent);
         z-index: 1;
+    }
+    img {
+        height: 635px;
+        width: 100%;
+        object-fit: cover;
+        object-position: 70% 50%;
     }
 }
 // intro seciton
@@ -35,6 +43,10 @@ img {
     background-color: var(--c1d1t1);
     padding: var(--sp-11) var(--sp-11) var(--sp-6);
     border-radius: var(--sp-11) 0 0 0;
+    grid-column: 2 / span 5;
+    @media (max-width: $xxl) {
+        grid-column: 2 / span 6;
+    }
     h1 {
         color: white;
         font-size: 2.5rem;
@@ -138,12 +150,18 @@ img {
     margin: var(--sp-17) calc(-1 * var(--gap)) 0;
     display: grid;
     grid-template-columns: subgrid;
+    @media (max-width: $xxl) {
+        grid-column: 3/-2;
+    }
     h2 {
         grid-column: span 3;
         font-size: 3.64em;
         line-height: 1;
         color: var(--c1d1);
         text-transform: uppercase;
+        @media (max-width: $xxl) {
+            font-size: 3em;
+        }
     }
     strong {
         display: block;
@@ -155,6 +173,9 @@ img {
         line-height: 1.4;
         margin: var(--sp-1) 0;
         font-size: 1.06em;
+        @media (max-width: $xxl) {
+            grid-column: span 8;
+        }
     }
 }
 // priority areas grid
@@ -235,6 +256,9 @@ img {
         font-size: var(--h4);
         font-weight: 600;
         padding: var(--sp-8) var(--sp-9) 0;
+        @media (max-width: $xxl) {
+            padding: var(--sp-8) var(--sp-5) var(--sp-7);
+        }
         @include t(color);
         em {
             font-style: normal;
@@ -264,6 +288,9 @@ img {
         list-style: none;
         margin-bottom: var(--sp-2);
         color: var(--c3l2);
+        @media (max-width: $xxl) {
+            font-size: 1em;
+        }
         &::before {
             display: inline-block;
             width: 28px;
@@ -325,6 +352,9 @@ img {
         width: 100%;
         --clip-top: 0;
         padding: 0 var(--sp-8) 0 var(--sp-9);
+        @media (max-width: $xxl) {
+            padding: 0 var(--sp-3) 0 var(--sp-4);
+        }
         clip-path: polygon(0 0, 100% 0, 100% var(--clip-top), 0 var(--clip-top));
         @include t(clip-path, background-color);
         &::before {
@@ -337,6 +367,9 @@ img {
             margin-bottom: var(--sp-6);
             margin-left: calc(-1 * var(--sp-7));
             margin-top: var(--sp-2);
+            @media (max-width: $xxl) {
+                margin-left: calc(-1 * var(--sp-2));
+            }
         }
     }
     .details {
@@ -468,6 +501,9 @@ img {
             grid-row: 2;
             line-height: 1.05;
             margin-bottom: var(--sp-6);
+            @media (max-width: $xxl) {
+                font-size: 3em;
+            }
         }
         strong {
             white-space: nowrap;
@@ -548,6 +584,9 @@ img {
         margin-left: calc(-1 * var(--gap));
         text-align: left;
         align-self: start;
+        @media (max-width: $xxl) {
+            grid-column: 2 / span 4;
+        }
         time {
             text-transform: uppercase;
             font-size: 0.8em;
@@ -607,6 +646,9 @@ img {
         padding: var(--sp-7) var(--sp-2) var(--sp-2);
         column-gap: var(--sp-4);
         row-gap: var(--sp-7);
+        @media (max-width: $xxl) {
+            grid-column: span 5 / -2;
+        }
         time {
             display: block;
             align-self: center;
@@ -723,10 +765,19 @@ img {
         grid-template-columns: repeat(12, 1fr);
         column-gap: var(--gap);
     }
+    .prev {
+        justify-self: start;
+    }
+    .next {
+        justify-self: end;
+    }
     :is(img, iframe) {
         grid-column: span 6;
         width: 100%;
         aspect-ratio: 16/9.725;
+        @media (max-width: $xxl) {
+            align-self: center;
+        }
     }
     img {
         object-fit: cover;

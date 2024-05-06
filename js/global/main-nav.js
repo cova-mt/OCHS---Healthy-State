@@ -33,17 +33,15 @@ class NavManager {
         link.after(button);
         return button;
     }
-    setFlyoutColumns = () => {
-        this.topItems.forEach(group => {
-            const totalLis = group.querySelectorAll('li').length;
-            const totalHiddenLis = group.querySelectorAll('li li li li').length;
-            const count = totalLis - totalHiddenLis;
-            let cols = false;
-            if (count < 30) { cols = 3 }
-            if (count < 21) { cols = 2 }
-            if (count < 12) { cols = 1 }
-            if (!cols) return;
-            group.dataset.cols = cols;
+    setFlyoutHeight = () => {
+        this.topItems.forEach(li => {
+            const sList = li.querySelector('.sub-list');
+            if (!sList) { return }
+            console.log('li', li);
+            const subListHeight = sList.scrollHeight;
+            li.style.setProperty('--sub-height', subListHeight + 'px');
+
+
         });
     }
     watchFlyoutOffset = () => {
@@ -271,7 +269,7 @@ class NavManager {
         this.setAtts();
         this.prepSubGroups();
         this.addAnimIndex();
-        this.setFlyoutColumns();
+        this.setFlyoutHeight();
         this.watchFlyoutOffset();
         this.nav.addEventListener('click', this.watchClick);
         this.openBtn.addEventListener('click', this.toggleDrawer);

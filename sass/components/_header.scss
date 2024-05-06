@@ -1,6 +1,7 @@
 #site-header {
     --gap: 24px;
-    z-index: 2;
+    overflow: visible;
+    z-index: 5;
     position: sticky;
     top: 0;
     margin-bottom: calc(-1 * (var(--brand-height) + var(--sp-8)));

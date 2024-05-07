@@ -9,7 +9,7 @@ table {
 
 :is(th, td) {
     padding: var(--sp-2);
-    border-left: 1px solid var(--c2l2);
+    border-left: 1px solid var(--c2l3);
     &:first-child {
         border-left: none;
     }
@@ -37,7 +37,7 @@ td {
     width: 100%;
     overflow: auto;
     margin-bottom: var(--sp-4);
-    border: 1px solid var(--c2l2);
+    border: 1px solid var(--c2l3);
     border-radius: var(--sp-1);
     table {
         margin-top: 0;

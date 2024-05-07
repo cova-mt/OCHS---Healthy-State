@@ -13,12 +13,14 @@
     line-height: 1;
     justify-content: space-between;
     align-items: center;
+    @include t(background-color, color);
     &::before {
         content: "";
         flex: 0 0 auto;
         width: 0;
     }
     &::after {
+        @include t(background-color, color, border-color);
         align-self: stretch;
         flex: 0 0 auto;
         display: flex;
@@ -33,7 +35,29 @@
         margin: var(--myn) 0;
         transform: translate(var(--mx), var(--yoff));
     }
+    &:hover {
+        background-color: var(--c1);
+        color: white;
+        &::after {
+            border-left-color: white;
+        }
+    }
+    &[type="submit"] {
+        background-color: var(--c1);
+        color: white;
+        &::after {
+            font-size: 1.3em;
+            background-color: var(--c1l1);
+        }
+        &:hover {
+            background-color: var(--c1d1);
+            &::after {
+                background-color: var(--c1d1);
+            }
+        }
+    }
 }
+
 // button snippets
 // nav[class*="button-"] {
 //     display: flex;

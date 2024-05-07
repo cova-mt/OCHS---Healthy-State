@@ -66,13 +66,19 @@
 }
 button{
     flex: 0 0 auto;
-    font-size: 3em;
     align-self: center;
     line-height: 1;
     background-color: transparent;
     color: var(--c1);
     font-size: 1.5em;
     border: none;
+    padding: 6px var(--sp-3);
+    @include t(color, background-color);
+    &:hover{
+        background-color: var(--c1l1);
+        color:white;
+    
+    }
 }
 .prev{
     left: 50px;

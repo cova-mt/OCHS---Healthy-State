@@ -19,6 +19,15 @@
         align-items: center;
         text-decoration: none;
         justify-content: center;
+        @include t(color, background-color, transform);
+        @media (max-width: $xl) {
+            margin-right: var(--sp-2);
+        }
+        &:hover {
+            background-color: var(--c1l2);
+            color: white;
+            transform: scale3d(1.1, 1.1, 1);
+        }
     }
     .fb {
         @include icon-brand(facebook-f);
@@ -38,6 +47,9 @@
         strong {
             font-weight: 700;
         }
-        // margin: 0 0 0 var(--sp-4);
+        @media (max-width: $xl) {
+            font-size: 1.2em;
+            line-height: 1.1;
+        }
     }
 }

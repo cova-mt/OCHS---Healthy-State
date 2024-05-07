@@ -16,18 +16,25 @@
         1fr
         [brand-end];
     align-items: start;
-    &::before {
+    &::before,
+    &::after {
         content: "";
         grid-column: 1 / -1;
         align-self: stretch;
         grid-row: nav;
-        --t-time: 0.75s;
-        background-image: linear-gradient(to left, white, transparent);
-        background-color: transparent;
         z-index: -1;
         transform-origin: top center;
         animation: nav-bar-bg-r 0.5s backwards;
-        @include t(box-shadow, background-color);
+    }
+    &::before {
+        --t-time: 0.75s;
+        @include t(opacity);
+        background-color: white;
+        opacity: 0;
+        box-shadow: -1px 0px 10px -1px rgba(0, 0, 0, 0.4);
+    }
+    &::after {
+        background-image: linear-gradient(to left, white, transparent);
     }
     .brand {
         grid-column: content-start / span 3;
@@ -76,23 +83,22 @@
     }
     #site-search-open {
         font-size: var(--fs-xl);
-        margin: var(--sp-6) 0;
-        @media (min-width: $xlp) {
-            margin-right: calc(-1 * var(--sp-1));
-        }
-        padding: var(--sp-1);
+        padding: var(--sp-2);
+        margin: var(--sp-4) 0;
         grid-column: span 1 / content-end;
         grid-row: nav;
         justify-self: end;
         background-color: transparent;
-        @include icon-reg(solid, search);
-        border-radius: 100%;
         border: none;
         width: auto;
         color: var(--c2);
         line-height: 1;
-        min-width: var(--sp-6);
         animation: nav-group-bg-r 0.5s backwards;
+        @include icon-reg(solid, search);
+        @include t(background-color, color);
+        @media (min-width: $lgp) {
+            margin-right: calc(-1 * var(--sp-3));
+        }
         &:hover {
             background-color: var(--c1);
             color: white;
@@ -105,10 +111,12 @@
     }
     &.bg {
         --brand-height: 70px;
-        &::before {
-            background-color: white;
+        &::before,
+        &::after {
             animation: nav-bar-bg 0.5s backwards;
-            box-shadow: -1px 0px 10px -1px rgba(0, 0, 0, 0.4);
+        }
+        &::before {
+            opacity: 1;
         }
         .nav-group {
             margin: var(--sp-7) 0;
@@ -118,7 +126,6 @@
             }
         }
         #site-search-open {
-            margin: var(--sp-8) 0;
             animation: nav-group-bg 0.5s backwards;
         }
 

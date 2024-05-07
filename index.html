@@ -34,9 +34,12 @@
             </section>
             <div class="intro-path-box">
                 <svg class="intro-path">
-                    <circle cx="72" cy="72" r="72" />
-                    <line class="line1" x1="0" y1="72" x2="0" y2="100%" />
-                    <line class="line2" x1="0" y1="100%" x2="100%" y2="100%" />
+                    <!-- transform-origin="36 36" -->
+                    <circle cx="72" cy="" r="72" transform="rotate(-110 72 72)" />
+                    <line class=" line1" x1="0" y1="48" x2="0" y2="100%" />
+                    <line class="line1xxl" x1="0" y1="72" x2="0" y2="100%" />
+                    <line class="line2" x1="0" y1="100%" x2="93%" y2="100%" />
+                    <line class="line3" x1="95%" y1="100%" x2="100%" y2="100%" />
                 </svg>
             </div>
             <section class="improve">
@@ -54,7 +57,7 @@
                         </filter>
                     </defs>
                 </svg>
-                <article class="priority-card c4">
+                <article class="priority-card c6 xl:c4">
                     <img src="/img/smoking-cessation.jpg" alt="Smoking Cessation image">
                     <div class="details">
                         <h3>
@@ -76,7 +79,7 @@
                         <div class="arrow"></div>
                     </a>
                 </article>
-                <article class="priority-card c4">
+                <article class="priority-card c6 xl:c4">
                     <img src="/img/wellness.jpg" alt="Wellness and Obesity image">
                     <div class="details">
                         <h3>
@@ -98,7 +101,7 @@
                         <div class="arrow"></div>
                     </a>
                 </article>
-                <article class="priority-card c4">
+                <article class="priority-card c6 xl:c4">
                     <img src="/img/cancer.jpg" alt="Cancer & Chronic Condi image">
                     <div class="details">
                         <h3>
@@ -120,7 +123,7 @@
                         <div class="arrow"></div>
                     </a>
                 </article>
-                <article class="priority-card c4">
+                <article class="priority-card c6 xl:c4">
                     <img src="/img/food-security.jpg" alt="Food Security image">
                     <div class="details">
                         <h3>
@@ -143,7 +146,7 @@
                         <div class="arrow"></div>
                     </a>
                 </article>
-                <article class="priority-card c4">
+                <article class="priority-card c6 xl:c4">
                     <img src="/img/smoking-cessation.jpg" alt="Workforce & Education image">
                     <div class="details">
                         <h3>
@@ -167,7 +170,7 @@
                         <div class="arrow"></div>
                     </a>
                 </article>
-                <article class="priority-card c4">
+                <article class="priority-card c6 xl:c4">
                     <img src="/img/broadband.jpg" alt="Broadband image">
                     <div class="details">
                         <h3>
@@ -193,7 +196,7 @@
             </section>
             <section class="partners">
                 <h2>Healthy State Alliance</h2>
-                <p class="c8">The Healthy State Alliance brings together healthcare, community, education, and policy groups across Louisiana to promote collaboration, transparency, and support. This unified approach emphasizes teamwork, inclusivity, and shared responsibility - a comprehensive strategy to tackle the root causes of poor health.</p>
+                <p class="c9 xl:c8">The Healthy State Alliance brings together healthcare, community, education, and policy groups across Louisiana to promote collaboration, transparency, and support. This unified approach emphasizes teamwork, inclusivity, and shared responsibility - a comprehensive strategy to tackle the root causes of poor health.</p>
                 {{> hp-partners-carousel }}
                 <a href="/" class="btn partners-cta">Join Us. Be the Change.</a>
             </section>
@@ -208,12 +211,9 @@
                         <img src="/img/strat-plan.jpg" alt="download strategic plan">
                     </a>
                 </div>
-                <svg class="strat-path">
-                    <line class="line1" x1="92%" y1="0" x2="100%" y2="0" />
-                    <line class="line1" x1="100%" y1="0" x2="100%" y2="100%" />
-                    <line class="line2" x1="100%" y1="100%" x2="6.75%" y2="100%" />
-                    <line class="line2" x1="5%" y1="100%" x2="0%" y2="100%" />
-
+                <svg class="strat-path" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <polyline vector-effect="non-scaling-stroke" points="92,0 100,0 100,100 6.75,100" />
+                    <line vector-effect="non-scaling-stroke" class="line2" x1="5" y1="100" x2="0" y2="100" />
                 </svg>
             </section>
             <section class="news-and-events" aria-label="news and events">
@@ -248,7 +248,9 @@
                         <p class="summary">Convening Louisiana Stakeholders to Improve the Health of Our Communities</p>
                         <span class="location">Hilton Baton Rouge Capitol Center</span>
                     </div>
-                    <a href="/">Register Today</a>
+                    <a class="event-cta" href="/">
+                        <span>Register Today</span>
+                    </a>
                 </article>
             </section>
             <section class="testimonials">
@@ -289,11 +291,9 @@
                             <button type="submit" class="btn">Submit</button>
                         </div>
                     </form>
-                    <svg class="form-path">
-                        <line class="line1" x1="0" y1="0" x2="0" y2="19%" />
-                        <line class="line2" x1="0" y1="26%" x2="0" y2="100%" />
-                        <line class="line3" x1="0" y1="100%" x2="100%" y2="100%" />
-                        <line class="line4" x1="100%" y1="100%" x2="100%" y2="81%" />
+                    <svg class="form-path" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polyline vector-effect="non-scaling-stroke" points="100,81  100,100 0,100   0,26" />
+                        <line vector-effect="non-scaling-stroke" x2="0" y2="0" x1="0" y1="19%" />
                     </svg>
                 </div>
             </section>

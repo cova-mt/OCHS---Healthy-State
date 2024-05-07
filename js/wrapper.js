@@ -1,3 +1,4 @@
+import SiteCredit from './components/site-credit.js';
 import HeaderManager from './global/header.js';
 import LockManager from './global/locker.js';
 import NavManager from './global/main-nav.js';
@@ -15,6 +16,7 @@ HM.trackHeaderHeight();
 HM.trackViewportHeight();
 HM.toggleHide(400);
 HM.toggleBackground(60);
+SiteCredit();
 
 new ExpandOne('gov-bar-expand');
 const alertExpand = new ExpandOne('site-alert');

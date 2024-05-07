@@ -1,0 +1,77 @@
+.site-credit-wrap{
+    position: absolute;
+    overflow: visible;
+    grid-area: 1/1/6/-1!important;
+    place-self: end end!important;
+    bottom: 0;
+    right: 0;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+.site-credit-animated{
+    position: relative;
+    top: 0;left: 0;
+    display: block;
+    width: 110px;
+    z-index: 2;
+    #mask1v2{
+        rect{
+            fill: #fff;
+        }
+    }
+    #mask2v2{
+        rect{
+            fill: #fff;
+        }
+    }
+    .covalent{
+        path, polygon{
+            fill: white;
+            &.green{
+                fill: #C1BB00;
+            }
+        }
+    }
+    .logic{
+        opacity: 0;
+        path{
+            fill: white;
+        }
+    }
+    .created{
+        opacity: .3;
+        path,rect{
+            fill: white;
+        }
+    }
+    .logo{
+        path{
+            fill: white;
+            &.green{
+                fill: #C1BB00;
+            }
+        }
+    }
+    .reveal{
+        opacity: 0;
+    }
+    .logo-shapes{
+        *{
+            fill: none;
+            stroke: #B8B8B8;
+            stroke-width: 2;
+            opacity: 1;
+        }
+        rect{
+            stroke-dasharray: 237.6, 237.6;
+            stroke-dashoffset: 237.6;
+        }
+        circle{
+            stroke-dasharray: 186.6, 186.6;
+            stroke-dashoffset: 186.6;
+        }
+    }
+    .link{
+        fill: transparent;
+    }
+}

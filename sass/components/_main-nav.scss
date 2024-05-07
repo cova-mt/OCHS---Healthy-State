@@ -14,22 +14,25 @@
     }
 }
 #site-header {
-    @media (max-width: $lg) {
-        &::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--vp-height, 100vh);
-            z-index: 1;
-            @include t(transform);
-            transform: translate3d(-100%, 0, 0);
-            background-color: var(--c1d2t1);
-            backdrop-filter: blur(5px);
-        }
-    }
+    // @media (max-width: $lg) {
+    //     &::before {
+    //         content: "";
+    //         position: fixed;
+    //         top: 0;
+    //         left: 0;
+    //         width: 100%;
+    //         height: var(--vp-height, 100vh);
+    //         z-index: 1;
+    //         @include t(transform);
+    //         transform: translate3d(-100%, 0, 0);
+    //         background-color: var(--c1d2t1);
+    //         backdrop-filter: blur(5px);
+    //     }
+    // }
     #mobile-open-trigger {
+        grid-row: nav;
+        grid-column: content;
+        transform: translateX(-100%);
         --bar-weight: 3px;
         --margin: 3px;
         --anim-offset: 9.5px;
@@ -43,7 +46,6 @@
         width: 50px;
         height: 50px;
         cursor: pointer;
-        grid-column: 3;
         place-self: center end;
         padding: 10px;
         margin: 10px 0;
@@ -159,6 +161,9 @@
         border-radius: var(--sp-2);
         line-height: 1;
         @include t;
+        @media (max-width: $xl) {
+            padding: var(--sp-3) 7px;
+        }
         &:hover {
             color: var(--c1);
         }
@@ -210,9 +215,13 @@
     }
     .top-item {
         font-weight: 500;
+
         @media (min-width: $lgp) {
             &:first-child {
                 margin-left: 0;
+            }
+            &:hover > button::before {
+                transform: translate3d(0, 0, 0);
             }
         }
         > :is(a, button) {
@@ -222,9 +231,16 @@
             font-size: var(--fs-lg);
             letter-spacing: 0.005em;
             @include t;
+            @media (max-width: $xl) {
+                font-size: 0.95em;
+                letter-spacing: -0.01em;
+            }
         }
         > .sub-group {
             border-radius: 0 0 var(--sp-4) var(--sp-4);
+            @media (max-width: $xl) {
+                border-radius: 0 0 var(--sp-2) var(--sp-2);
+            }
         }
     }
     .sub-group {
@@ -234,7 +250,7 @@
         background-color: white;
         overflow: hidden;
         @media (min-width: $lgp) {
-            box-shadow: 0px 13px 10px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 13px 20px -8px rgba(0, 0, 0, 0.25);
             max-height: 0;
             @include t-hidden(max-height);
             display: flex;
@@ -270,9 +286,6 @@
     }
     .sub-item {
         color: var(--c1);
-        // border-bottom: 1px solid var(--c1d1t1);
-        // margin-bottom: var(--sp-1);
-        // padding-bottom: var(--sp-1);
         &:last-child {
             border-bottom: none;
             padding-bottom: var(--sp-4);
@@ -298,7 +311,7 @@
             @media (min-width: $lgp) {
                 &:hover {
                     color: var(--c1d1);
-                    background-color: var(--c2l2);
+                    background-color: var(--c2l3);
                     padding-left: var(--sp-4);
                     &::before {
                         opacity: 1;
@@ -332,7 +345,7 @@
     }
     .sub-open {
         grid-area: button;
-        border-radius: var(--sp-5) var(--sp-5) 0 0;
+        border-radius: var(--sp-4) var(--sp-4) 0 0;
         @include icon-reg(solid, chevron-down);
         &::after {
             margin-top: -2px;
@@ -341,6 +354,11 @@
             &:hover + .sub-group {
                 max-height: var(--sub-height, 200px);
                 @include t-visible(max-height);
+            }
+        }
+        @media (max-width: $xl) {
+            @media (max-width: $xl) {
+                border-radius: var(--sp-2) var(--sp-2) 0 0;
             }
         }
         @media (max-width: $lg) {

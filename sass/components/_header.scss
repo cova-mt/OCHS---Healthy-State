@@ -1,12 +1,13 @@
 #site-header {
     --gap: 24px;
-    overflow: visible;
+    overflow-x: unset;
     z-index: 5;
     position: sticky;
     top: 0;
     margin-bottom: calc(-1 * (var(--brand-height) + var(--sp-8)));
     transform: translate3d(0, 0, 0);
     @include t(transform);
+
     grid-template-rows:
         [alert-start]
         auto
@@ -16,32 +17,44 @@
         1fr
         [brand-end];
     align-items: start;
-    &::before,
-    &::after {
-        content: "";
+    .nav-bknd {
         grid-column: 1 / -1;
-        align-self: stretch;
-        grid-row: nav;
         z-index: -1;
-        transform-origin: top center;
-        animation: nav-bar-bg-r 0.5s backwards;
-    }
-    &::before {
-        --t-time: 0.75s;
-        @include t(opacity);
-        background-color: white;
-        opacity: 0;
-        box-shadow: -1px 0px 10px -1px rgba(0, 0, 0, 0.4);
-    }
-    &::after {
-        background-image: linear-gradient(to left, white, transparent);
+        grid-row: nav;
+        position: relative;
+        align-self: stretch;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: top center;
+            animation: nav-bar-bg-r 0.5s backwards;
+        }
+        &::before {
+            --t-time: 0.75s;
+            @include t(opacity);
+            background-color: white;
+            opacity: 0;
+            box-shadow: -1px 0px 10px -1px rgba(0, 0, 0, 0.4);
+        }
+        &::after {
+            background-image: linear-gradient(to left, white, transparent);
+        }
     }
     .brand {
-        grid-column: content-start / span 3;
+        grid-column: content-start / span 4;
         grid-row: brand;
         padding-right: var(--sp-3);
         margin: var(--sp-5) 0;
         justify-self: start;
+        @media (max-width: $lg) {
+            margin: var(--sp-3) 0;
+            padding: 0;
+        }
         img {
             transform-origin: top left;
             height: var(--brand-height);
@@ -52,7 +65,8 @@
     .nav-group {
         grid-column: span 10 / content-end;
         grid-row: nav;
-        margin: var(--sp-5) 0;
+        margin-top: var(--sp-5);
+        margin-bottom: var(--sp-5);
         display: flex;
         justify-content: flex-end;
         animation: nav-group-bg-r 0.5s backwards;
@@ -60,18 +74,21 @@
             margin-right: calc(var(--sp-7) - var(--sp-1));
         }
         @media (max-width: $lg) {
+            position: fixed;
+            grid-area: unset;
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 0;
             padding: 0;
             z-index: 2;
-            position: fixed;
             top: 0;
-            left: 0;
+            right: 0;
             width: 370px;
             height: var(--vp-height, 100vh);
             background-color: white;
             box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
-            transform: translate3d(-100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
             @include t-hidden(transform);
         }
         @media (max-width: 450px) {
@@ -84,7 +101,7 @@
     #site-search-open {
         font-size: var(--fs-xl);
         padding: var(--sp-2);
-        margin: var(--sp-4) 0;
+        margin: 22px 0 var(--sp-5);
         grid-column: span 1 / content-end;
         grid-row: nav;
         justify-self: end;
@@ -99,6 +116,10 @@
         @media (min-width: $lgp) {
             margin-right: calc(-1 * var(--sp-3));
         }
+        @media (max-width: $lg) {
+            padding: var(--sp-2) var(--sp-3);
+            min-height: 40px;
+        }
         &:hover {
             background-color: var(--c1);
             color: white;
@@ -111,27 +132,39 @@
     }
     &.bg {
         --brand-height: 70px;
-        &::before,
-        &::after {
-            animation: nav-bar-bg 0.5s backwards;
+        @media (max-width: $lg) {
+            --brand-height: 50px;
         }
-        &::before {
-            opacity: 1;
-        }
-        .nav-group {
-            margin: var(--sp-7) 0;
-            animation: nav-group-bg 0.5s backwards;
-            @media (min-width: $lgp) {
-                margin-right: calc(var(--sp-7) - var(--sp-1));
+        @media (min-width: $lgp) {
+            .nav-bknd {
+                &::before,
+                &::after {
+                    animation: nav-bar-bg 0.5s backwards;
+                }
+            }
+            .nav-group {
+                margin-top: var(--sp-7);
+                margin-bottom: var(--sp-7);
+                animation: nav-group-bg 0.5s backwards;
+            }
+            #site-search-open {
+                animation: nav-group-bg 0.5s backwards;
+                @media (min-width: $lgp) {
+                    margin-top: var(--sp-7);
+                }
             }
         }
-        #site-search-open {
-            animation: nav-group-bg 0.5s backwards;
+        .nav-bknd::before {
+            opacity: 1;
         }
-
         // adjustments for animation:
-        .brand img {
-            animation: brand-bg 0.5s backwards;
+        .brand {
+            @media (max-width: $lg) {
+                margin: var(--sp-3) 0;
+            }
+            img {
+                animation: brand-bg 0.5s backwards;
+            }
         }
     }
 }

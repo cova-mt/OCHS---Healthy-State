@@ -28,18 +28,22 @@
     --c4d2: hsl(135, 44%, 37%); //      #348749;
     --c4d1: hsl(135, 44%, 46%); //      #41a85a;
     --c4: hsl(136, 44%, 55%); //        #5cbf76;
-    --c4l1: hsl(136, 43%, 70%); //      #90d3a2;
+    --c4l1: hsl(136, 44%, 62%); //      #73C889;
+    --c4l2: hsl(136, 43%, 70%); //      #90d3a2;
     // (gray)
     --c5: hsl(0, 0%, 36%); //           #5b5b5b;
-    --c5l1: hsl(0, 0%, 86%); //         #dbdbdb;
-    --c5l2: hsl(0, 0%, 94%); //         #efefef;
+    --c5l1: hsl(0, 0%, 48%); //         #7B7B7B;
+    --c5l2: hsl(0, 0%, 86%); //         #dbdbdb;
+    --c5l3: hsl(0, 0%, 94%); //         #efefef;
 
     // animations & transitions
     --t-time: 0.4s;
     --easing: cubic-bezier(0.24, 0.96, 0.46, 1);
 
     --brand-height: 110px;
-
+    @media (max-width: $lg) {
+        --brand-height: 90px;
+    }
     // content spacing
     --sp-1: 4px;
     --sp-2: 8px;

@@ -18,7 +18,7 @@
     <body>
         {{> site-header}}
         <main class="uber-grid">
-            <figure class="hp-hero c10 c-last">
+            <figure class="hp-hero c10">
                 <img src="/img/hero.jpg" alt="hero image">
             </figure>
             <section class="intro">
@@ -29,17 +29,20 @@
                 <p>In 2020, Ochsner Health teamed up with officials from state and local government and organizations throughout Louisiana to launch Healthy State, a bold plan to achieve better health for every Louisianan. By engaging with healthcare, community, education and policy organizations from across the state, we are working together to tackle the leading causes of poor health.</p>
                 <div class="scroll-msg">
                     <p class="cta">Scroll to Explore our areas of priority</p>
-                    <img class="arrow" src="/img/arrow.svg" width="29.5" height="350" alt="scroll instruction arrow" role="presentation">
+                    <div class="arrow-box">
+                        <img class="arrow" src="/img/arrow.svg" width="29.5" height="350" alt="scroll instruction arrow" role="presentation">
+                    </div>
                 </div>
             </section>
             <div class="intro-path-box">
-                <svg class="intro-path">
-                    <!-- transform-origin="36 36" -->
-                    <circle cx="72" cy="" r="72" transform="rotate(-110 72 72)" />
-                    <line class=" line1" x1="0" y1="48" x2="0" y2="100%" />
-                    <line class="line1xxl" x1="0" y1="72" x2="0" y2="100%" />
-                    <line class="line2" x1="0" y1="100%" x2="93%" y2="100%" />
-                    <line class="line3" x1="95%" y1="100%" x2="100%" y2="100%" />
+                <svg class="intro-path1">
+                    <circle cx="50%" cy="50%" r="50%" />
+                </svg>
+                <svg class="intro-path2" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <polyline vector-effect="non-scaling-stroke" points="0,0 0,100 100,100" />
+                </svg>
+                <svg class="intro-path3">
+                    <line vector-effect="non-scaling-stroke" class="line3" x1="0%" y1="0%" x2="100%" y2="0" />
                 </svg>
             </div>
             <section class="improve">
@@ -51,7 +54,7 @@
                     <defs>
                         <filter id="spotlight">
                             <feSpecularLighting result="spotlight" specularConstant="1.5" specularExponent="80" lighting-color="#FFF">
-                                <fePointLight x="-50" y="-50" z="300" />
+                                <fePointLight x="-50.0" y="-50.0" z="300.0" />
                             </feSpecularLighting>
                             <feComposite in="SourceGraphic" in2="spotlight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
                         </filter>
@@ -196,7 +199,7 @@
             </section>
             <section class="partners">
                 <h2>Healthy State Alliance</h2>
-                <p class="c9 xl:c8">The Healthy State Alliance brings together healthcare, community, education, and policy groups across Louisiana to promote collaboration, transparency, and support. This unified approach emphasizes teamwork, inclusivity, and shared responsibility - a comprehensive strategy to tackle the root causes of poor health.</p>
+                <p class="c10 xl:c8">The Healthy State Alliance brings together healthcare, community, education, and policy groups across Louisiana to promote collaboration, transparency, and support. This unified approach emphasizes teamwork, inclusivity, and shared responsibility - a comprehensive strategy to tackle the root causes of poor health.</p>
                 {{> hp-partners-carousel }}
                 <a href="/" class="btn partners-cta">Join Us. Be the Change.</a>
             </section>
@@ -211,10 +214,17 @@
                         <img src="/img/strat-plan.jpg" alt="download strategic plan">
                     </a>
                 </div>
-                <svg class="strat-path" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <polyline vector-effect="non-scaling-stroke" points="92,0 100,0 100,100 6.75,100" />
-                    <line vector-effect="non-scaling-stroke" class="line2" x1="5" y1="100" x2="0" y2="100" />
-                </svg>
+                <div class="strat-path-box">
+                    <svg class="strat-path1" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <line vector-effect="non-scaling-stroke" x1="0" y1="0" x2="100" y2="0" />
+                    </svg>
+                    <svg class="strat-path2" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polyline vector-effect="non-scaling-stroke" points="100,0 100,100 0,100" />
+                    </svg>
+                    <svg class="strat-path3" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <line vector-effect="non-scaling-stroke" x1="100" y1="0" x2="0" y2="0" />
+                    </svg>
+                </div>
             </section>
             <section class="news-and-events" aria-label="news and events">
                 <h2>News & Events</h2>
@@ -259,7 +269,7 @@
             <section class="contact">
                 <div class="text-box">
                     <h2>Join us in building a <strong>healthier</strong> Louisiana for all.</h2>
-                    <p>Regardless of background, everyone is invited to join in shaping a healthier future for Louisiana. Together, through collective action and collaboration, we can make this vision a reality. Whether through volunteering, <em>advocacy</em>, or <em>support</em>, every contribution counts in building a healthier Louisiana for all.</p>
+                    <p>Regardless of background, everyone is invited to join in shaping a healthier future for Louisiana. Together, through collective action and collaboration, we can make this vision a reality. Whether through <a href="/">volunteering</a>, <a href="/">advocacy</a>, or <a href="/">support</a>, every contribution counts in building a healthier Louisiana for all.</p>
                 </div>
                 <div class="form-box">
                     <h3>Take the first step with us...</h3>
@@ -291,10 +301,17 @@
                             <button type="submit" class="btn">Submit</button>
                         </div>
                     </form>
-                    <svg class="form-path" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <polyline vector-effect="non-scaling-stroke" points="100,81  100,100 0,100   0,26" />
-                        <line vector-effect="non-scaling-stroke" x2="0" y2="0" x1="0" y1="19%" />
-                    </svg>
+                    <div class="form-path-box">
+                        <svg class="form-path1" viewBox="0 0 10 100" preserveAspectRatio="none">
+                            <line vector-effect="non-scaling-stroke" x1="0" y1="0" x2="0" y2="100" />
+                        </svg>
+                        <svg class="form-path2" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <polyline vector-effect="non-scaling-stroke" points="100,100 0,100 0,0" />
+                        </svg>
+                        <svg class="form-path3" viewBox="0 0 10 100" preserveAspectRatio="none">
+                            <line vector-effect="non-scaling-stroke" x1="0" y1="100" x2="0" y2="0" />
+                        </svg>
+                    </div>
                 </div>
             </section>
         </main>

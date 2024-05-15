@@ -17,15 +17,42 @@ const RO = new ResizeObserver(setAllpMinHeigh);
 RO.observe(document.querySelector('.priority-grid'));
 
 // page scroll observer
-const HPSO = new SO(.9, { rootMargin: '0px 0px -5% 0px' });
+const HPSO = new SO(.5, { rootMargin: '0px 0px -5% 0px' });
 const scrollCB = ({ target, isIntersecting }) => {
     target.dataset.in = isIntersecting;
 }
-// all slides:
-const slides = document.querySelectorAll('.slide');
-slides.forEach(s => HPSO.track(s, scrollCB));
-// other sections:
+// paths:
+HPSO.track(document.querySelector('.hp-hero'), scrollCB);
+HPSO.track(document.querySelector('.intro'), scrollCB);
 HPSO.track(document.querySelector('.intro-path-box'), scrollCB);
-HPSO.track(document.querySelector('.strat-path'), scrollCB);
-HPSO.track(document.querySelector('.form-path'), scrollCB);
+HPSO.track(document.querySelector('.strat-path-box'), scrollCB);
+const videopaths = document.querySelectorAll('.testimonial-path-box');
+videopaths.forEach(s => HPSO.track(s, scrollCB));
+HPSO.track(document.querySelector('.form-path-box'), scrollCB);
 HPSO.start();
+
+// arrow scroll
+const arrowSO = new SO(null, { rootMargin: '100% 0px -10% 0px', steps: 100 });
+const arrowBox = document.querySelector('.intro .arrow-box');
+const arrowCB = ({ intersectionRatio }) => { arrowBox.style.setProperty('--in', (intersectionRatio.toFixed(2) * 100) + '%'); }
+arrowSO.track(arrowBox, arrowCB);
+arrowSO.start();
+
+
+// path math:
+const watchPathLength = (className, prop, parent) => {
+    const path = document.querySelector(className);
+    const p = !!parent ? document.querySelector(parent) : path.parentElement;
+    const setLength = () => {
+        let length = path.clientWidth;
+        if (path.children[0].tagName === 'polyline') length += path.clientHeight;
+        p.style.setProperty("--" + prop, length + 'px');
+    }
+    const RO = new ResizeObserver(setLength);
+    RO.observe(p);
+}
+
+watchPathLength('.intro-path2', 'l1l');
+watchPathLength('.strat-path2', 'l2l');
+watchPathLength('.testimonial-path1', 'l1l', '#videoSlider');
+watchPathLength('.form-path2', 'l2l');

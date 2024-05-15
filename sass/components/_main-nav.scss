@@ -1,80 +1,63 @@
-[data-lock-id*="nav"] #site-header {
-    &::after,
-    &::before {
-        transform: translate3d(0, 0, 0);
-    }
-    @media (max-width: $lg) {
-        .nav-group {
-            transform: translate3d(0, 0, 0);
-            @include t-visible(transform);
-        }
-        #mobile-close-trigger {
-            transform: translate3d(100%, 0, 0);
+[data-lock-id*="nav"] {
+    #site-header {
+        @media (max-width: $lg) {
+            &::after {
+                transform: translate3d(0, 0, 0) !important;
+            }
+            &::before {
+                transform: translate3d(0, 0, 0);
+            }
+            .nav-group {
+                transform: translate3d(0, 0, 0);
+                @include t-visible(transform);
+            }
         }
     }
 }
 #site-header {
-    // @media (max-width: $lg) {
-    //     &::before {
-    //         content: "";
-    //         position: fixed;
-    //         top: 0;
-    //         left: 0;
-    //         width: 100%;
-    //         height: var(--vp-height, 100vh);
-    //         z-index: 1;
-    //         @include t(transform);
-    //         transform: translate3d(-100%, 0, 0);
-    //         background-color: var(--c1d2t1);
-    //         backdrop-filter: blur(5px);
-    //     }
-    // }
     #mobile-open-trigger {
         grid-row: nav;
         grid-column: content;
         transform: translateX(-100%);
-        --bar-weight: 3px;
-        --margin: 3px;
-        --anim-offset: 9.5px;
+        cursor: pointer;
+        place-self: center end;
+        // --margin: 0px;
         display: flex;
         background-color: transparent;
         border: none;
-        border-radius: 100%;
         flex-direction: column;
-        justify-content: center;
-        padding: 5px;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        place-self: center end;
-        padding: 10px;
-        margin: 10px 0;
-        margin-right: -6px;
+        justify-content: space-between;
+        padding: 11px var(--sp-2);
+        width: 40px;
+        height: 40px;
+        margin: var(--sp-4) 0;
+        --bar-weight: 2px;
+        --anim-offset: 8px;
         @include t(background-color);
         @media (min-width: $lgp) {
             display: none;
         }
-        @media (max-width: $xs) {
-            --bar-weight: 2px;
-            --margin: 2.5px;
-            --anim-offset: 7px;
-            margin-left: -12px;
-            width: 35px;
-            height: 35px;
-            padding: 7px;
-        }
+        // @media (max-width: $xs) {
+        //     --bar-weight: 2px;
+        //     --margin: 2.5px;
+        //     --anim-offset: 7px;
+        //     margin-left: -12px;
+        //     width: 35px;
+        //     height: 35px;
+        //     padding: 7px;
+        // }
         div {
             width: 100%;
             height: var(--bar-weight);
             border-radius: 4px;
             background-color: var(--c3);
             @include t(background-color, transform);
-            margin: var(--margin) 0;
-            transform-origin: center right;
-            @media (max-width: $xs) {
-                height: 2px;
-                margin: 2.5px 0;
-            }
+            margin: 0;
+            transform-origin: center left;
+            // @media (max-width: $xs) {
+            //     height: 2px;
+            //     margin: 2.5px 0;
+            // }
         }
         &:hover {
             background-color: var(--c1);
@@ -94,39 +77,54 @@
         @media (min-width: $lgp) {
             display: none;
         }
-        position: absolute;
-        top: 0;
-        right: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
         width: 50px;
-        height: 38px;
         text-align: center;
         transform: translate3d(0, 0, 0);
-        background-color: var(--c3);
+        background-color: var(--c1);
         color: white;
         font-size: 1.75em;
-        padding: 5px 10px;
+        padding: 10px;
+        margin: 10px;
         line-height: 1;
         border: none;
-        border-left: 1px solid var(--c3);
-        @include icon-reg(regular, times);
-        border-radius: 0 30px 30px 0;
+        align-self: start;
         @include t(transform, background-color);
+        @include icon-reg(regular, times);
         &::after {
             @include t(transform, content);
         }
         &:hover {
-            background-color: var(--c3d1);
-            @include icon-reg(regular, arrow-right);
+            background-color: var(--c1d1);
+            @include icon-reg(regular, arrow-left);
             &::after {
                 transform: rotate3d(0, 0, 1, 180deg) scale3d(0.8, 0.8, 1);
             }
+        }
+    }
+    @media (max-width: $lg) {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: var(--vp-height, 100vh);
+            z-index: 0;
+            @include t(transform);
+            transform: translate3d(100%, 0, 0);
+            background-color: var(--c1d1t1);
+            backdrop-filter: blur(5px);
         }
     }
 }
 #main-nav {
     // generic styles
     @media (max-width: $lg) {
-        --mobile-nav-padding: 30px;
+        flex: 1 1 auto;
+        --mobile-nav-padding: 10px;
     }
     ul {
         padding: 0;
@@ -143,26 +141,43 @@
         list-style: none;
         position: unset;
         line-height: 1;
-        display: grid;
-        grid-template-areas:
-            "link      button"
-            "sub-group sub-group";
-        grid-template-columns: auto auto;
-        grid-template-rows: auto 0px;
-        align-content: end;
+        display: block;
+        @media (min-width: $lgp) {
+            display: grid;
+            grid-template-areas:
+                "link      button"
+                "sub-group sub-group";
+            grid-template-columns: auto auto;
+            grid-template-rows: auto 0px;
+            align-content: end;
+        }
+        @media (max-width: $lg) {
+            padding-bottom: 2px;
+        }
     }
     :is(a, button) {
         display: block;
         color: var(--c1d1);
         text-wrap: balance;
         text-decoration: none;
-        font-size: var(--fs-md);
+        font-size: 0.9em;
+        letter-spacing: -0.01em;
         padding: var(--sp-3) 14px;
-        border-radius: var(--sp-2);
+        background-color: transparent;
         line-height: 1;
         @include t;
         @media (max-width: $xl) {
             padding: var(--sp-3) 7px;
+        }
+        @media (min-width: $lgp) {
+            border-radius: var(--sp-2);
+        }
+        @media (max-width: $lg) {
+            border: 3px solid var(--c5l3);
+
+            &:hover {
+                background-color: var(--c5l3);
+            }
         }
         &:hover {
             color: var(--c1);
@@ -178,27 +193,28 @@
         }
     }
     button {
-        background-color: transparent;
-        border: 0;
         overflow: hidden;
         position: relative;
         @include t(color);
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-color: white;
-            z-index: -1;
-            @include t(transform);
-        }
-        &::after {
-            color: var(--c2);
-        }
-        &:hover::before {
-            transform: translate3d(0, 0, 0);
-        }
-        &[aria-expanded="true"]::before {
-            transform: translate3d(0, 0, 0);
+        @media (min-width: $lgp) {
+            border: 0;
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-color: white;
+                z-index: -1;
+                @include t(transform);
+            }
+            &:hover::before {
+                transform: translate3d(0, 0, 0);
+            }
+            &[aria-expanded="true"]::before {
+                transform: translate3d(0, 0, 0);
+            }
+            &::after {
+                color: var(--c2);
+            }
         }
     }
 
@@ -210,12 +226,11 @@
             align-items: center;
         }
         @media (max-width: $lg) {
-            padding: 0 var(--mobile-nav-padding);
+            padding: 0 10px;
         }
     }
     .top-item {
         font-weight: 500;
-
         @media (min-width: $lgp) {
             &:first-child {
                 margin-left: 0;
@@ -226,20 +241,29 @@
         }
         > :is(a, button) {
             position: relative;
-            color: var(--c1d1);
             font-weight: 600;
-            font-size: var(--fs-lg);
             letter-spacing: 0.005em;
             @include t;
-            @media (max-width: $xl) {
+            &:hover {
+                color: var(--c1);
+            }
+            @media (min-width: $xlp) {
+                font-size: var(--fs-lg);
+            }
+            @media (min-width: $lgp) {
+                color: var(--c1d1);
+            }
+            @media (max-width: $lg) {
                 font-size: 0.95em;
-                letter-spacing: -0.01em;
             }
         }
         > .sub-group {
             border-radius: 0 0 var(--sp-4) var(--sp-4);
             @media (max-width: $xl) {
                 border-radius: 0 0 var(--sp-2) var(--sp-2);
+            }
+            @media (max-width: $lg) {
+                border-radius: 0;
             }
         }
     }
@@ -258,14 +282,14 @@
         @media (max-width: $lg) {
             position: absolute;
             width: 100%;
-            transform: translate3d(-100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
             @include t-hidden(transform);
             top: 0;
             left: 0;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto 1fr;
         }
         &:hover {
             @media (min-width: $lgp) {
@@ -276,12 +300,15 @@
     }
     .sub-list {
         padding: 0 var(--sp-2);
+        width: 100%;
+        align-self: stretch;
         @media (min-width: $lgp) {
             width: 50px;
             flex: 1 1 auto;
         }
         @media (max-width: $lg) {
             padding: 0 var(--mobile-nav-padding);
+            grid-column: span 2;
         }
     }
     .sub-item {
@@ -291,13 +318,9 @@
             padding-bottom: var(--sp-4);
         }
         :is(a, button) {
-            border-radius: 0;
-            color: var(--c1);
-            font-weight: 600;
-            font-size: 0.85em;
-            padding: 7px 8px;
             border-radius: 0 var(--sp-2) 0 var(--sp-2);
             position: relative;
+            font-weight: 600;
             &::before {
                 content: "";
                 position: absolute;
@@ -309,6 +332,9 @@
                 opacity: 0;
             }
             @media (min-width: $lgp) {
+                font-size: 0.9em;
+                padding: 7px 8px;
+                color: var(--c1);
                 &:hover {
                     color: var(--c1d1);
                     background-color: var(--c2l3);
@@ -318,6 +344,9 @@
                     }
                 }
             }
+            @media (max-width: $lg) {
+                border-radius: 0;
+            }
         }
     }
     :is(.sub-name, .sub-close) {
@@ -326,10 +355,11 @@
         }
     }
     .sub-name {
-        width: 100%;
+        // width: 100%;
         color: var(--c4);
         line-height: 1.1;
-        padding: 5px var(--mobile-nav-padding);
+        padding: var(--mobile-nav-padding);
+        place-self: center start;
         em {
             font-style: normal;
             font-size: 0.8em;
@@ -339,33 +369,29 @@
         strong {
             color: var(--c1);
             display: block;
-            font-size: 1.75em;
+            font-size: 1.1em;
             font-weight: 900;
         }
     }
     .sub-open {
         grid-area: button;
-        border-radius: var(--sp-4) var(--sp-4) 0 0;
         @include icon-reg(solid, chevron-down);
         &::after {
             margin-top: -2px;
         }
         @media (min-width: $lgp) {
+            border-radius: var(--sp-4) var(--sp-4) 0 0;
             &:hover + .sub-group {
                 max-height: var(--sub-height, 200px);
                 @include t-visible(max-height);
             }
         }
-        @media (max-width: $xl) {
-            @media (max-width: $xl) {
-                border-radius: var(--sp-2) var(--sp-2) 0 0;
-            }
-        }
+
         @media (max-width: $lg) {
-            @include icon-reg(regular, circle-chevron-right);
-            &:hover {
-                @include icon-reg(solid, circle-chevron-right);
-            }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include icon-reg(regular, chevron-right);
             &::after {
                 @include t;
             }
@@ -376,6 +402,9 @@
         }
         &:first-child {
             grid-column: link / button;
+            @media (max-width: $lg) {
+                width: 100%;
+            }
             &::after {
                 padding-left: 5px;
             }
@@ -403,46 +432,26 @@
         }
     }
     .sub-close {
-        color: var(--c3d1);
+        color: white;
+        background-color: var(--c1);
+        padding: var(--sp-2) var(--sp-3);
         font-weight: 700;
         justify-content: center;
-        padding: 3px 1px;
         border: none;
         margin: var(--mobile-nav-padding);
         position: relative;
         letter-spacing: 0;
         @include t(color, background-color);
-        @include icon-reg(solid, arrow-left, before);
-        &::before {
-            padding-right: 5px;
+        @include icon-reg(solid, arrow-right);
+        &::after {
+            padding-left: 5px;
             font-size: 1.2em;
-            color: var(--c3);
             transform: translate3d(0, 1px, 0);
             @include t(transform);
         }
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 2px;
-            border-radius: 4px;
-            background-color: var(--c3d1);
-            transform: scale3d(0, 1, 1);
-            transform-origin: right;
-            @include t(transform);
-        }
         &:hover {
-            background-color: transparent;
-            font-weight: 700;
-            letter-spacing: 0;
-            &::before {
-                transform: translate3d(-4px, 1px, 0);
-            }
-            &::after {
-                transform: scale3d(1, 1, 1);
-            }
+            background-color: var(--c1d1);
+            color: white;
         }
     }
 }

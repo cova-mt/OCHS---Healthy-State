@@ -1,6 +1,9 @@
 #site-footer {
     padding: var(--sp-5) 0;
     background-color: var(--c1d1);
+    @media (max-width: $sm) {
+        padding-bottom: var(--sp-14);
+    }
     .flex-row {
         color: var(--c1l1);
         display: flex;
@@ -44,6 +47,7 @@
         font-size: 1.7em;
         font-weight: 300;
         margin-left: var(--sp-2);
+        text-wrap: balance;
         strong {
             font-weight: 700;
         }

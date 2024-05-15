@@ -25,15 +25,14 @@ body {
     width: 100%;
     position: relative;
     flex-direction: column;
+    overflow-x: hidden;
     &.locked {
         position: fixed;
         left: 0;
         width: 100%;
-        // @include hoverOnly {
-        //     padding-right: 15px;
-        // }
         top: var(--lock-offset);
         overflow: hidden;
+        z-index: 1;
     }
     > * {
         width: 100%;

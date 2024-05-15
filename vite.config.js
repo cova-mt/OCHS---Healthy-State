@@ -86,6 +86,7 @@ export default defineConfig(async ({ command, mode }) => {
             })
         ],
         build: {
+            outDir: 'build',
             rollupOptions: {
                 input: await generateInputs(),
                 output: {

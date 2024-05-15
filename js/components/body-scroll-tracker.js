@@ -11,7 +11,7 @@ class BodyScrollTracker {
     setObserver = () => {
         if (this.observer !== null) return;
         const top = this.proxy.clientHeight;
-        const observer = new ScrollObserver(null, { steps: 100, rootMargin: `${top}px 0px -100% 0px` });
+        const observer = new ScrollObserver(null, { steps: 300, rootMargin: `${top}px 0px -100% 0px` });
         observer.track(this.proxy, this.callback);
         observer.start();
         this.observer = observer;

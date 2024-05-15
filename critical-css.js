@@ -1,6 +1,6 @@
 import { generate } from 'critical';
 import { mkdir, readdir, writeFile } from 'fs/promises';
-const BASE = 'dist';
+const BASE = 'build';
 const OP = 'optimized';
 const OUT = `${BASE}/${OP}`;
 const generateCriticalCss = async file => {

@@ -20,6 +20,7 @@
 :is(html, body) {
     min-height: 100%;
     display: flex;
+    overflow-x: clip;
 }
 body {
     width: 100%;

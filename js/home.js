@@ -32,11 +32,14 @@ HPSO.track(document.querySelector('.form-path-box'), scrollCB);
 HPSO.start();
 
 // arrow scroll
-const arrowSO = new SO(null, { rootMargin: '100% 0px -10% 0px', steps: 100 });
-const arrowBox = document.querySelector('.intro .arrow-box');
-const arrowCB = ({ intersectionRatio }) => { arrowBox.style.setProperty('--in', (intersectionRatio.toFixed(2) * 100) + '%'); }
-arrowSO.track(arrowBox, arrowCB);
-arrowSO.start();
+const priorityGrid = document.querySelector('.priority-grid');
+const handleClick = e => {
+    let target = e.target.closest('a');
+    if (target) return;
+    target = e.target.closest('.priority-card');
+    target.classList.add('expanded');
+}
+priorityGrid.addEventListener('click', handleClick);
 
 
 // path math:

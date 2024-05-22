@@ -15,95 +15,6 @@
     }
 }
 #site-header {
-    #mobile-open-trigger {
-        grid-row: nav;
-        grid-column: content;
-        transform: translateX(-100%);
-        cursor: pointer;
-        place-self: center end;
-        // --margin: 0px;
-        display: flex;
-        background-color: transparent;
-        border: none;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 11px var(--sp-2);
-        width: 40px;
-        height: 40px;
-        margin: var(--sp-4) 0;
-        --bar-weight: 2px;
-        --anim-offset: 8px;
-        @include t(background-color);
-        @media (min-width: $lgp) {
-            display: none;
-        }
-        // @media (max-width: $xs) {
-        //     --bar-weight: 2px;
-        //     --margin: 2.5px;
-        //     --anim-offset: 7px;
-        //     margin-left: -12px;
-        //     width: 35px;
-        //     height: 35px;
-        //     padding: 7px;
-        // }
-        div {
-            width: 100%;
-            height: var(--bar-weight);
-            border-radius: 4px;
-            background-color: var(--c3);
-            @include t(background-color, transform);
-            margin: 0;
-            transform-origin: center left;
-            // @media (max-width: $xs) {
-            //     height: 2px;
-            //     margin: 2.5px 0;
-            // }
-        }
-        &:hover {
-            background-color: var(--c1);
-            --r-offset: calc(var(--anim-offset) * -1);
-            div:first-child {
-                transform: translate3d(0, var(--anim-offset), 0) rotate(45deg) scale3d(0.5, 1, 1);
-            }
-            div:last-child {
-                transform: translate3d(0, var(--r-offset), 0) rotate(-45deg) scale3d(0.5, 1, 1);
-            }
-            div {
-                background-color: white;
-            }
-        }
-    }
-    #mobile-close-trigger {
-        @media (min-width: $lgp) {
-            display: none;
-        }
-        // position: absolute;
-        // top: 0;
-        // left: 0;
-        width: 50px;
-        text-align: center;
-        transform: translate3d(0, 0, 0);
-        background-color: var(--c1);
-        color: white;
-        font-size: 1.75em;
-        padding: 10px;
-        margin: 10px;
-        line-height: 1;
-        border: none;
-        align-self: start;
-        @include t(transform, background-color);
-        @include icon-reg(regular, times);
-        &::after {
-            @include t(transform, content);
-        }
-        &:hover {
-            background-color: var(--c1d1);
-            @include icon-reg(regular, arrow-left);
-            &::after {
-                transform: rotate3d(0, 0, 1, 180deg) scale3d(0.8, 0.8, 1);
-            }
-        }
-    }
     @media (max-width: $lg) {
         &::before {
             content: "";
@@ -117,6 +28,79 @@
             transform: translate3d(100%, 0, 0);
             background-color: var(--c1d1t1);
             backdrop-filter: blur(5px);
+        }
+    }
+}
+#mobile-open-trigger {
+    grid-row: nav;
+    grid-column: content;
+    transform: translateX(-100%);
+    cursor: pointer;
+    place-self: center end;
+    // --margin: 0px;
+    display: flex;
+    background-color: transparent;
+    border: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 11px var(--sp-2);
+    width: 40px;
+    height: 40px;
+    margin: var(--sp-4) 0;
+    --bar-weight: 2px;
+    --anim-offset: 8px;
+    @include t(background-color);
+    @media (min-width: $lgp) {
+        display: none;
+    }
+    div {
+        width: 100%;
+        height: var(--bar-weight);
+        border-radius: 4px;
+        background-color: var(--c3);
+        @include t(background-color, transform);
+        margin: 0;
+        transform-origin: center left;
+    }
+    &:hover {
+        background-color: var(--c1);
+        --r-offset: calc(var(--anim-offset) * -1);
+        div:first-child {
+            transform: translate3d(0, var(--anim-offset), 0) rotate(45deg) scale3d(0.5, 1, 1);
+        }
+        div:last-child {
+            transform: translate3d(0, var(--r-offset), 0) rotate(-45deg) scale3d(0.5, 1, 1);
+        }
+        div {
+            background-color: white;
+        }
+    }
+}
+#mobile-close-trigger {
+    @media (min-width: $lgp) {
+        display: none;
+    }
+    width: 50px;
+    text-align: center;
+    transform: translate3d(0, 0, 0);
+    background-color: var(--c1);
+    color: white;
+    font-size: 1.75em;
+    padding: 10px;
+    margin: 10px;
+    line-height: 1;
+    border: none;
+    align-self: start;
+    @include t(transform, background-color);
+    @include icon-reg(regular, times);
+    &::after {
+        @include t(transform, content);
+    }
+    &:hover {
+        background-color: var(--c1d1);
+        @include icon-reg(regular, arrow-left);
+        &::after {
+            transform: rotate3d(0, 0, 1, 180deg) scale3d(0.8, 0.8, 1);
         }
     }
 }
@@ -174,7 +158,7 @@
         }
         @media (max-width: $lg) {
             border: 3px solid var(--c5l3);
-
+            padding: var(--sp-3) 7px 10px;
             &:hover {
                 background-color: var(--c5l3);
             }
@@ -248,7 +232,7 @@
                 color: var(--c1);
             }
             @media (min-width: $xlp) {
-                font-size: var(--fs-lg);
+                font-size: 1.125em;
             }
             @media (min-width: $lgp) {
                 color: var(--c1d1);
@@ -333,12 +317,13 @@
             }
             @media (min-width: $lgp) {
                 font-size: 0.9em;
-                padding: 7px 8px;
+                padding: 7px 16px 7px 8px;
                 color: var(--c1);
                 &:hover {
                     color: var(--c1d1);
                     background-color: var(--c2l3);
                     padding-left: var(--sp-4);
+                    padding-right: 8px;
                     &::before {
                         opacity: 1;
                     }
@@ -442,9 +427,9 @@
         position: relative;
         letter-spacing: 0;
         @include t(color, background-color);
-        @include icon-reg(solid, arrow-right);
-        &::after {
-            padding-left: 5px;
+        @include icon-reg(solid, arrow-left, before);
+        &::before {
+            padding-right: 5px;
             font-size: 1.2em;
             transform: translate3d(0, 1px, 0);
             @include t(transform);
